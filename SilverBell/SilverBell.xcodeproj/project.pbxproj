@@ -1,0 +1,464 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		51BAD9744E840CCF77024F41 /* Pods_SilverBell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5A7414F334DA02F966BF52 /* Pods_SilverBell.framework */; };
+		8F61F6491FD63E9800321514 /* newMessage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F61F6441FD63E9800321514 /* newMessage.wav */; };
+		8F61F6541FD63F2C00321514 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F61F6531FD63F2C00321514 /* Default-568h@2x.png */; };
+		8F61F6561FD6416B00321514 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F61F6551FD6416A00321514 /* GoogleService-Info.plist */; };
+		8F8E8EEA1FD6435900BF3ED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F8E8EE91FD6435900BF3ED7 /* Main.storyboard */; };
+		8F8E8EEB1FD6451300BF3ED7 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61F6511FD63EC600321514 /* WelcomeVC.swift */; };
+		8F8E8EEC1FD6451600BF3ED7 /* ConversationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61F6521FD63EC600321514 /* ConversationsVC.swift */; };
+		8F8E8EED1FD6451900BF3ED7 /* NavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61F6501FD63EC600321514 /* NavVC.swift */; };
+		8F8E8EEE1FD6451B00BF3ED7 /* VCCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61F64F1FD63EC600321514 /* VCCells.swift */; };
+		8F8E8EEF1FD6451D00BF3ED7 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61F64E1FD63EC600321514 /* ChatVC.swift */; };
+		8F8E8EF01FD6452200BF3ED7 /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61F64D1FD63EC600321514 /* LandingVC.swift */; };
+		8F8E8EFF1FD646B900BF3ED7 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E8EFC1FD646B900BF3ED7 /* Conversation.swift */; };
+		8F8E8F001FD646B900BF3ED7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E8EFD1FD646B900BF3ED7 /* User.swift */; };
+		8F8E8F011FD646B900BF3ED7 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E8EFE1FD646B900BF3ED7 /* Message.swift */; };
+		8F8E8F051FD6485000BF3ED7 /* Helper Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E8F041FD6485000BF3ED7 /* Helper Files.swift */; };
+		8FEAF3BF1FD63D6200B3986F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAF3BE1FD63D6200B3986F /* AppDelegate.swift */; };
+		8FEAF3C61FD63D6200B3986F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FEAF3C51FD63D6200B3986F /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		70E44B004111E8398815565D /* Pods-SilverBell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilverBell.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SilverBell/Pods-SilverBell.debug.xcconfig"; sourceTree = "<group>"; };
+		8F61F6441FD63E9800321514 /* newMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = newMessage.wav; sourceTree = "<group>"; };
+		8F61F64D1FD63EC600321514 /* LandingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
+		8F61F64E1FD63EC600321514 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		8F61F64F1FD63EC600321514 /* VCCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCCells.swift; sourceTree = "<group>"; };
+		8F61F6501FD63EC600321514 /* NavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavVC.swift; sourceTree = "<group>"; };
+		8F61F6511FD63EC600321514 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		8F61F6521FD63EC600321514 /* ConversationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsVC.swift; sourceTree = "<group>"; };
+		8F61F6531FD63F2C00321514 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8F61F6551FD6416A00321514 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8F8E8EE91FD6435900BF3ED7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8F8E8EFC1FD646B900BF3ED7 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		8F8E8EFD1FD646B900BF3ED7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8F8E8EFE1FD646B900BF3ED7 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		8F8E8F041FD6485000BF3ED7 /* Helper Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Helper Files.swift"; path = "SilverBell/Helper files/Helper Files.swift"; sourceTree = SOURCE_ROOT; };
+		8FEAF3BB1FD63D6200B3986F /* SilverBell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilverBell.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FEAF3BE1FD63D6200B3986F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8FEAF3C51FD63D6200B3986F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8FEAF3CA1FD63D6200B3986F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC6B1CBB494162E69B720EE1 /* Pods-SilverBell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilverBell.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SilverBell/Pods-SilverBell.release.xcconfig"; sourceTree = "<group>"; };
+		FE5A7414F334DA02F966BF52 /* Pods_SilverBell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SilverBell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8FEAF3B81FD63D6200B3986F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51BAD9744E840CCF77024F41 /* Pods_SilverBell.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18C04349C5CC7C0122F641D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE5A7414F334DA02F966BF52 /* Pods_SilverBell.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8F61F64C1FD63EC600321514 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F61F64D1FD63EC600321514 /* LandingVC.swift */,
+				8F61F64E1FD63EC600321514 /* ChatVC.swift */,
+				8F61F64F1FD63EC600321514 /* VCCells.swift */,
+				8F61F6501FD63EC600321514 /* NavVC.swift */,
+				8F61F6511FD63EC600321514 /* WelcomeVC.swift */,
+				8F61F6521FD63EC600321514 /* ConversationsVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8F8E8EFB1FD6467B00BF3ED7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8F8E8EFC1FD646B900BF3ED7 /* Conversation.swift */,
+				8F8E8EFE1FD646B900BF3ED7 /* Message.swift */,
+				8F8E8EFD1FD646B900BF3ED7 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8F8E8F031FD6482B00BF3ED7 /* Helper Files */ = {
+			isa = PBXGroup;
+			children = (
+				8F8E8F041FD6485000BF3ED7 /* Helper Files.swift */,
+			);
+			name = "Helper Files";
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		8FEAF3B21FD63D6200B3986F = {
+			isa = PBXGroup;
+			children = (
+				8F61F6531FD63F2C00321514 /* Default-568h@2x.png */,
+				8FEAF3BD1FD63D6200B3986F /* SilverBell */,
+				8FEAF3BC1FD63D6200B3986F /* Products */,
+				DFD04E775036CDB368A97F9C /* Pods */,
+				18C04349C5CC7C0122F641D8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8FEAF3BC1FD63D6200B3986F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8FEAF3BB1FD63D6200B3986F /* SilverBell.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8FEAF3BD1FD63D6200B3986F /* SilverBell */ = {
+			isa = PBXGroup;
+			children = (
+				8F8E8EE91FD6435900BF3ED7 /* Main.storyboard */,
+				8FEAF3BE1FD63D6200B3986F /* AppDelegate.swift */,
+				8F8E8EFB1FD6467B00BF3ED7 /* Model */,
+				8F61F64C1FD63EC600321514 /* ViewControllers */,
+				8FEAF3C51FD63D6200B3986F /* Assets.xcassets */,
+				8F61F6441FD63E9800321514 /* newMessage.wav */,
+				8FEAF3CA1FD63D6200B3986F /* Info.plist */,
+				8F61F6551FD6416A00321514 /* GoogleService-Info.plist */,
+				8F8E8F031FD6482B00BF3ED7 /* Helper Files */,
+			);
+			path = SilverBell;
+			sourceTree = "<group>";
+		};
+		DFD04E775036CDB368A97F9C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				70E44B004111E8398815565D /* Pods-SilverBell.debug.xcconfig */,
+				CC6B1CBB494162E69B720EE1 /* Pods-SilverBell.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8FEAF3BA1FD63D6200B3986F /* SilverBell */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FEAF3CD1FD63D6200B3986F /* Build configuration list for PBXNativeTarget "SilverBell" */;
+			buildPhases = (
+				0B6A67419E8824221DC488F6 /* [CP] Check Pods Manifest.lock */,
+				8FEAF3B71FD63D6200B3986F /* Sources */,
+				8FEAF3B81FD63D6200B3986F /* Frameworks */,
+				8FEAF3B91FD63D6200B3986F /* Resources */,
+				49669C11E5B6764511749451 /* [CP] Embed Pods Frameworks */,
+				ED443C3584B05B8EFD0ADDAF /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SilverBell;
+			productName = SilverBell;
+			productReference = 8FEAF3BB1FD63D6200B3986F /* SilverBell.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8FEAF3B31FD63D6200B3986F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Jackson Rossborough";
+				TargetAttributes = {
+					8FEAF3BA1FD63D6200B3986F = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8FEAF3B61FD63D6200B3986F /* Build configuration list for PBXProject "SilverBell" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8FEAF3B21FD63D6200B3986F;
+			productRefGroup = 8FEAF3BC1FD63D6200B3986F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8FEAF3BA1FD63D6200B3986F /* SilverBell */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8FEAF3B91FD63D6200B3986F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F8E8EEA1FD6435900BF3ED7 /* Main.storyboard in Resources */,
+				8F61F6561FD6416B00321514 /* GoogleService-Info.plist in Resources */,
+				8F61F6491FD63E9800321514 /* newMessage.wav in Resources */,
+				8FEAF3C61FD63D6200B3986F /* Assets.xcassets in Resources */,
+				8F61F6541FD63F2C00321514 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B6A67419E8824221DC488F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SilverBell-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49669C11E5B6764511749451 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-SilverBell/Pods-SilverBell-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-SilverBell/Pods-SilverBell-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED443C3584B05B8EFD0ADDAF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-SilverBell/Pods-SilverBell-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8FEAF3B71FD63D6200B3986F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F8E8EFF1FD646B900BF3ED7 /* Conversation.swift in Sources */,
+				8F8E8EEF1FD6451D00BF3ED7 /* ChatVC.swift in Sources */,
+				8F8E8EED1FD6451900BF3ED7 /* NavVC.swift in Sources */,
+				8FEAF3BF1FD63D6200B3986F /* AppDelegate.swift in Sources */,
+				8F8E8EF01FD6452200BF3ED7 /* LandingVC.swift in Sources */,
+				8F8E8F001FD646B900BF3ED7 /* User.swift in Sources */,
+				8F8E8EEE1FD6451B00BF3ED7 /* VCCells.swift in Sources */,
+				8F8E8F011FD646B900BF3ED7 /* Message.swift in Sources */,
+				8F8E8EEB1FD6451300BF3ED7 /* WelcomeVC.swift in Sources */,
+				8F8E8F051FD6485000BF3ED7 /* Helper Files.swift in Sources */,
+				8F8E8EEC1FD6451600BF3ED7 /* ConversationsVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8FEAF3CB1FD63D6200B3986F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8FEAF3CC1FD63D6200B3986F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8FEAF3CE1FD63D6200B3986F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70E44B004111E8398815565D /* Pods-SilverBell.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SilverBell/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Silver.SilverBell;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8FEAF3CF1FD63D6200B3986F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC6B1CBB494162E69B720EE1 /* Pods-SilverBell.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SilverBell/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Silver.SilverBell;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8FEAF3B61FD63D6200B3986F /* Build configuration list for PBXProject "SilverBell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FEAF3CB1FD63D6200B3986F /* Debug */,
+				8FEAF3CC1FD63D6200B3986F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FEAF3CD1FD63D6200B3986F /* Build configuration list for PBXNativeTarget "SilverBell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FEAF3CE1FD63D6200B3986F /* Debug */,
+				8FEAF3CF1FD63D6200B3986F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8FEAF3B31FD63D6200B3986F /* Project object */;
+}
