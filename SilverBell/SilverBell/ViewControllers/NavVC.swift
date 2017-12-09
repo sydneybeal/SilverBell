@@ -217,11 +217,15 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
     @IBAction func closeView(_ sender: Any) {
         self.dismissExtraViews()
     }
-  
+ 
     @IBAction func logOutUser(_ sender: Any) {
         User.logOutUser { (status) in
             if status == true {
-                self.dismiss(animated: true, completion: nil)
+                 weak var pvc = self.presentingViewController
+                self.dismiss(animated: true){
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Welcome") as! WelcomeVC
+                    pvc?.present(vc, animated: true)
+                }
             }
         }
     }

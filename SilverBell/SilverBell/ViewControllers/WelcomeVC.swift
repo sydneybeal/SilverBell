@@ -103,7 +103,7 @@ class WelcomeVC: UIViewController, UITextFieldDelegate, UINavigationControllerDe
     }
     
     func pushTomainView() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Navigation") as! NavVC
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! HomeVC
         self.show(vc, sender: nil)
     }
     
