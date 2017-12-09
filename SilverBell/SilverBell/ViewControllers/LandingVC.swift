@@ -36,8 +36,8 @@ class LandingVC: UIViewController {
     //MARK: Push to relevant ViewController
     func pushTo(viewController: ViewControllerType)  {
         switch viewController {
-        case .conversations:
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Navigation") as! NavVC
+        case .home:
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! HomeVC
             self.present(vc, animated: false, completion: nil)
         case .welcome:
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "Welcome") as! WelcomeVC
@@ -54,7 +54,7 @@ class LandingVC: UIViewController {
             User.loginUser(withEmail: email, password: password, completion: { [weak weakSelf = self] (status) in
                 DispatchQueue.main.async {
                     if status == true {
-                        weakSelf?.pushTo(viewController: .conversations)
+                        weakSelf?.pushTo(viewController: .home)
                     } else {
                         weakSelf?.pushTo(viewController: .welcome)
                     }

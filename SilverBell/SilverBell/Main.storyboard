@@ -19,6 +19,9 @@
             <string>AvenirNext-Medium</string>
             <string>AvenirNext-Regular</string>
         </array>
+        <array key="GillSans.ttc">
+            <string>GillSans-Bold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--LandingVC-->
@@ -1164,6 +1167,54 @@
             </objects>
             <point key="canvasLocation" x="823" y="429"/>
         </scene>
+        <!--HomeVC-->
+        <scene sceneID="5Xt-Zg-CsF">
+            <objects>
+                <viewController storyboardIdentifier="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="a3X-Dl-VL0" customClass="HomeVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GVY-Xn-h6k"/>
+                        <viewControllerLayoutGuide type="bottom" id="tdG-eh-M0z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gD4-0s-ksu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqf-mR-huK">
+                                <rect key="frame" x="37" y="509" width="110" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="profileIcon"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaK-cC-zf6">
+                                <rect key="frame" x="37" y="183" width="300" height="225"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="nurseHat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGb-3k-gMB">
+                                <rect key="frame" x="221" y="509" width="116" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="messageIcon"/>
+                                <connections>
+                                    <segue destination="ZJi-hT-Uhs" kind="show" id="8Zs-NQ-rg0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNS-V4-vfH">
+                                <rect key="frame" x="305" y="697" width="70" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="17"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="0.64313725489999995" green="0.85490196080000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcf-UF-8sb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="822" y="-648"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="375" height="667"/>
@@ -1173,10 +1224,13 @@
         <image name="email" width="24" height="24"/>
         <image name="empty" width="375" height="602"/>
         <image name="launch" width="375" height="667"/>
+        <image name="messageIcon" width="256" height="256"/>
         <image name="more" width="32" height="25"/>
         <image name="name" width="24" height="24"/>
+        <image name="nurseHat" width="293" height="238"/>
         <image name="password" width="24" height="24"/>
         <image name="profile pic" width="100" height="100"/>
+        <image name="profileIcon" width="234" height="238"/>
         <image name="selectCamera" width="32" height="25"/>
         <image name="selectLocation" width="32" height="25"/>
         <image name="selectMessage" width="32" height="25"/>
