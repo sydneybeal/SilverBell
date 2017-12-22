@@ -25,6 +25,7 @@
 		8F8E8F081FDC6C5900BF3ED7 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E8F071FDC6C5900BF3ED7 /* HomeVC.swift */; };
 		8FEAF3BF1FD63D6200B3986F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAF3BE1FD63D6200B3986F /* AppDelegate.swift */; };
 		8FEAF3C61FD63D6200B3986F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FEAF3C51FD63D6200B3986F /* Assets.xcassets */; };
+		EAE225BC1FECAD0F00619A9D /* ProfileView.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE225BB1FECAD0E00619A9D /* ProfileView.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		8FEAF3C51FD63D6200B3986F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FEAF3CA1FD63D6200B3986F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6B1CBB494162E69B720EE1 /* Pods-SilverBell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilverBell.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SilverBell/Pods-SilverBell.release.xcconfig"; sourceTree = "<group>"; };
+		EAE225BB1FECAD0E00619A9D /* ProfileView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ProfileView.png; path = Assets.xcassets/ProfileView.png; sourceTree = "<group>"; };
 		FE5A7414F334DA02F966BF52 /* Pods_SilverBell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SilverBell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -132,6 +134,7 @@
 				8F8E8EFB1FD6467B00BF3ED7 /* Model */,
 				8F61F64C1FD63EC600321514 /* ViewControllers */,
 				8FEAF3C51FD63D6200B3986F /* Assets.xcassets */,
+				EAE225BB1FECAD0E00619A9D /* ProfileView.png */,
 				8F61F6441FD63E9800321514 /* newMessage.wav */,
 				8FEAF3CA1FD63D6200B3986F /* Info.plist */,
 				8F61F6551FD6416A00321514 /* GoogleService-Info.plist */,
@@ -213,6 +216,7 @@
 			files = (
 				8F8E8EEA1FD6435900BF3ED7 /* Main.storyboard in Resources */,
 				8F61F6561FD6416B00321514 /* GoogleService-Info.plist in Resources */,
+				EAE225BC1FECAD0F00619A9D /* ProfileView.png in Resources */,
 				8F61F6491FD63E9800321514 /* newMessage.wav in Resources */,
 				8FEAF3C61FD63D6200B3986F /* Assets.xcassets in Resources */,
 				8F61F6541FD63F2C00321514 /* Default-568h@2x.png in Resources */,
