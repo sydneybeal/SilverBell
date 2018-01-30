@@ -30,11 +30,18 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var alertBottomConstraint: NSLayoutConstraint!
+    @IBAction func Back(_ sender: UIButton) {
+        let HomeVC = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! HomeVC
+        
+        self.navigationController?.pushViewController(HomeVC, animated: true)
+    }
+    /*
     lazy var leftButton: UIBarButtonItem = {
         let image = UIImage.init(named: "default profile")?.withRenderingMode(.alwaysOriginal)
         let button  = UIBarButtonItem.init(image: image, style: .plain, target: self, action: #selector(ConversationsVC.showProfile))
         return button
     }()
+     */
     var items = [Conversation]()
     var selectedUser: User?
     
@@ -52,6 +59,7 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         let rightButton = UIBarButtonItem.init(image: icon!, style: .plain, target: self, action: #selector(ConversationsVC.showContacts))
         self.navigationItem.rightBarButtonItem = rightButton
         //left bar button image fetching
+       /*
         self.navigationItem.leftBarButtonItem = self.leftButton
         self.tableView.tableFooterView = UIView.init(frame: CGRect.zero)
         if let id = Auth.auth().currentUser?.uid {
@@ -73,6 +81,7 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 }
             })
         }
+ */
     }
     
     //Downloads conversations
