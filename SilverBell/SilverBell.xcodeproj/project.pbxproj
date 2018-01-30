@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		51BAD9744E840CCF77024F41 /* Pods_SilverBell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5A7414F334DA02F966BF52 /* Pods_SilverBell.framework */; };
+		8F2FAEEE201FE99000A62458 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FAEED201FE99000A62458 /* ProfileVC.swift */; };
 		8F61F6491FD63E9800321514 /* newMessage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F61F6441FD63E9800321514 /* newMessage.wav */; };
 		8F61F6541FD63F2C00321514 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F61F6531FD63F2C00321514 /* Default-568h@2x.png */; };
 		8F61F6561FD6416B00321514 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F61F6551FD6416A00321514 /* GoogleService-Info.plist */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		70E44B004111E8398815565D /* Pods-SilverBell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilverBell.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SilverBell/Pods-SilverBell.debug.xcconfig"; sourceTree = "<group>"; };
+		8F2FAEED201FE99000A62458 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		8F61F6441FD63E9800321514 /* newMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = newMessage.wav; sourceTree = "<group>"; };
 		8F61F64D1FD63EC600321514 /* LandingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
 		8F61F64E1FD63EC600321514 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		8F61F64C1FD63EC600321514 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8F2FAEED201FE99000A62458 /* ProfileVC.swift */,
 				8F8E8F071FDC6C5900BF3ED7 /* HomeVC.swift */,
 				8F61F64D1FD63EC600321514 /* LandingVC.swift */,
 				8F61F64E1FD63EC600321514 /* ChatVC.swift */,
@@ -298,6 +301,7 @@
 				8F8E8F001FD646B900BF3ED7 /* User.swift in Sources */,
 				8F8E8EEE1FD6451B00BF3ED7 /* VCCells.swift in Sources */,
 				8F8E8F011FD646B900BF3ED7 /* Message.swift in Sources */,
+				8F2FAEEE201FE99000A62458 /* ProfileVC.swift in Sources */,
 				8F8E8EEB1FD6451300BF3ED7 /* WelcomeVC.swift in Sources */,
 				8F8E8F081FDC6C5900BF3ED7 /* HomeVC.swift in Sources */,
 				8F8E8F051FD6485000BF3ED7 /* Helper Files.swift in Sources */,
