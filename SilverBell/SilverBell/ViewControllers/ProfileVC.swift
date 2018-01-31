@@ -18,6 +18,10 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     let imagePicker = UIImagePickerController()
     
+    func customization() {
+        self.fetchUserInfo()
+    }
+    
     //Downloads current user credentials
     func fetchUserInfo() {
         if let id = Auth.auth().currentUser?.uid {
@@ -86,5 +90,11 @@ class ProfileVC: UIViewController {
         }
         picker.dismiss(animated: true, completion: nil)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.customization()
+    }
+    
     
 }

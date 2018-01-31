@@ -31,9 +31,11 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var alertBottomConstraint: NSLayoutConstraint!
     @IBAction func Back(_ sender: UIButton) {
-        let HomeVC = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! HomeVC
-        
-        self.navigationController?.pushViewController(HomeVC, animated: true)
+        weak var pvc = self.presentingViewController
+        self.dismiss(animated: true){
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! HomeVC
+            pvc?.present(vc, animated: false)
+        }
     }
     /*
     lazy var leftButton: UIBarButtonItem = {

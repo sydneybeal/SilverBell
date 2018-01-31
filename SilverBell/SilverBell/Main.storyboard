@@ -1234,8 +1234,8 @@
                                     <segue destination="a3X-Dl-VL0" kind="show" id="GiL-dQ-D0c"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oth-Tb-EQz">
-                                <rect key="frame" x="91" y="372" width="195" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oth-Tb-EQz">
+                                <rect key="frame" x="56" y="372" width="262" height="30"/>
                                 <state key="normal" title="Select New Profile Picture">
                                     <color key="titleColor" red="0.11366439339999999" green="0.26645663629999999" blue="0.60665847080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
