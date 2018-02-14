@@ -151,7 +151,7 @@ class WelcomeVC: UIViewController, UITextFieldDelegate, UINavigationControllerDe
             item.resignFirstResponder()
         }
         self.showLoading(state: true)
-        User.registerUser(withName: self.registerNameField.text!, email: self.registerEmailField.text!, password: self.registerPasswordField.text!, profilePic: self.profilePicView.image!) { [weak weakSelf = self] (status) in
+        User.registerUser(withName: self.registerNameField.text!, email: self.registerEmailField.text!, password: self.registerPasswordField.text!, profilePic: self.profilePicView.image!, rating: 0) { [weak weakSelf = self] (status) in
             DispatchQueue.main.async {
                 weakSelf?.showLoading(state: false)
                 for item in self.inputFields {

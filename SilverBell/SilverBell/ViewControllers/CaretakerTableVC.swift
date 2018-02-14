@@ -14,6 +14,7 @@ class CaretakerTableVC: UITableViewController {
     // MARK: Properties
     
     var items = [User]()
+    var selectedUser: User?
     
     @IBOutlet weak var caretakerTableView: UITableView!
     @IBAction func Back(_ sender: UIButton) {
@@ -55,8 +56,16 @@ class CaretakerTableVC: UITableViewController {
         let item = items[indexPath.row]
         cell.nameLabel.text = item.name
         cell.profilePic.image = item.profilePic
+        cell.ratingControl.rating = item.rating
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.items.count > 0 {
+            self.selectedUser = self.items[indexPath.row]
+            self.performSegue(withIdentifier: "caretakerSegue", sender: self)
+        }
     }
 
     /*
@@ -116,6 +125,17 @@ class CaretakerTableVC: UITableViewController {
 
     // MARK: Private Methods
     
+    func customization() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.pushToCaretakerProfile(notification:)), name: NSNotification.Name(rawValue: "showCaretakerProfile"), object: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "caretakerSegue" {
+            let vc = segue.destination as! CaretakerProfileVC
+            vc.profile = self.selectedUser
+        }
+    }
+    
     func fetchUsers()  {
         if let id = Auth.auth().currentUser?.uid {
             print("downloading users")
@@ -125,10 +145,6 @@ class CaretakerTableVC: UITableViewController {
                     self.caretakerTableView.reloadData()
                 }
             })
-        }
-        else
-        {
-            print("could not sign in")
         }
     }
     
@@ -144,4 +160,12 @@ class CaretakerTableVC: UITableViewController {
             })
         }
     }
+    
+    @objc func pushToCaretakerProfile(notification: NSNotification) {
+        if let user = notification.userInfo?["user"] as? User {
+            self.selectedUser = user
+            self.performSegue(withIdentifier: "caretakerSegue", sender: self)
+        }
+    }
+    
 }

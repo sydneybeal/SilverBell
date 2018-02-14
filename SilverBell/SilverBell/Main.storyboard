@@ -1353,7 +1353,7 @@
             </objects>
             <point key="canvasLocation" x="822" y="-298"/>
         </scene>
-        <!--Caretaker TableVC-->
+        <!--Caretakers-->
         <scene sceneID="SpS-jP-pBg">
             <objects>
                 <tableViewController id="Aua-dn-Uru" customClass="CaretakerTableVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
@@ -1369,7 +1369,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile pic" translatesAutoresizingMaskIntoConstraints="NO" id="U2R-R6-dL8">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default profile" translatesAutoresizingMaskIntoConstraints="NO" id="U2R-R6-dL8">
                                             <rect key="frame" x="0.0" y="0.0" width="96" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -1381,7 +1381,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q6w-c9-nUr" customClass="RatingControl" customModule="SilverBell" customModuleProvider="target">
-                                            <rect key="frame" x="104" y="35" width="230" height="44"/>
+                                            <rect key="frame" x="97" y="37" width="252" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </stackView>
                                     </subviews>
@@ -1389,6 +1389,7 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="3pw-C3-OeI" id="qT3-1f-Ap8"/>
                                     <outlet property="profilePic" destination="U2R-R6-dL8" id="aT9-ik-BCA"/>
+                                    <outlet property="ratingControl" destination="q6w-c9-nUr" id="Aqt-h1-hcf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1397,7 +1398,7 @@
                             <outlet property="delegate" destination="Aua-dn-Uru" id="eNs-0e-1jC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="wjT-1d-5fM">
+                    <navigationItem key="navigationItem" title="Caretakers" id="wjT-1d-5fM">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="v8y-Rb-51b">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zPD-6y-LLW">
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
@@ -1411,12 +1412,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="caretakerTableView" destination="nNW-Ec-Tks" id="08f-wC-hrS"/>
-                        <outlet property="tableView" destination="nNW-Ec-Tks" id="hfC-Ad-h3T"/>
+                        <segue destination="cot-PI-y8v" kind="show" identifier="caretakerSegue" id="AKX-Cu-YRk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2de-j9-Zp8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1606" y="-298"/>
+            <point key="canvasLocation" x="1605.5999999999999" y="-298.2008995502249"/>
         </scene>
         <!--Caretaker ProfileVC-->
         <scene sceneID="8IO-9e-tPe">
@@ -1431,23 +1432,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jr-D3-rhl">
-                                <rect key="frame" x="16" y="52" width="343" height="36"/>
+                                <rect key="frame" x="16" y="97" width="343" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default profile" translatesAutoresizingMaskIntoConstraints="NO" id="a65-MH-fOv">
-                                <rect key="frame" x="115" y="111" width="145" height="145"/>
+                                <rect key="frame" x="115" y="212" width="145" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQv-bj-Hnq">
+                                <rect key="frame" x="63" y="141" width="249" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cKj-mL-Txz" customClass="RatingControl" customModule="SilverBell" customModuleProvider="target">
+                                <rect key="frame" x="63" y="466" width="249" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="ZQv-bj-Hnq" id="alO-rE-gUM"/>
+                        <outlet property="nameLabel" destination="2jr-D3-rhl" id="959-a8-NUb"/>
+                        <outlet property="profilePic" destination="a65-MH-fOv" id="TUI-gQ-xrH"/>
+                        <outlet property="ratingControl" destination="cKj-mL-Txz" id="tPX-nI-aZy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z7a-BO-znz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2468" y="-298"/>
+            <point key="canvasLocation" x="2468" y="-298.2008995502249"/>
         </scene>
     </scenes>
     <resources>
