@@ -50,6 +50,9 @@ class Conversation {
                 }
             })
         }
+        else {
+            print("Could not authorize")
+        }
     }
     
     //MARK: Inits

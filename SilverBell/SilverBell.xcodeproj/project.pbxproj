@@ -10,7 +10,6 @@
 		51BAD9744E840CCF77024F41 /* Pods_SilverBell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5A7414F334DA02F966BF52 /* Pods_SilverBell.framework */; };
 		8F2FAEEE201FE99000A62458 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FAEED201FE99000A62458 /* ProfileVC.swift */; };
 		8F2FAEF220221C2900A62458 /* Caretakers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FAEF120221C2900A62458 /* Caretakers.swift */; };
-		8F2FAEF42022417E00A62458 /* CareNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FAEF32022417E00A62458 /* CareNavVC.swift */; };
 		8F2FAEF62022460C00A62458 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FAEF52022460C00A62458 /* RatingControl.swift */; };
 		8F2FAEF82022486300A62458 /* CaretakerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FAEF72022486300A62458 /* CaretakerTableViewCell.swift */; };
 		8F61F6491FD63E9800321514 /* newMessage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F61F6441FD63E9800321514 /* newMessage.wav */; };
@@ -39,7 +38,6 @@
 		70E44B004111E8398815565D /* Pods-SilverBell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilverBell.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SilverBell/Pods-SilverBell.debug.xcconfig"; sourceTree = "<group>"; };
 		8F2FAEED201FE99000A62458 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		8F2FAEF120221C2900A62458 /* Caretakers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caretakers.swift; sourceTree = "<group>"; };
-		8F2FAEF32022417E00A62458 /* CareNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareNavVC.swift; sourceTree = "<group>"; };
 		8F2FAEF52022460C00A62458 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		8F2FAEF72022486300A62458 /* CaretakerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerTableViewCell.swift; sourceTree = "<group>"; };
 		8F61F6441FD63E9800321514 /* newMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = newMessage.wav; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 				8F61F64E1FD63EC600321514 /* ChatVC.swift */,
 				8F61F64F1FD63EC600321514 /* VCCells.swift */,
 				8F61F6501FD63EC600321514 /* NavVC.swift */,
-				8F2FAEF32022417E00A62458 /* CareNavVC.swift */,
 				8F61F6511FD63EC600321514 /* WelcomeVC.swift */,
 				8F61F6521FD63EC600321514 /* ConversationsVC.swift */,
 			);
@@ -314,7 +311,6 @@
 				8F8E8EFF1FD646B900BF3ED7 /* Conversation.swift in Sources */,
 				8F8E8EEF1FD6451D00BF3ED7 /* ChatVC.swift in Sources */,
 				8F8E8EED1FD6451900BF3ED7 /* NavVC.swift in Sources */,
-				8F2FAEF42022417E00A62458 /* CareNavVC.swift in Sources */,
 				8F2FAEF82022486300A62458 /* CaretakerTableViewCell.swift in Sources */,
 				8FEAF3BF1FD63D6200B3986F /* AppDelegate.swift in Sources */,
 				8F8E8EF01FD6452200BF3ED7 /* LandingVC.swift in Sources */,

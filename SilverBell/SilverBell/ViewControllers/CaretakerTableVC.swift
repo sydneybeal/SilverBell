@@ -17,17 +17,9 @@ class CaretakerTableVC: UITableViewController {
     var selectedUser: User?
     
     @IBOutlet weak var caretakerTableView: UITableView!
-    @IBAction func Back(_ sender: UIButton) {
-        weak var pvc = self.presentingViewController
-        self.dismiss(animated: true){
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! HomeVC
-            pvc?.present(vc, animated: false)
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchUserInfo()
         fetchUsers()
     }
     
@@ -143,19 +135,6 @@ class CaretakerTableVC: UITableViewController {
                 DispatchQueue.main.async {
                     self.items.append(user)
                     self.caretakerTableView.reloadData()
-                }
-            })
-        }
-    }
-    
-    func fetchUserInfo() {
-        if let id = Auth.auth().currentUser?.uid {
-            User.info(forUserID: id, completion: {[weak weakSelf = self] (user) in
-                DispatchQueue.main.async {
-                    //weakSelf?.nameLabel.text = user.name
-                    //weakSelf?.emailLabel.text = user.email
-                    //weakSelf?.profilePicView.image = user.profilePic
-                    weakSelf = nil
                 }
             })
         }

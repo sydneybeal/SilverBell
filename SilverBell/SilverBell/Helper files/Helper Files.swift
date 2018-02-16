@@ -59,7 +59,7 @@ class RoundedButton: UIButton {
 //Enums
 enum ViewControllerType {
     case welcome
-    case home
+    case nav
 }
 
 enum PhotoSource {
