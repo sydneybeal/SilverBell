@@ -29,7 +29,7 @@ class Caretakers: NSObject {
                 storageRef.putData(imageData!, metadata: nil, completion: { (metadata, err) in
                     if err == nil {
                         let path = metadata?.downloadURL()?.absoluteString
-                        let values = ["name": withName, "email": email, "profilePicLink": path!, rating: rating] as [AnyHashable : Any]
+                        let values = ["name": withName, "email": email, "profilePicLink": path!, "rating": rating] as [AnyHashable : Any]
                         Database.database().reference().child("caretakers").child((caretaker?.uid)!).child("credentials").updateChildValues(values, withCompletionBlock: { (errr, _) in
                             if errr == nil {
                                 let userInfo = ["email" : email, "password" : password]
@@ -46,8 +46,8 @@ class Caretakers: NSObject {
         })
     }
     
-    class func loginUser(withEmail: String, password: String, completion: @escaping (Bool) -> Swift.Void) {
-        Auth.auth().signIn(withEmail: withEmail, password: password, completion: { (user, error) in
+    class func loginCaretaker(withEmail: String, password: String, completion: @escaping (Bool) -> Swift.Void) {
+        Auth.auth().signIn(withEmail: withEmail, password: password, completion: { (caretaker, error) in
             if error == nil {
                 let userInfo = ["email": withEmail, "password": password]
                 UserDefaults.standard.set(userInfo, forKey: "userInformation")
