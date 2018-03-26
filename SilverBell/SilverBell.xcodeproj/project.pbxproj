@@ -32,6 +32,7 @@
 		8F8E8F081FDC6C5900BF3ED7 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E8F071FDC6C5900BF3ED7 /* HomeVC.swift */; };
 		8FEAF3BF1FD63D6200B3986F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAF3BE1FD63D6200B3986F /* AppDelegate.swift */; };
 		8FEAF3C61FD63D6200B3986F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FEAF3C51FD63D6200B3986F /* Assets.xcassets */; };
+		EA357A9B205FEC8B006E8F6A /* CaretakerHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA357A9A205FEC8B006E8F6A /* CaretakerHomeVC.swift */; };
 		EAE225BC1FECAD0F00619A9D /* ProfileView.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE225BB1FECAD0E00619A9D /* ProfileView.png */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		8FEAF3C51FD63D6200B3986F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FEAF3CA1FD63D6200B3986F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6B1CBB494162E69B720EE1 /* Pods-SilverBell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilverBell.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SilverBell/Pods-SilverBell.release.xcconfig"; sourceTree = "<group>"; };
+		EA357A9A205FEC8B006E8F6A /* CaretakerHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerHomeVC.swift; sourceTree = "<group>"; };
 		EAE225BB1FECAD0E00619A9D /* ProfileView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ProfileView.png; path = Assets.xcassets/ProfileView.png; sourceTree = "<group>"; };
 		FE5A7414F334DA02F966BF52 /* Pods_SilverBell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SilverBell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 				8F2FAEF32022417E00A62458 /* CareNavVC.swift */,
 				8F61F6511FD63EC600321514 /* WelcomeVC.swift */,
 				8F61F6521FD63EC600321514 /* ConversationsVC.swift */,
+				EA357A9A205FEC8B006E8F6A /* CaretakerHomeVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA357A9B205FEC8B006E8F6A /* CaretakerHomeVC.swift in Sources */,
 				8F8E8EFF1FD646B900BF3ED7 /* Conversation.swift in Sources */,
 				8F8E8EEF1FD6451D00BF3ED7 /* ChatVC.swift in Sources */,
 				8F8E8EED1FD6451900BF3ED7 /* NavVC.swift in Sources */,
