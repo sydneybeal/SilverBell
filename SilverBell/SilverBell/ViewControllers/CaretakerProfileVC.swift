@@ -16,9 +16,25 @@ class CaretakerProfileVC: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var ratingControl: RatingControl!
+    @IBAction func sendMessage(_ sender: Any) {
+        self.performSegue(withIdentifier: "profileToChat", sender: self)
+        }
     
     var profile: User?
     
+    @objc func pushToUserMesssages(notification: NSNotification) {
+        if let user = notification.userInfo?["user"] as? User {
+            self.profile = user
+            self.performSegue(withIdentifier: "profileToChat", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "profileToChat" {
+            let vc = segue.destination as! ChatVC
+            vc.currentUser = self.profile!
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +43,8 @@ class CaretakerProfileVC: UIViewController {
         self.emailLabel.text = profile?.email
         self.profilePic.image = profile?.profilePic
         self.ratingControl.rating = (profile?.rating)!
+        print(profile!)
+        print("above is the profile")
 
         // Do any additional setup after loading the view.
     }

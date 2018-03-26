@@ -10,7 +10,6 @@
 		51BAD9744E840CCF77024F41 /* Pods_SilverBell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5A7414F334DA02F966BF52 /* Pods_SilverBell.framework */; };
 		8F2FAEEE201FE99000A62458 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FAEED201FE99000A62458 /* ProfileVC.swift */; };
 		8F2FAEF220221C2900A62458 /* Caretakers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FAEF120221C2900A62458 /* Caretakers.swift */; };
-		8F2FAEF42022417E00A62458 /* CareNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FAEF32022417E00A62458 /* CareNavVC.swift */; };
 		8F2FAEF62022460C00A62458 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FAEF52022460C00A62458 /* RatingControl.swift */; };
 		8F2FAEF82022486300A62458 /* CaretakerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FAEF72022486300A62458 /* CaretakerTableViewCell.swift */; };
 		8F61F6491FD63E9800321514 /* newMessage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F61F6441FD63E9800321514 /* newMessage.wav */; };
@@ -19,7 +18,7 @@
 		8F7AC0E220292F1C00CCE9D5 /* CaretakerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7AC0E120292F1C00CCE9D5 /* CaretakerProfileVC.swift */; };
 		8F7AC0E42029390E00CCE9D5 /* CaretakerTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7AC0E32029390E00CCE9D5 /* CaretakerTableVC.swift */; };
 		8F8E8EEA1FD6435900BF3ED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F8E8EE91FD6435900BF3ED7 /* Main.storyboard */; };
-		8F8E8EEB1FD6451300BF3ED7 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61F6511FD63EC600321514 /* WelcomeVC.swift */; };
+		8F8E8EEB1FD6451300BF3ED7 /* LoginUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61F6511FD63EC600321514 /* LoginUserVC.swift */; };
 		8F8E8EEC1FD6451600BF3ED7 /* ConversationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61F6521FD63EC600321514 /* ConversationsVC.swift */; };
 		8F8E8EED1FD6451900BF3ED7 /* NavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61F6501FD63EC600321514 /* NavVC.swift */; };
 		8F8E8EEE1FD6451B00BF3ED7 /* VCCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61F64F1FD63EC600321514 /* VCCells.swift */; };
@@ -30,6 +29,8 @@
 		8F8E8F011FD646B900BF3ED7 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E8EFE1FD646B900BF3ED7 /* Message.swift */; };
 		8F8E8F051FD6485000BF3ED7 /* Helper Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E8F041FD6485000BF3ED7 /* Helper Files.swift */; };
 		8F8E8F081FDC6C5900BF3ED7 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E8F071FDC6C5900BF3ED7 /* HomeVC.swift */; };
+		8FB8643C203B401600E044D6 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8643B203B401600E044D6 /* WelcomeVC.swift */; };
+		8FB8643E203B430800E044D6 /* LoginCaretakerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8643D203B430800E044D6 /* LoginCaretakerVC.swift */; };
 		8FEAF3BF1FD63D6200B3986F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAF3BE1FD63D6200B3986F /* AppDelegate.swift */; };
 		8FEAF3C61FD63D6200B3986F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FEAF3C51FD63D6200B3986F /* Assets.xcassets */; };
 		EA357A9B205FEC8B006E8F6A /* CaretakerHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA357A9A205FEC8B006E8F6A /* CaretakerHomeVC.swift */; };
@@ -40,7 +41,6 @@
 		70E44B004111E8398815565D /* Pods-SilverBell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilverBell.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SilverBell/Pods-SilverBell.debug.xcconfig"; sourceTree = "<group>"; };
 		8F2FAEED201FE99000A62458 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		8F2FAEF120221C2900A62458 /* Caretakers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caretakers.swift; sourceTree = "<group>"; };
-		8F2FAEF32022417E00A62458 /* CareNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareNavVC.swift; sourceTree = "<group>"; };
 		8F2FAEF52022460C00A62458 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		8F2FAEF72022486300A62458 /* CaretakerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerTableViewCell.swift; sourceTree = "<group>"; };
 		8F61F6441FD63E9800321514 /* newMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = newMessage.wav; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		8F61F64E1FD63EC600321514 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		8F61F64F1FD63EC600321514 /* VCCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCCells.swift; sourceTree = "<group>"; };
 		8F61F6501FD63EC600321514 /* NavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavVC.swift; sourceTree = "<group>"; };
-		8F61F6511FD63EC600321514 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		8F61F6511FD63EC600321514 /* LoginUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserVC.swift; sourceTree = "<group>"; };
 		8F61F6521FD63EC600321514 /* ConversationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsVC.swift; sourceTree = "<group>"; };
 		8F61F6531FD63F2C00321514 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8F61F6551FD6416A00321514 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -60,6 +60,8 @@
 		8F8E8EFE1FD646B900BF3ED7 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		8F8E8F041FD6485000BF3ED7 /* Helper Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Helper Files.swift"; path = "SilverBell/Helper files/Helper Files.swift"; sourceTree = SOURCE_ROOT; };
 		8F8E8F071FDC6C5900BF3ED7 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		8FB8643B203B401600E044D6 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		8FB8643D203B430800E044D6 /* LoginCaretakerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCaretakerVC.swift; sourceTree = "<group>"; };
 		8FEAF3BB1FD63D6200B3986F /* SilverBell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilverBell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FEAF3BE1FD63D6200B3986F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FEAF3C51FD63D6200B3986F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,8 +103,9 @@
 				8F61F64E1FD63EC600321514 /* ChatVC.swift */,
 				8F61F64F1FD63EC600321514 /* VCCells.swift */,
 				8F61F6501FD63EC600321514 /* NavVC.swift */,
-				8F2FAEF32022417E00A62458 /* CareNavVC.swift */,
-				8F61F6511FD63EC600321514 /* WelcomeVC.swift */,
+				8F61F6511FD63EC600321514 /* LoginUserVC.swift */,
+				8FB8643D203B430800E044D6 /* LoginCaretakerVC.swift */,
+				8FB8643B203B401600E044D6 /* WelcomeVC.swift */,
 				8F61F6521FD63EC600321514 /* ConversationsVC.swift */,
 				EA357A9A205FEC8B006E8F6A /* CaretakerHomeVC.swift */,
 			);
@@ -318,16 +321,17 @@
 				8F8E8EFF1FD646B900BF3ED7 /* Conversation.swift in Sources */,
 				8F8E8EEF1FD6451D00BF3ED7 /* ChatVC.swift in Sources */,
 				8F8E8EED1FD6451900BF3ED7 /* NavVC.swift in Sources */,
-				8F2FAEF42022417E00A62458 /* CareNavVC.swift in Sources */,
 				8F2FAEF82022486300A62458 /* CaretakerTableViewCell.swift in Sources */,
 				8FEAF3BF1FD63D6200B3986F /* AppDelegate.swift in Sources */,
+				8FB8643C203B401600E044D6 /* WelcomeVC.swift in Sources */,
 				8F8E8EF01FD6452200BF3ED7 /* LandingVC.swift in Sources */,
 				8F8E8F001FD646B900BF3ED7 /* User.swift in Sources */,
 				8F8E8EEE1FD6451B00BF3ED7 /* VCCells.swift in Sources */,
+				8FB8643E203B430800E044D6 /* LoginCaretakerVC.swift in Sources */,
 				8F2FAEF220221C2900A62458 /* Caretakers.swift in Sources */,
 				8F8E8F011FD646B900BF3ED7 /* Message.swift in Sources */,
 				8F2FAEEE201FE99000A62458 /* ProfileVC.swift in Sources */,
-				8F8E8EEB1FD6451300BF3ED7 /* WelcomeVC.swift in Sources */,
+				8F8E8EEB1FD6451300BF3ED7 /* LoginUserVC.swift in Sources */,
 				8F8E8F081FDC6C5900BF3ED7 /* HomeVC.swift in Sources */,
 				8F7AC0E42029390E00CCE9D5 /* CaretakerTableVC.swift in Sources */,
 				8F8E8F051FD6485000BF3ED7 /* Helper Files.swift in Sources */,

@@ -47,6 +47,7 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var items = [Conversation]()
     var selectedUser: User?
     
+    
     //MARK: Methods
     func customization()  {
         self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
