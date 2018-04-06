@@ -17,7 +17,6 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     let imagePicker = UIImagePickerController()
-    var jackson = "jackson"
     
     func customization() {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -31,7 +30,6 @@ class ProfileVC: UIViewController {
                 DispatchQueue.main.async {
                     weakSelf?.nameLabel.text = user.name
                     weakSelf?.emailLabel.text = user.email
-                    self.jackson = user.name
                     weakSelf?.profilePicView.image = user.profilePic
                     weakSelf = nil
                 }
