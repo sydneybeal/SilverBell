@@ -523,7 +523,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Plb-lE-iQb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="xjX-CL-WpE" customClass="ConversationsTBCell" customModule="SilverBell" customModuleProvider="target">
@@ -610,7 +610,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44O-uk-hGn">
-                                <rect key="frame" x="0.0" y="677" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="633" width="375" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please verify your email address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCr-ft-cS2">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -958,8 +958,8 @@
                         <outlet property="profilePicView" destination="IWJ-sy-fGZ" id="bjE-T0-5VC"/>
                         <outlet property="profileView" destination="2Nn-Te-Y0c" id="ixc-Ty-XpU"/>
                         <outlet property="scrollView" destination="oRc-AA-MCG" id="mI4-Rm-xTP"/>
-                        <segue destination="UoK-02-tpp" kind="relationship" relationship="rootViewController" id="XsT-xv-uPT"/>
                         <segue destination="eZb-rP-Pez" kind="show" id="n9v-eV-q5E"/>
+                        <segue destination="a3X-Dl-VL0" kind="relationship" relationship="rootViewController" id="miZ-7A-wy5"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldF-Du-mjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1357,7 +1357,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAl-8m-ief">
-                                <rect key="frame" x="159" y="266" width="58" height="30"/>
+                                <rect key="frame" x="159" y="310" width="58" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9nw-Zq-u8B"/>
                                 </constraints>
@@ -1390,7 +1390,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1cy-yY-qcg" customClass="RoundedImageView" customModule="SilverBell" customModuleProvider="target">
-                                <rect key="frame" x="93" y="55" width="190" height="190"/>
+                                <rect key="frame" x="93" y="99" width="190" height="190"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1cy-yY-qcg" secondAttribute="height" multiplier="1:1" id="2pY-C1-Q1k"/>
                                 </constraints>
@@ -2053,6 +2053,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GwN-cw-Jbc"/>
-        <segue reference="XsT-xv-uPT"/>
     </inferredMetricsTieBreakers>
 </document>

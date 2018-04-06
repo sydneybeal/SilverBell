@@ -25,7 +25,7 @@ import UIKit
 import Firebase
 import MapKit
 
-class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
+class CaretakerNavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
 
     //MARK: Properties
     @IBOutlet var contactsView: UIView!

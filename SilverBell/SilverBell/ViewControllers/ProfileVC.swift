@@ -17,11 +17,13 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     let imagePicker = UIImagePickerController()
+    var jackson = "jackson"
     
     func customization() {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.fetchUserInfo()
     }
-    
+
     //Downloads current user credentials
     func fetchUserInfo() {
         if let id = Auth.auth().currentUser?.uid {
@@ -29,11 +31,13 @@ class ProfileVC: UIViewController {
                 DispatchQueue.main.async {
                     weakSelf?.nameLabel.text = user.name
                     weakSelf?.emailLabel.text = user.email
+                    self.jackson = user.name
                     weakSelf?.profilePicView.image = user.profilePic
                     weakSelf = nil
                 }
             })
         }
+        else {print("Did not auth")}
     }
     
     @IBAction func logOutUser(_ sender: Any) {
