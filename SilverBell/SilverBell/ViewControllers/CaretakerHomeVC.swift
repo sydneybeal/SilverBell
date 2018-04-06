@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 
-class HomeVC: UIViewController {
+class CaretakerHomeVC: UIViewController {
     
     
     
