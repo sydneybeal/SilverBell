@@ -30,9 +30,14 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     
     //MARK: Properties
     @IBOutlet var inputBar: UIView!
+    @IBOutlet var RequestInfo: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var requestDate: UITextField!
+    @IBOutlet weak var requestTime: UITextField!
+    @IBOutlet weak var requestAdditionalInfo: UITextView!
+    
     override var inputAccessoryView: UIView? {
         get {
             self.inputBar.frame.size.height = self.barHeight
@@ -63,7 +68,13 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         let icon = UIImage.init(named: "back")?.withRenderingMode(.alwaysOriginal)
         let backButton = UIBarButtonItem.init(image: icon!, style: .plain, target: self, action: #selector(self.dismissSelf))
         self.navigationItem.leftBarButtonItem = backButton
+        let icon1 = UIImage.init(named: "back")?.withRenderingMode(.alwaysOriginal)
+        let requestInfo = UIBarButtonItem.init(image: icon1!, style: .plain, target: self, action: #selector(self.pushToRequestInfo))
+        self.navigationItem.rightBarButtonItem = requestInfo
         self.locationManager.delegate = self
+        
+        self.view.addSubview(self.RequestInfo)
+        self.RequestInfo.isHidden = true
     }
     
     //Downloads messages
@@ -87,6 +98,28 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
             navController.popViewController(animated: true)
         }
     }
+    
+    @objc func pushToRequestInfo() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.RequestInfo.isHidden = false
+    }
+    
+    @IBAction func sendRequest(_ sender: Any) {
+        requestAdditionalInfo.resignFirstResponder()
+        requestDate.resignFirstResponder()
+        requestTime.resignFirstResponder()
+        
+        if let id = Auth.auth().currentUser?.uid {
+            Request.createRequest(uidUser: id, uidCaretaker: (currentUser?.id)!, date: self.requestDate.text!, time: self.requestTime.text!, additionalInfo: self.requestAdditionalInfo.text!, completion: {[weak weakSelf = self] (user) in
+                DispatchQueue.main.async {
+                    weakSelf?.RequestInfo.isHidden = true
+                    weakSelf?.navigationController?.setNavigationBarHidden(false, animated: true)
+                    weakSelf = nil
+                }
+            })
+        }
+    }
+    
     
     func composeMessage(type: MessageType, content: Any)  {
         let message = Message.init(type: type, content: content, owner: .sender, timestamp: Int(Date().timeIntervalSince1970), isRead: false)

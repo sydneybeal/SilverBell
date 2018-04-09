@@ -19,7 +19,7 @@ class ProfileVC: UIViewController {
     let imagePicker = UIImagePickerController()
     
     func customization() {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.fetchUserInfo()
     }
 

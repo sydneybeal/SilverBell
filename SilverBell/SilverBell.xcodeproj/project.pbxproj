@@ -15,6 +15,7 @@
 		8F61F6491FD63E9800321514 /* newMessage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F61F6441FD63E9800321514 /* newMessage.wav */; };
 		8F61F6541FD63F2C00321514 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F61F6531FD63F2C00321514 /* Default-568h@2x.png */; };
 		8F61F6561FD6416B00321514 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F61F6551FD6416A00321514 /* GoogleService-Info.plist */; };
+		8F6312A8207BC5E9001F6A36 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6312A7207BC5E9001F6A36 /* Request.swift */; };
 		8F7AC0E220292F1C00CCE9D5 /* CaretakerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7AC0E120292F1C00CCE9D5 /* CaretakerProfileVC.swift */; };
 		8F7AC0E42029390E00CCE9D5 /* CaretakerTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7AC0E32029390E00CCE9D5 /* CaretakerTableVC.swift */; };
 		8F8E8EEA1FD6435900BF3ED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F8E8EE91FD6435900BF3ED7 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		8F61F6521FD63EC600321514 /* ConversationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsVC.swift; sourceTree = "<group>"; };
 		8F61F6531FD63F2C00321514 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8F61F6551FD6416A00321514 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8F6312A7207BC5E9001F6A36 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Request.swift; path = /Users/jackson0404/Desktop/SilverBell/SilverBell/SilverBell/Model/Request.swift; sourceTree = "<absolute>"; };
 		8F7AC0E120292F1C00CCE9D5 /* CaretakerProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerProfileVC.swift; sourceTree = "<group>"; };
 		8F7AC0E32029390E00CCE9D5 /* CaretakerTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerTableVC.swift; sourceTree = "<group>"; };
 		8F8E8EE91FD6435900BF3ED7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		8F8E8EFB1FD6467B00BF3ED7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8F6312A7207BC5E9001F6A36 /* Request.swift */,
 				8F2FAEF72022486300A62458 /* CaretakerTableViewCell.swift */,
 				8F2FAEF52022460C00A62458 /* RatingControl.swift */,
 				8F8E8EFC1FD646B900BF3ED7 /* Conversation.swift */,
@@ -321,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA357A9B205FEC8B006E8F6A /* CaretakerHomeVC.swift in Sources */,
+				8F6312A8207BC5E9001F6A36 /* Request.swift in Sources */,
 				8F8E8EFF1FD646B900BF3ED7 /* Conversation.swift in Sources */,
 				8F8E8EEF1FD6451D00BF3ED7 /* ChatVC.swift in Sources */,
 				8F8E8EED1FD6451900BF3ED7 /* NavVC.swift in Sources */,

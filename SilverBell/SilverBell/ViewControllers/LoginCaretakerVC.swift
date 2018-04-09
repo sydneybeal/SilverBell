@@ -111,8 +111,8 @@ class LoginCaretakerVC: UIViewController, UITextFieldDelegate, UINavigationContr
     }
     
     func pushTomainView() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! HomeVC
-        self.show(vc, sender: nil)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CaretakerNavigation") as! CaretakerNavVC
+        self.present(vc, animated: false, completion: nil)
     }
     
     func openPhotoPickerWith(source: PhotoSource) {
