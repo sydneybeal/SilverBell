@@ -37,6 +37,9 @@
 		EA357A9B205FEC8B006E8F6A /* CaretakerHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA357A9A205FEC8B006E8F6A /* CaretakerHomeVC.swift */; };
 		EAE031EF207804CD00E041EE /* CaretakerNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE031EE207804CD00E041EE /* CaretakerNavVC.swift */; };
 		EAE225BC1FECAD0F00619A9D /* ProfileView.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE225BB1FECAD0E00619A9D /* ProfileView.png */; };
+		EAFEAFE6207812C30087545C /* CaretakerConversationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFEAFE5207812C30087545C /* CaretakerConversationsVC.swift */; };
+		EAFEAFE8207812DA0087545C /* CaretakerChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFEAFE7207812DA0087545C /* CaretakerChatVC.swift */; };
+		EAFEAFEA20782E2D0087545C /* CaretakerOwnProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFEAFE920782E2D0087545C /* CaretakerOwnProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +76,9 @@
 		EA357A9A205FEC8B006E8F6A /* CaretakerHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerHomeVC.swift; sourceTree = "<group>"; };
 		EAE031EE207804CD00E041EE /* CaretakerNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerNavVC.swift; sourceTree = "<group>"; };
 		EAE225BB1FECAD0E00619A9D /* ProfileView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ProfileView.png; path = Assets.xcassets/ProfileView.png; sourceTree = "<group>"; };
+		EAFEAFE5207812C30087545C /* CaretakerConversationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerConversationsVC.swift; sourceTree = "<group>"; };
+		EAFEAFE7207812DA0087545C /* CaretakerChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerChatVC.swift; sourceTree = "<group>"; };
+		EAFEAFE920782E2D0087545C /* CaretakerOwnProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerOwnProfileVC.swift; sourceTree = "<group>"; };
 		FE5A7414F334DA02F966BF52 /* Pods_SilverBell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SilverBell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,6 +109,7 @@
 				8F7AC0E120292F1C00CCE9D5 /* CaretakerProfileVC.swift */,
 				8F2FAEED201FE99000A62458 /* ProfileVC.swift */,
 				8F8E8F071FDC6C5900BF3ED7 /* HomeVC.swift */,
+				EAFEAFE920782E2D0087545C /* CaretakerOwnProfileVC.swift */,
 				8F61F64D1FD63EC600321514 /* LandingVC.swift */,
 				EAE031EE207804CD00E041EE /* CaretakerNavVC.swift */,
 				8F61F64E1FD63EC600321514 /* ChatVC.swift */,
@@ -112,6 +119,8 @@
 				8FB8643D203B430800E044D6 /* LoginCaretakerVC.swift */,
 				8FB8643B203B401600E044D6 /* WelcomeVC.swift */,
 				8F61F6521FD63EC600321514 /* ConversationsVC.swift */,
+				EAFEAFE5207812C30087545C /* CaretakerConversationsVC.swift */,
+				EAFEAFE7207812DA0087545C /* CaretakerChatVC.swift */,
 				EA357A9A205FEC8B006E8F6A /* CaretakerHomeVC.swift */,
 			);
 			path = ViewControllers;
@@ -334,7 +343,9 @@
 				8F8E8EF01FD6452200BF3ED7 /* LandingVC.swift in Sources */,
 				8F8E8F001FD646B900BF3ED7 /* User.swift in Sources */,
 				8F8E8EEE1FD6451B00BF3ED7 /* VCCells.swift in Sources */,
+				EAFEAFEA20782E2D0087545C /* CaretakerOwnProfileVC.swift in Sources */,
 				8FB8643E203B430800E044D6 /* LoginCaretakerVC.swift in Sources */,
+				EAFEAFE8207812DA0087545C /* CaretakerChatVC.swift in Sources */,
 				8F2FAEF220221C2900A62458 /* Caretakers.swift in Sources */,
 				8F8E8F011FD646B900BF3ED7 /* Message.swift in Sources */,
 				8F2FAEEE201FE99000A62458 /* ProfileVC.swift in Sources */,
@@ -343,6 +354,7 @@
 				8F7AC0E42029390E00CCE9D5 /* CaretakerTableVC.swift in Sources */,
 				8F8E8F051FD6485000BF3ED7 /* Helper Files.swift in Sources */,
 				8F8E8EEC1FD6451600BF3ED7 /* ConversationsVC.swift in Sources */,
+				EAFEAFE6207812C30087545C /* CaretakerConversationsVC.swift in Sources */,
 				EAE031EF207804CD00E041EE /* CaretakerNavVC.swift in Sources */,
 				8F7AC0E220292F1C00CCE9D5 /* CaretakerProfileVC.swift in Sources */,
 				8F2FAEF62022460C00A62458 /* RatingControl.swift in Sources */,
