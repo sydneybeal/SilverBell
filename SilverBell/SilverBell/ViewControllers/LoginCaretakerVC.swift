@@ -159,7 +159,7 @@ class LoginCaretakerVC: UIViewController, UITextFieldDelegate, UINavigationContr
             item.resignFirstResponder()
         }
         self.showLoading(state: true)
-        Caretakers.registerCaretaker(withName: self.registerNameField.text!, email: self.registerEmailField.text!, password: self.registerPasswordField.text!, profilePic: self.profilePicView.image!, rating: 0) { [weak weakSelf = self] (status) in
+        Caretaker.registerCaretaker(withName: self.registerNameField.text!, email: self.registerEmailField.text!, password: self.registerPasswordField.text!, profilePic: self.profilePicView.image!, rating: 0) { [weak weakSelf = self] (status) in
             DispatchQueue.main.async {
                 weakSelf?.showLoading(state: false)
                 for item in self.inputFields {
@@ -182,7 +182,7 @@ class LoginCaretakerVC: UIViewController, UITextFieldDelegate, UINavigationContr
             item.resignFirstResponder()
         }
         self.showLoading(state: true)
-        Caretakers.loginCaretaker(withEmail: self.loginEmailField.text!, password: self.loginPasswordField.text!) { [weak weakSelf = self](status) in
+        Caretaker.loginCaretaker(withEmail: self.loginEmailField.text!, password: self.loginPasswordField.text!) { [weak weakSelf = self](status) in
             DispatchQueue.main.async {
                 weakSelf?.showLoading(state: false)
                 for item in self.inputFields {

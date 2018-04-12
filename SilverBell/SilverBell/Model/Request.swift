@@ -18,6 +18,7 @@ class Request: NSObject {
     let date: String
     let time: String
     let additionalInfo: String
+    let accepted: Bool
     
     
     // MARK: METHODS
@@ -26,12 +27,14 @@ class Request: NSObject {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
+        let accepted = false
         let tag = ref.child("users").child(uidUser).child("requests").childByAutoId().key
         let request = ["uidUser": uidUser,
                        "uidCaretaker": uidCaretaker,
                        "Date": date,
                        "Time": time,
-                       "Info": additionalInfo]
+                       "Info": additionalInfo,
+                       "Accepted": accepted] as [String : Any]
         let childUpdates = ["/requests/\(tag)": request]
         ref.child("users").child(uidUser).updateChildValues(childUpdates, withCompletionBlock: { (errr, _) in
             if errr == nil{
@@ -45,14 +48,46 @@ class Request: NSObject {
         })
     }
     
+    class func acceptRequest(tag: String, uidUser: String, uidCaretaker: String, completion: @escaping (Bool) -> Swift.Void){
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        let accepted = true
+        let childUpdates = ["/users/\(uidUser)/requests/\(tag)": accepted]
+        ref.updateChildValues(childUpdates, withCompletionBlock: { (errr, _) in
+            if errr == nil{
+                completion(true)
+            }
+        })
+    }
+    
+    class func downloadAllRequestsUser(uidUser: String, completion: @escaping (Request) -> Swift.Void){
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.child("users").child(uidUser).child("Requests").observe(.childAdded, with: { (snapshot) in
+            let tag = snapshot.key
+            let data = snapshot.value as! [String: Any]
+            let uidCaretaker = data["uidCaretaker"]!
+            let uidUser = data["uidUser"]!
+            let date = data["Date"]!
+            let time = data["Time"]!
+            let info = data["Info"]!
+            let accepted = data["Accepted"]!
+            let request = Request.init(tag: tag , uidUser: uidUser as! String, uidCaretaker: uidCaretaker as! String, date: date as! String, time: time as! String, additionalInfo: info as! String, accepted: accepted as! Bool)
+            completion(request)
+        })
+    }
+    
     
     // MARK: INITS
-    init(tag:String, uidUser: String, uidCaretaker: String, date:String, time: String, additionalInfo: String) {
+    init(tag: String, uidUser: String, uidCaretaker: String, date:String, time: String, additionalInfo: String, accepted: Bool) {
         self.tag = tag;
         self.uidUser = uidUser;
         self.uidCaretaker = uidCaretaker;
         self.date = date;
         self.time = time;
         self.additionalInfo = additionalInfo;
+        self.accepted = accepted;
     }
 }

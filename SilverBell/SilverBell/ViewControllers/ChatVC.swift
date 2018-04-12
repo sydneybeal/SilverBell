@@ -52,7 +52,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     var items = [Message]()
     let imagePicker = UIImagePickerController()
     let barHeight: CGFloat = 50
-    var currentUser: User?
+    var currentUser: Caretaker?
     var canSendLocation = true
     
 

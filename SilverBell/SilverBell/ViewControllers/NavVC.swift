@@ -25,7 +25,7 @@ import UIKit
 import Firebase
 import MapKit
 
-class CaretakerNavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
+class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
 
     //MARK: Properties
     @IBOutlet var contactsView: UIView!
@@ -41,7 +41,7 @@ class CaretakerNavVC: UINavigationController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var emailLabel: UILabel!
     var topAnchorContraint: NSLayoutConstraint!
     let darkView = UIView.init()
-    var items = [User]()
+    var items = [Caretaker]()
     
     //MARK: Methods
     func customization() {
@@ -109,7 +109,7 @@ class CaretakerNavVC: UINavigationController, UICollectionViewDelegate, UICollec
         self.mapPreviewView.bottomAnchor.constraint(equalTo: extraViewsContainer.bottomAnchor).isActive = true
         //NotificationCenter for showing extra views
         NotificationCenter.default.addObserver(self, selector: #selector(self.showExtraViews(notification:)), name: NSNotification.Name(rawValue: "showExtraView"), object: nil)
-        self.fetchUsers()
+        self.fetchCaretakers()
         self.fetchUserInfo()
 
     }
@@ -180,11 +180,11 @@ class CaretakerNavVC: UINavigationController, UICollectionViewDelegate, UICollec
     }
     
     //Downloads users list for Contacts View
-    func fetchUsers()  {
+    func fetchCaretakers()  {
         if let id = Auth.auth().currentUser?.uid {
-            User.downloadAllUsers(exceptID: id, completion: {(user) in
+            Caretaker.downloadAllCaretakers(exceptID: id, completion: {(caretaker) in
                 DispatchQueue.main.async {
-                    self.items.append(user)
+                    self.items.append(caretaker)
                     self.collectionView.reloadData()
                 }
             })

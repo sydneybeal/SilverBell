@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 
-class Caretakers: NSObject {
+class Caretaker: NSObject {
     
     //MARK: Properties
     let name: String
@@ -68,8 +68,8 @@ class Caretakers: NSObject {
         }
     }
     
-    class func info(forUserID: String, completion: @escaping (User) -> Swift.Void) {
-        Database.database().reference().child("users").child(forUserID).child("credentials").observeSingleEvent(of: .value, with: { (snapshot) in
+    class func info(forUserID: String, completion: @escaping (Caretaker) -> Swift.Void) {
+        Database.database().reference().child("caretakers").child(forUserID).child("credentials").observeSingleEvent(of: .value, with: { (snapshot) in
             if let data = snapshot.value as? [AnyHashable: Any]{
                 let name = data["name"]!
                 let email = data["email"]!
@@ -78,15 +78,15 @@ class Caretakers: NSObject {
                 URLSession.shared.dataTask(with: link!, completionHandler: { (data, response, error) in
                     if error == nil {
                         let profilePic = UIImage.init(data: data!)
-                        let user = User.init(name: name as! String, email: email as! String, id: forUserID, profilePic: profilePic!, rating: rating)
-                        completion(user)
+                        let caretaker = Caretaker.init(name: name as! String, email: email as! String, id: forUserID, profilePic: profilePic!, rating: rating)
+                        completion(caretaker)
                     }
                 }).resume()
             }
         })
     }
     
-    class func downloadAllCaretakers(exceptID: String, completion: @escaping (Caretakers) -> Swift.Void) {
+    class func downloadAllCaretakers(exceptID: String, completion: @escaping (Caretaker) -> Swift.Void) {
         Database.database().reference().child("caretakers").observe(.childAdded, with: { (snapshot) in
             let id = snapshot.key
             let data = snapshot.value as! [String: Any]
@@ -100,7 +100,7 @@ class Caretakers: NSObject {
                     URLSession.shared.dataTask(with: link!, completionHandler: { (data, response, error) in
                         if error == nil {
                             let profilePic = UIImage.init(data: data!)
-                            let caretaker = Caretakers.init(name: name as! String, email: email as! String, id: id, profilePic: profilePic!, rating: rating)
+                            let caretaker = Caretaker.init(name: name as! String, email: email as! String, id: id, profilePic: profilePic!, rating: rating)
                             completion(caretaker)
                         }
                     }).resume()

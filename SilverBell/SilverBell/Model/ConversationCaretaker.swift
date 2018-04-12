@@ -1,3 +1,11 @@
+//
+//  ConversationCaretaker.swift
+//  SilverBell
+//
+//  Created by Jackson Rossborough on 4/11/18.
+//  Copyright © 2018 Jackson Rossborough. All rights reserved.
+//
+
 //  MIT License
 
 //  Copyright (c) 2017 Haik Aslanyan
@@ -24,26 +32,26 @@ import Foundation
 import UIKit
 import Firebase
 
-class Conversation {
+class ConversationCaretaker {
     
     //MARK: Properties
-    let caretaker: Caretaker
+    let user: User
     var lastMessage: Message
     
     //MARK: Methods
-    class func showConversations(completion: @escaping ([Conversation]) -> Swift.Void) {
+    class func showConversations(completion: @escaping ([ConversationCaretaker]) -> Swift.Void) {
         if let currentUserID = Auth.auth().currentUser?.uid {
-            var conversations = [Conversation]()
-            Database.database().reference().child("users").child(currentUserID).child("conversations").observe(.childAdded, with: { (snapshot) in
+            var conversations = [ConversationCaretaker]()
+            Database.database().reference().child("caretakers").child(currentUserID).child("conversations").observe(.childAdded, with: { (snapshot) in
                 if snapshot.exists() {
                     let fromID = snapshot.key
                     let values = snapshot.value as! [String: String]
                     let location = values["location"]!
-                    Caretaker.info(forUserID: fromID, completion: { (caretaker) in
+                    User.info(forUserID: fromID, completion: { (user) in
                         let emptyMessage = Message.init(type: .text, content: "loading", owner: .sender, timestamp: 0, isRead: true)
-                        let conversation = Conversation.init(caretaker: caretaker, lastMessage: emptyMessage)
+                        let conversation = ConversationCaretaker.init(user: user, lastMessage: emptyMessage)
                         conversations.append(conversation)
-                        conversation.lastMessage.downloadLastMessage(forLocation: location, completion: { 
+                        conversation.lastMessage.downloadLastMessage(forLocation: location, completion: {
                             completion(conversations)
                         })
                     })
@@ -56,8 +64,8 @@ class Conversation {
     }
     
     //MARK: Inits
-    init(caretaker: Caretaker, lastMessage: Message) {
-        self.caretaker = caretaker
+    init(user: User, lastMessage: Message) {
+        self.user = user
         self.lastMessage = lastMessage
     }
 }

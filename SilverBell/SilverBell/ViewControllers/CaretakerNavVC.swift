@@ -25,7 +25,7 @@ import UIKit
 import Firebase
 import MapKit
 
-class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
+class CaretakerNavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
     //MARK: Properties
     @IBOutlet var contactsView: UIView!
@@ -41,7 +41,7 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
     @IBOutlet weak var emailLabel: UILabel!
     var topAnchorContraint: NSLayoutConstraint!
     let darkView = UIView.init()
-    var items = [User]()
+    var items = [Caretaker]()
     
     //MARK: Methods
     func customization() {
@@ -109,8 +109,8 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
         self.mapPreviewView.bottomAnchor.constraint(equalTo: extraViewsContainer.bottomAnchor).isActive = true
         //NotificationCenter for showing extra views
         NotificationCenter.default.addObserver(self, selector: #selector(self.showExtraViews(notification:)), name: NSNotification.Name(rawValue: "showExtraView"), object: nil)
-        self.fetchUsers()
-        self.fetchUserInfo()
+        self.fetchCaretakers()
+        self.fetchCaretakerInfo()
         
     }
     
@@ -180,11 +180,11 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
     }
     
     //Downloads users list for Contacts View
-    func fetchUsers()  {
+    func fetchCaretakers()  {
         if let id = Auth.auth().currentUser?.uid {
-            User.downloadAllUsers(exceptID: id, completion: {(user) in
+            Caretaker.downloadAllCaretakers(exceptID: id, completion: {(caretaker) in
                 DispatchQueue.main.async {
-                    self.items.append(user)
+                    self.items.append(caretaker)
                     self.collectionView.reloadData()
                 }
             })
@@ -192,13 +192,13 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
     }
     
     //Downloads current user credentials
-    func fetchUserInfo() {
+    func fetchCaretakerInfo() {
         if let id = Auth.auth().currentUser?.uid {
-            User.info(forUserID: id, completion: {[weak weakSelf = self] (user) in
+            Caretaker.info(forUserID: id, completion: {[weak weakSelf = self] (caretaker) in
                 DispatchQueue.main.async {
-                    weakSelf?.nameLabel.text = user.name
-                    weakSelf?.emailLabel.text = user.email
-                    weakSelf?.profilePicView.image = user.profilePic
+                    weakSelf?.nameLabel.text = caretaker.name
+                    weakSelf?.emailLabel.text = caretaker.email
+                    weakSelf?.profilePicView.image = caretaker.profilePic
                     weakSelf = nil
                 }
             })
@@ -219,7 +219,7 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
     }
     
     @IBAction func logOutUser(_ sender: Any) {
-        User.logOutUser { (status) in
+        Caretaker.logOutUser { (status) in
             if status == true {
                 weak var pvc = self.presentingViewController
                 self.dismiss(animated: true){

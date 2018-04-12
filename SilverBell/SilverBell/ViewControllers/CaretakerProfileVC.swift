@@ -20,10 +20,10 @@ class CaretakerProfileVC: UIViewController {
         self.performSegue(withIdentifier: "profileToChat", sender: self)
         }
     
-    var profile: User?
+    var profile: Caretaker?
     
     @objc func pushToUserMesssages(notification: NSNotification) {
-        if let user = notification.userInfo?["user"] as? User {
+        if let user = notification.userInfo?["user"] as? Caretaker {
             self.profile = user
             self.performSegue(withIdentifier: "profileToChat", sender: self)
         }
@@ -43,8 +43,6 @@ class CaretakerProfileVC: UIViewController {
         self.emailLabel.text = profile?.email
         self.profilePic.image = profile?.profilePic
         self.ratingControl.rating = (profile?.rating)!
-        print(profile!)
-        print("above is the profile")
 
         // Do any additional setup after loading the view.
     }

@@ -1,33 +1,34 @@
 //
-//  CaretakerTableViewController.swift
+//  TableViewController.swift
 //  SilverBell
 //
-//  Created by Jackson Rossborough on 2/5/18.
+//  Created by Jackson Rossborough on 4/9/18.
 //  Copyright © 2018 Jackson Rossborough. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class CaretakerTableVC: UITableViewController {
+class RequestHistoryTableVC: UITableViewController {
+
+    var items = [Request]()
+    var selectedRequest: Request?
+    var caretakerItems = [Caretaker]()
     
-    // MARK: Properties
+    @IBOutlet var RequestHistoryTableView: UITableView!
     
-    var items = [Caretaker]()
-    var selectedUser: Caretaker?
-    
-    @IBOutlet weak var caretakerTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchUsers()
+        fetchRequests()
+        fetchCaretakers()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,23 +41,25 @@ class CaretakerTableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "CaretakerTableViewCell"
+        let cellIdentifier = "RequestHistoryViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CaretakerTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of CaretkaerTableViewCell.")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RequestHistoryViewCell  else {
+            fatalError("The dequeued cell is not an instance of RequestHistoryViewCell.")
         }
         let item = items[indexPath.row]
-        cell.nameLabel.text = item.name
-        cell.profilePic.image = item.profilePic
-        cell.ratingControl.rating = item.rating
+        let caretakerItem = caretakerItems[indexPath.row]
         
+        cell.nameLabel.text = caretakerItem.name
+        cell.dateLabel.text = item.date
+        cell.timeLabel.text = item.time
+        cell.profilePic.image = caretakerItem.profilePic
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.items.count > 0 {
-            self.selectedUser = self.items[indexPath.row]
-            self.performSegue(withIdentifier: "caretakerSegue", sender: self)
+            self.selectedRequest = self.items[indexPath.row]
+            self.performSegue(withIdentifier: "requestSegue", sender: self)
         }
     }
 
@@ -114,36 +117,44 @@ class CaretakerTableVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-    // MARK: Private Methods
     
     func customization() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.pushToCaretakerProfile(notification:)), name: NSNotification.Name(rawValue: "showCaretakerProfile"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.pushToCaretakerProfile(notification:)), name: NSNotification.Name(rawValue: "showRequest"), object: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "caretakerSegue" {
-            let vc = segue.destination as! CaretakerProfileVC
-            vc.profile = self.selectedUser
+        if segue.identifier == "requestSegue" {
+            let vc = segue.destination as! RequestVC
+            vc.request = self.selectedRequest
         }
     }
     
-    func fetchUsers()  {
+    func fetchRequests()  {
         if let id = Auth.auth().currentUser?.uid {
-            Caretaker.downloadAllCaretakers(exceptID: id, completion: {(caretaker) in
+            Request.downloadAllRequestsUser(uidUser: id, completion: {(request) in
                 DispatchQueue.main.async {
-                    self.items.append(caretaker)
-                    self.caretakerTableView.reloadData()
+                    self.items.append(request)
+                }
+            })
+        }
+    }
+    
+    func fetchCaretakers()  {
+        for request in items {
+            Caretaker.info(forUserID: request.uidCaretaker, completion: {(caretaker) in
+                DispatchQueue.main.async {
+                    self.caretakerItems.append(caretaker)
+                    self.RequestHistoryTableView.reloadData()
                 }
             })
         }
     }
     
     @objc func pushToCaretakerProfile(notification: NSNotification) {
-        if let caretaker = notification.userInfo?["user"] as? Caretaker {
-            self.selectedUser = caretaker
-            self.performSegue(withIdentifier: "caretakerSegue", sender: self)
+        if let request = notification.userInfo?["request"] as? Request {
+            self.selectedRequest = request
+            self.performSegue(withIdentifier: "requestSegue", sender: self)
         }
     }
-    
+
 }

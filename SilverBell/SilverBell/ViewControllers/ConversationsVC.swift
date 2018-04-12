@@ -45,7 +45,7 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }()
      */
     var items = [Conversation]()
-    var selectedUser: User?
+    var selectedUser: Caretaker?
     
     
     //MARK: Methods
@@ -130,8 +130,8 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     //Shows Chat viewcontroller with given user
     @objc func pushToUserMesssages(notification: NSNotification) {
-        if let user = notification.userInfo?["user"] as? User {
-            self.selectedUser = user
+        if let caretaker = notification.userInfo?["caretaker"] as? Caretaker {
+            self.selectedUser = caretaker
             self.performSegue(withIdentifier: "segue", sender: self)
         }
     }
@@ -182,8 +182,8 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ConversationsTBCell
             cell.clearCellData()
-            cell.profilePic.image = self.items[indexPath.row].user.profilePic
-            cell.nameLabel.text = self.items[indexPath.row].user.name
+            cell.profilePic.image = self.items[indexPath.row].caretaker.profilePic
+            cell.nameLabel.text = self.items[indexPath.row].caretaker.name
             switch self.items[indexPath.row].lastMessage.type {
             case .text:
                 let message = self.items[indexPath.row].lastMessage.content as! String
@@ -211,7 +211,7 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.items.count > 0 {
-            self.selectedUser = self.items[indexPath.row].user
+            self.selectedUser = self.items[indexPath.row].caretaker
             self.performSegue(withIdentifier: "segue", sender: self)
         }
     }

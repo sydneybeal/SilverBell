@@ -52,7 +52,7 @@ class CaretakerConversationsVC: UIViewController, UITableViewDelegate, UITableVi
      return button
      }()
      */
-    var items = [Conversation]()
+    var items = [ConversationCaretaker]()
     var selectedUser: User?
     
     
@@ -97,7 +97,7 @@ class CaretakerConversationsVC: UIViewController, UITableViewDelegate, UITableVi
     
     //Downloads conversations
     func fetchData() {
-        Conversation.showConversations { (conversations) in
+        ConversationCaretaker.showConversations { (conversations) in
             self.items = conversations
             self.items.sort{ $0.lastMessage.timestamp > $1.lastMessage.timestamp }
             DispatchQueue.main.async {
