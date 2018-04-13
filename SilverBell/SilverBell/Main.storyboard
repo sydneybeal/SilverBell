@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YU4-6K-4QF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YU4-6K-4QF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+        </array>
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Medium</string>
+            <string>AvenirNext-Regular</string>
+        </array>
+        <array key="ChalkboardSE.ttc">
+            <string>ChalkboardSE-Bold</string>
+        </array>
+        <array key="GillSans.ttc">
+            <string>GillSans-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--LandingVC-->
         <scene sceneID="0jb-GF-tm4">
@@ -1339,13 +1354,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CtQ-EW-8bt" customClass="RoundedImageView" customModule="SilverBell" customModuleProvider="target">
-                                <rect key="frame" x="92" y="121" width="190" height="190"/>
+                                <rect key="frame" x="92" y="121" width="191" height="191"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CtQ-EW-8bt" secondAttribute="height" multiplier="1:1" id="pam-X4-Thj"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1Y-WR-Ht8" customClass="RoundedButton" customModule="SilverBell" customModuleProvider="target">
-                                <rect key="frame" x="128" y="510" width="120" height="40"/>
+                                <rect key="frame" x="127.5" y="510" width="120" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="XEb-si-s2v"/>
                                     <constraint firstAttribute="width" constant="120" id="Z6e-2f-MrO"/>
@@ -1361,7 +1376,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94M-5x-sHi">
-                                <rect key="frame" x="98" y="438" width="178" height="30"/>
+                                <rect key="frame" x="98.5" y="438" width="178" height="30"/>
                                 <state key="normal" title="Select New Profile Picture">
                                     <color key="titleColor" red="0.11366439339999999" green="0.26645663629999999" blue="0.60665847080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -1371,7 +1386,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Mail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6B-WU-hBA">
-                                <rect key="frame" x="167" y="389" width="40" height="20"/>
+                                <rect key="frame" x="167.5" y="389" width="40" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="LF1-e7-mul"/>
                                 </constraints>
@@ -1380,7 +1395,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SwW-0E-E5R">
-                                <rect key="frame" x="158" y="351" width="58" height="30"/>
+                                <rect key="frame" x="157.5" y="352" width="58" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="peb-R0-B0J"/>
                                 </constraints>
@@ -1429,7 +1444,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAl-8m-ief">
-                                <rect key="frame" x="159" y="310" width="58" height="30"/>
+                                <rect key="frame" x="158.5" y="309" width="58" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9nw-Zq-u8B"/>
                                 </constraints>
@@ -1438,7 +1453,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilj-NY-AEG" customClass="RoundedButton" customModule="SilverBell" customModuleProvider="target">
-                                <rect key="frame" x="128" y="444" width="120" height="40"/>
+                                <rect key="frame" x="127.5" y="444" width="120" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fgL-CV-s7S"/>
                                     <constraint firstAttribute="width" constant="120" id="gTr-Xw-Y9B"/>
@@ -1453,7 +1468,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oth-Tb-EQz">
-                                <rect key="frame" x="91" y="372" width="194" height="30"/>
+                                <rect key="frame" x="91" y="372" width="193" height="30"/>
                                 <state key="normal" title="Select New Profile Picture">
                                     <color key="titleColor" red="0.11366439339999999" green="0.26645663629999999" blue="0.60665847080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -1462,13 +1477,13 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1cy-yY-qcg" customClass="RoundedImageView" customModule="SilverBell" customModuleProvider="target">
-                                <rect key="frame" x="93" y="99" width="190" height="190"/>
+                                <rect key="frame" x="93" y="99" width="189" height="189"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1cy-yY-qcg" secondAttribute="height" multiplier="1:1" id="2pY-C1-Q1k"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Mail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCK-J2-9Az">
-                                <rect key="frame" x="56" y="344" width="262" height="20"/>
+                                <rect key="frame" x="56" y="344" width="263" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="SIp-Nk-z6y"/>
                                 </constraints>
@@ -1521,50 +1536,66 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNS-V4-vfH">
-                                <rect key="frame" x="305" y="697" width="70" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNS-V4-vfH">
+                                <rect key="frame" x="16" y="511" width="70" height="136"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mNS-V4-vfH" secondAttribute="height" multiplier="35:68" id="CDL-Px-e3Z"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="17"/>
                                 <state key="normal" title="Log Out">
                                     <color key="titleColor" red="0.64313725489999995" green="0.85490196080000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGb-3k-gMB">
-                                <rect key="frame" x="186" y="360" width="132" height="132"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="message"/>
-                                <connections>
-                                    <segue destination="UoK-02-tpp" kind="show" identifier="conversationsSegue" id="mdr-OT-5vI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UO3-8x-NGo">
-                                <rect key="frame" x="32" y="359" width="128" height="133"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="profile pic"/>
-                                <connections>
-                                    <segue destination="eKe-Bq-0uc" kind="show" id="mSf-19-JaV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7Q-wu-hHM">
-                                <rect key="frame" x="45" y="178" width="102" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Requests">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="H5d-Vp-8dt" kind="show" id="vcc-UJ-Iig"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaK-cC-zf6">
-                                <rect key="frame" x="173" y="133" width="159" height="125"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="NurseHatIcon"/>
-                                <connections>
-                                    <segue destination="Aua-dn-Uru" kind="show" id="u1d-Ec-Q1R"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aK1-wI-IaW">
+                                <rect key="frame" x="8" y="72" width="350" height="400"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaK-cC-zf6">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="92.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
+                                        <state key="normal" title="Caretakers" image="caretakerButton"/>
+                                        <connections>
+                                            <segue destination="Aua-dn-Uru" kind="show" id="u1d-Ec-Q1R"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UO3-8x-NGo">
+                                        <rect key="frame" x="0.0" y="102.5" width="350" height="92.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
+                                        <state key="normal" title="Profile" image="profileButton"/>
+                                        <connections>
+                                            <segue destination="eKe-Bq-0uc" kind="show" id="mSf-19-JaV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7Q-wu-hHM">
+                                        <rect key="frame" x="0.0" y="205" width="350" height="92.5"/>
+                                        <state key="normal" title="Requests" image="requestsButton">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="H5d-Vp-8dt" kind="show" id="vcc-UJ-Iig"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGb-3k-gMB">
+                                        <rect key="frame" x="0.0" y="307.5" width="350" height="92.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
+                                        <state key="normal" title="Messages" image="messagesButton"/>
+                                        <connections>
+                                            <segue destination="UoK-02-tpp" kind="show" identifier="conversationsSegue" id="mdr-OT-5vI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aK1-wI-IaW" secondAttribute="height" multiplier="7:8" id="HY1-V1-3IU"/>
+                                    <constraint firstAttribute="width" constant="350" id="LL7-xC-ltQ"/>
+                                    <constraint firstAttribute="height" constant="400" id="saL-QB-XDW"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="mNS-V4-vfH" firstAttribute="leading" secondItem="gD4-0s-ksu" secondAttribute="leading" constant="16" id="1Uw-cs-ysi"/>
+                            <constraint firstItem="tdG-eh-M0z" firstAttribute="top" secondItem="mNS-V4-vfH" secondAttribute="bottom" constant="-24" id="DcY-8p-ebr"/>
+                            <constraint firstItem="aK1-wI-IaW" firstAttribute="top" secondItem="GVY-Xn-h6k" secondAttribute="bottom" constant="8" id="WlD-Od-IWK"/>
+                            <constraint firstItem="aK1-wI-IaW" firstAttribute="leading" secondItem="gD4-0s-ksu" secondAttribute="leading" constant="8" id="fx3-CZ-abv"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="oki-5U-ZBT"/>
@@ -2905,9 +2936,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NurseHatIcon" width="586" height="477"/>
         <image name="background" width="375" height="667"/>
         <image name="button" width="60" height="20"/>
+        <image name="caretakerButton" width="798" height="258"/>
         <image name="close" width="25" height="25"/>
         <image name="clouds" width="750" height="110"/>
         <image name="default profile" width="27" height="27"/>
@@ -2915,10 +2946,13 @@
         <image name="empty" width="375" height="602"/>
         <image name="launchScreen" width="375" height="667"/>
         <image name="message" width="512" height="512"/>
+        <image name="messagesButton" width="1394" height="446"/>
         <image name="more" width="32" height="25"/>
         <image name="name" width="24" height="24"/>
         <image name="password" width="24" height="24"/>
         <image name="profile pic" width="100" height="100"/>
+        <image name="profileButton" width="800" height="256"/>
+        <image name="requestsButton" width="1394" height="446"/>
         <image name="selectCamera" width="32" height="25"/>
         <image name="selectLocation" width="32" height="25"/>
         <image name="selectMessage" width="32" height="25"/>
