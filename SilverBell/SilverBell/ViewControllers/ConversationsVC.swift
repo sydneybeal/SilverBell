@@ -130,7 +130,7 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     //Shows Chat viewcontroller with given user
     @objc func pushToUserMesssages(notification: NSNotification) {
-        if let caretaker = notification.userInfo?["caretaker"] as? Caretaker {
+        if let caretaker = notification.userInfo?["user"] as? Caretaker {
             self.selectedUser = caretaker
             self.performSegue(withIdentifier: "segue", sender: self)
         }

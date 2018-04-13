@@ -35,7 +35,7 @@ class CaretakerTableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(items.count)
+        // print(items.count)
         return items.count
     }
     
