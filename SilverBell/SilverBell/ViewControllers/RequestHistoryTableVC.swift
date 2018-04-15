@@ -14,6 +14,7 @@ class RequestHistoryTableVC: UITableViewController {
     var items = [Request]()
     var selectedRequest: Request?
     var caretakerItems = [Caretaker]()
+    var selectedCaretaker: Caretaker?
     
     @IBOutlet var RequestHistoryTableView: UITableView!
     
@@ -65,6 +66,7 @@ class RequestHistoryTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.items.count > 0 {
             self.selectedRequest = self.items[indexPath.row]
+            self.selectedCaretaker = self.caretakerItems[indexPath.row]
             self.performSegue(withIdentifier: "requestSegue", sender: self)
         }
     }
@@ -77,6 +79,7 @@ class RequestHistoryTableVC: UITableViewController {
         if segue.identifier == "requestSegue" {
             let vc = segue.destination as! RequestVC
             vc.request = self.selectedRequest
+            vc.caretaker = self.selectedCaretaker
         }
     }
     
