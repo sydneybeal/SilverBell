@@ -173,7 +173,7 @@ class Message {
     
     class func uploadMessage(withValues: [String: Any], toID: String, completion: @escaping (Bool) -> Swift.Void) {
         if let currentUserID = Auth.auth().currentUser?.uid {
-            Database.database().reference().child("users").child(currentUserID).child("conversations").child(toID).observeSingleEvent(of: .value, with: { (snapshot) in
+            Database.database().reference().child("caretakers").child(currentUserID).child("conversations").child(toID).observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.exists() {
                     let data = snapshot.value as! [String: String]
                     let location = data["location"]!
@@ -188,7 +188,7 @@ class Message {
                     Database.database().reference().child("conversations").childByAutoId().childByAutoId().setValue(withValues, withCompletionBlock: { (error, reference) in
                         let data = ["location": reference.parent!.key]
                         Database.database().reference().child("users").child(currentUserID).child("conversations").child(toID).updateChildValues(data)
-                        Database.database().reference().child("users").child(toID).child("conversations").child(currentUserID).updateChildValues(data)
+                        Database.database().reference().child("caretakers").child(toID).child("conversations").child(currentUserID).updateChildValues(data)
                         completion(true)
                     })
                 }

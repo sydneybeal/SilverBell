@@ -65,7 +65,7 @@ class Request: NSObject {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        ref.child("users").child(uidUser).child("Requests").observe(.childAdded, with: { (snapshot) in
+        ref.child("users").child(uidUser).child("requests").observe(.childAdded, with: { (snapshot) in
             let tag = snapshot.key
             let data = snapshot.value as! [String: Any]
             let uidCaretaker = data["uidCaretaker"]!
