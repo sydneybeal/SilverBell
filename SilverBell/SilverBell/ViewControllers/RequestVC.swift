@@ -12,6 +12,7 @@ class RequestVC: UIViewController {
     
     var request: Request?
     var caretaker: Caretaker?
+    var status: String?
     
     @IBOutlet weak var caretakerPicView: RoundedImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -21,10 +22,10 @@ class RequestVC: UIViewController {
     @IBOutlet weak var addtlInfo: UILabel!
     @IBOutlet weak var ratingControl: RatingControl!
     
-    var status: String
+
     
     func setStatus() {
-        if request.accepted == true {
+        if request?.accepted == true {
             status = "Accepted"
         } else {
             status = "Open"
@@ -37,7 +38,7 @@ class RequestVC: UIViewController {
         self.setStatus();
         self.statusLabel.text = status
         // set remaining labels from req
-        self.nameLabel.text = request?.name
+        self.nameLabel.text = caretaker?.name
         self.dateLabel.text = request?.date
         self.timeLabel.text = request?.time
         self.addtlInfo.text = request?.additionalInfo

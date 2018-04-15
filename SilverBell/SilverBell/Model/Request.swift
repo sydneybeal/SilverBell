@@ -41,8 +41,13 @@ class Request: NSObject {
                     let childUpdates = ["/Allrequests/\(tag)": request]
                     ref.updateChildValues(childUpdates, withCompletionBlock: { (errr, _) in
                     if errr == nil{
+                        let childUpdates = ["/requests/\(tag)": request]
+                        ref.child("caretakers").child(uidCaretaker).updateChildValues(childUpdates, withCompletionBlock: { (errr, _) in
+                            if errr == nil{
                         completion(true)
-                        }
+                            }
+                        })
+                    }
                 })
             }
         })
@@ -66,6 +71,24 @@ class Request: NSObject {
         ref = Database.database().reference()
         
         ref.child("users").child(uidUser).child("requests").observe(.childAdded, with: { (snapshot) in
+            let tag = snapshot.key
+            let data = snapshot.value as! [String: Any]
+            let uidCaretaker = data["uidCaretaker"]!
+            let uidUser = data["uidUser"]!
+            let date = data["Date"]!
+            let time = data["Time"]!
+            let info = data["Info"]!
+            let accepted = data["Accepted"]!
+            let request = Request.init(tag: tag , uidUser: uidUser as! String, uidCaretaker: uidCaretaker as! String, date: date as! String, time: time as! String, additionalInfo: info as! String, accepted: accepted as! Bool)
+            completion(request)
+        })
+    }
+    
+    class func downloadAllRequestsCaretaker(uidUser: String, completion: @escaping (Request) -> Swift.Void){
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.child("caretakers").child(uidUser).child("requests").observe(.childAdded, with: { (snapshot) in
             let tag = snapshot.key
             let data = snapshot.value as! [String: Any]
             let uidCaretaker = data["uidCaretaker"]!

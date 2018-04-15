@@ -142,12 +142,12 @@ class Message {
         }
     }
     
-    class func send(message: Message, toID: String, completion: @escaping (Bool) -> Swift.Void)  {
+    class func sendToCaretaker(message: Message, toID: String, completion: @escaping (Bool) -> Swift.Void)  {
         if let currentUserID = Auth.auth().currentUser?.uid {
             switch message.type {
             case .location:
                 let values = ["type": "location", "content": message.content, "fromID": currentUserID, "toID": toID, "timestamp": message.timestamp, "isRead": false]
-                Message.uploadMessage(withValues: values, toID: toID, completion: { (status) in
+                Message.uploadMessageToCaretaker(withValues: values, toID: toID, completion: { (status) in
                     completion(status)
                 })
             case .photo:
@@ -157,23 +157,23 @@ class Message {
                     if error == nil {
                         let path = metadata?.downloadURL()?.absoluteString
                         let values = ["type": "photo", "content": path!, "fromID": currentUserID, "toID": toID, "timestamp": message.timestamp, "isRead": false] as [String : Any]
-                        Message.uploadMessage(withValues: values, toID: toID, completion: { (status) in
+                        Message.uploadMessageToCaretaker(withValues: values, toID: toID, completion: { (status) in
                             completion(status)
                         })
                     }
                 })
             case .text:
                 let values = ["type": "text", "content": message.content, "fromID": currentUserID, "toID": toID, "timestamp": message.timestamp, "isRead": false]
-                Message.uploadMessage(withValues: values, toID: toID, completion: { (status) in
+                Message.uploadMessageToCaretaker(withValues: values, toID: toID, completion: { (status) in
                     completion(status)
                 })
             }
         }
     }
     
-    class func uploadMessage(withValues: [String: Any], toID: String, completion: @escaping (Bool) -> Swift.Void) {
+    class func uploadMessageToCaretaker(withValues: [String: Any], toID: String, completion: @escaping (Bool) -> Swift.Void) {
         if let currentUserID = Auth.auth().currentUser?.uid {
-            Database.database().reference().child("caretakers").child(currentUserID).child("conversations").child(toID).observeSingleEvent(of: .value, with: { (snapshot) in
+            Database.database().reference().child("users").child(currentUserID).child("conversations").child(toID).observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.exists() {
                     let data = snapshot.value as! [String: String]
                     let location = data["location"]!
@@ -189,6 +189,60 @@ class Message {
                         let data = ["location": reference.parent!.key]
                         Database.database().reference().child("users").child(currentUserID).child("conversations").child(toID).updateChildValues(data)
                         Database.database().reference().child("caretakers").child(toID).child("conversations").child(currentUserID).updateChildValues(data)
+                        completion(true)
+                    })
+                }
+            })
+        }
+    }
+    
+    class func sendToUser(message: Message, toID: String, completion: @escaping (Bool) -> Swift.Void)  {
+        if let currentUserID = Auth.auth().currentUser?.uid {
+            switch message.type {
+            case .location:
+                let values = ["type": "location", "content": message.content, "fromID": currentUserID, "toID": toID, "timestamp": message.timestamp, "isRead": false]
+                Message.uploadMessageToUser(withValues: values, toID: toID, completion: { (status) in
+                    completion(status)
+                })
+            case .photo:
+                let imageData = UIImageJPEGRepresentation((message.content as! UIImage), 0.5)
+                let child = UUID().uuidString
+                Storage.storage().reference().child("messagePics").child(child).putData(imageData!, metadata: nil, completion: { (metadata, error) in
+                    if error == nil {
+                        let path = metadata?.downloadURL()?.absoluteString
+                        let values = ["type": "photo", "content": path!, "fromID": currentUserID, "toID": toID, "timestamp": message.timestamp, "isRead": false] as [String : Any]
+                        Message.uploadMessageToUser(withValues: values, toID: toID, completion: { (status) in
+                            completion(status)
+                        })
+                    }
+                })
+            case .text:
+                let values = ["type": "text", "content": message.content, "fromID": currentUserID, "toID": toID, "timestamp": message.timestamp, "isRead": false]
+                Message.uploadMessageToUser(withValues: values, toID: toID, completion: { (status) in
+                    completion(status)
+                })
+            }
+        }
+    }
+    
+    class func uploadMessageToUser(withValues: [String: Any], toID: String, completion: @escaping (Bool) -> Swift.Void) {
+        if let currentUserID = Auth.auth().currentUser?.uid {
+            Database.database().reference().child("caretakers").child(currentUserID).child("conversations").child(toID).observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.exists() {
+                    let data = snapshot.value as! [String: String]
+                    let location = data["location"]!
+                    Database.database().reference().child("conversations").child(location).childByAutoId().setValue(withValues, withCompletionBlock: { (error, _) in
+                        if error == nil {
+                            completion(true)
+                        } else {
+                            completion(false)
+                        }
+                    })
+                } else {
+                    Database.database().reference().child("conversations").childByAutoId().childByAutoId().setValue(withValues, withCompletionBlock: { (error, reference) in
+                        let data = ["location": reference.parent!.key]
+                        Database.database().reference().child("caretakers").child(currentUserID).child("conversations").child(toID).updateChildValues(data)
+                        Database.database().reference().child("users").child(toID).child("conversations").child(currentUserID).updateChildValues(data)
                         completion(true)
                     })
                 }

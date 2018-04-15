@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/jackson0404/Desktop/SilverBell/SilverBell/SilverBell/ViewControllers/CaretakerRequestTableVC.swift">
-   </FileRef>
-   <FileRef
       location = "group:SilverBell/SilverBell.xcodeproj">
    </FileRef>
    <FileRef

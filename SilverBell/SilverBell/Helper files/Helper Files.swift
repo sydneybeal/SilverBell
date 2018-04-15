@@ -60,6 +60,7 @@ class RoundedButton: UIButton {
 enum ViewControllerType {
     case welcome
     case nav
+    case caretakerNav
 }
 
 enum PhotoSource {
@@ -69,6 +70,12 @@ enum PhotoSource {
 
 enum ShowExtraView {
     case contacts
+    case profile
+    case preview
+    case map
+}
+
+enum ShowExtraViewCaretaker {
     case profile
     case preview
     case map

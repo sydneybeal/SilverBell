@@ -127,7 +127,7 @@ class CaretakerConversationsVC: UIViewController, UITableViewDelegate, UITableVi
     
     //Show EmailVerification on the bottom
     @objc func showEmailAlert() {
-        User.checkUserVerification {[weak weakSelf = self] (status) in
+        Caretaker.checkCaretakerVerification {[weak weakSelf = self] (status) in
             status == true ? (weakSelf?.alertBottomConstraint.constant = -40) : (weakSelf?.alertBottomConstraint.constant = 0)
             UIView.animate(withDuration: 0.3) {
                 weakSelf?.view.layoutIfNeeded()
@@ -140,7 +140,7 @@ class CaretakerConversationsVC: UIViewController, UITableViewDelegate, UITableVi
     @objc func pushToUserMesssages(notification: NSNotification) {
         if let user = notification.userInfo?["user"] as? User {
             self.selectedUser = user
-            self.performSegue(withIdentifier: "segue", sender: self)
+            self.performSegue(withIdentifier: "caretakerChatSegue", sender: self)
         }
     }
     
@@ -155,7 +155,7 @@ class CaretakerConversationsVC: UIViewController, UITableViewDelegate, UITableVi
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segue" {
+        if segue.identifier == "caretakerChatSegue" {
             let vc = segue.destination as! CaretakerChatVC
             vc.currentUser = self.selectedUser
         }
@@ -220,7 +220,7 @@ class CaretakerConversationsVC: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.items.count > 0 {
             self.selectedUser = self.items[indexPath.row].user
-            self.performSegue(withIdentifier: "segue", sender: self)
+            self.performSegue(withIdentifier: "caretakerChatSegue", sender: self)
         }
     }
     

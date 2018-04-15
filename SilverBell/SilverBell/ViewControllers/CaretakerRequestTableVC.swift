@@ -12,7 +12,8 @@ class CaretakerRequestTableVC: UITableViewController {
 
     var items = [Request]()
     var selectedRequest: Request?
-    var caretakerItems = [Caretaker]()
+    var userItems = [User]()
+    var selectedUser: User?
     
     @IBOutlet var RequestHistoryTableView: UITableView!
     
@@ -45,12 +46,12 @@ class CaretakerRequestTableVC: UITableViewController {
             fatalError("The dequeued cell is not an instance of RequestHistoryViewCell.")
         }
         let item = items[indexPath.row]
-        let caretakerItem = caretakerItems[indexPath.row]
+        let userItem = userItems[indexPath.row]
         let status: String
-        cell.nameLabel.text = caretakerItem.name
+        cell.nameLabel.text = userItem.name
         cell.dateLabel.text = item.date
         cell.timeLabel.text = item.time
-        cell.profilePic.image = caretakerItem.profilePic
+        cell.profilePic.image = userItem.profilePic
         if (item.accepted == true) {
             status = "Accepted"
         } else {
@@ -64,7 +65,7 @@ class CaretakerRequestTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.items.count > 0 {
             self.selectedRequest = self.items[indexPath.row]
-            self.performSegue(withIdentifier: "requestSegue", sender: self)
+            self.performSegue(withIdentifier: "caretakerRequestSegue", sender: self)
         }
     }
     
@@ -73,20 +74,21 @@ class CaretakerRequestTableVC: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "requestSegue" {
-            let vc = segue.destination as! RequestVC
+        if segue.identifier == "caretakerRequestSegue" {
+            let vc = segue.destination as! CaretakerRequestVC
             vc.request = self.selectedRequest
+            vc.user = self.selectedUser
         }
     }
     
     func fetchRequests()  {
         if let id = Auth.auth().currentUser?.uid {
-            Request.downloadAllRequestsUser(uidUser: id, completion: {(request) in
+            Request.downloadAllRequestsCaretaker(uidUser: id, completion: {(request) in
                 DispatchQueue.main.async {
                     self.items.append(request)
-                    Caretaker.info(forUserID: request.uidCaretaker, completion: {(caretaker) in
+                    User.info(forUserID: request.uidUser, completion: {(user) in
                         DispatchQueue.main.async {
-                            self.caretakerItems.append(caretaker)
+                            self.userItems.append(user)
                             self.RequestHistoryTableView.reloadData()
                         }
                     })
@@ -98,7 +100,7 @@ class CaretakerRequestTableVC: UITableViewController {
     @objc func pushToCaretakerProfile(notification: NSNotification) {
         if let request = notification.userInfo?["request"] as? Request {
             self.selectedRequest = request
-            self.performSegue(withIdentifier: "requestSegue", sender: self)
+            self.performSegue(withIdentifier: "caretakerRequestSegue", sender: self)
         }
     }
 

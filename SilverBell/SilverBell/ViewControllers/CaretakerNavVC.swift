@@ -25,23 +25,21 @@ import UIKit
 import Firebase
 import MapKit
 
-class CaretakerNavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
+class CaretakerNavVC: UINavigationController, UIScrollViewDelegate {
     
     //MARK: Properties
-    @IBOutlet var contactsView: UIView!
+
     @IBOutlet var profileView: UIView!
     @IBOutlet var previewView: UIView!
     @IBOutlet var mapPreviewView: UIView!
     @IBOutlet weak var mapVIew: MKMapView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var previewImageView: UIImageView!
-    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var profilePicView: RoundedImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     var topAnchorContraint: NSLayoutConstraint!
     let darkView = UIView.init()
-    var items = [Caretaker]()
     
     //MARK: Methods
     func customization() {
@@ -65,16 +63,6 @@ class CaretakerNavVC: UINavigationController, UICollectionViewDelegate, UICollec
         extraViewsContainer.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         extraViewsContainer.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1).isActive = true
         extraViewsContainer.backgroundColor = UIColor.clear
-        //ContactsView customization
-        extraViewsContainer.addSubview(self.contactsView)
-        self.contactsView.translatesAutoresizingMaskIntoConstraints = false
-        self.contactsView.topAnchor.constraint(equalTo: extraViewsContainer.topAnchor).isActive = true
-        self.contactsView.leadingAnchor.constraint(equalTo: extraViewsContainer.leadingAnchor).isActive = true
-        self.contactsView.trailingAnchor.constraint(equalTo: extraViewsContainer.trailingAnchor).isActive = true
-        self.contactsView.bottomAnchor.constraint(equalTo: extraViewsContainer.bottomAnchor).isActive = true
-        self.contactsView.isHidden = true
-        self.collectionView?.contentInset = UIEdgeInsetsMake(10, 0, 0, 0)
-        self.contactsView.backgroundColor = UIColor.clear
         //ProfileView Customization
         extraViewsContainer.addSubview(self.profileView)
         self.profileView.translatesAutoresizingMaskIntoConstraints = false
@@ -108,8 +96,7 @@ class CaretakerNavVC: UINavigationController, UICollectionViewDelegate, UICollec
         self.mapPreviewView.trailingAnchor.constraint(equalTo: extraViewsContainer.trailingAnchor).isActive = true
         self.mapPreviewView.bottomAnchor.constraint(equalTo: extraViewsContainer.bottomAnchor).isActive = true
         //NotificationCenter for showing extra views
-        NotificationCenter.default.addObserver(self, selector: #selector(self.showExtraViews(notification:)), name: NSNotification.Name(rawValue: "showExtraView"), object: nil)
-        self.fetchCaretakers()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.showExtraViewsCaretaker(notification:)), name: NSNotification.Name(rawValue: "showExtraViewCaretaker"), object: nil)
         self.fetchCaretakerInfo()
         
     }
@@ -124,7 +111,6 @@ class CaretakerNavVC: UINavigationController, UICollectionViewDelegate, UICollec
         }, completion:  { (true) in
             self.darkView.isHidden = true
             self.profileView.isHidden = true
-            self.contactsView.isHidden = true
             self.previewView.isHidden = true
             self.mapPreviewView.isHidden = true
             self.mapVIew.removeAnnotations(self.mapVIew.annotations)
@@ -134,23 +120,19 @@ class CaretakerNavVC: UINavigationController, UICollectionViewDelegate, UICollec
     }
     
     //Show extra view
-    @objc func showExtraViews(notification: NSNotification)  {
+    @objc func showExtraViewsCaretaker(notification: NSNotification)  {
         let transform = CGAffineTransform.init(scaleX: 0.94, y: 0.94)
         self.topAnchorContraint.constant = 0
         self.darkView.isHidden = false
-        if let type = notification.userInfo?["viewType"] as? ShowExtraView {
+        if let type = notification.userInfo?["viewType"] as? ShowExtraViewCaretaker {
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
                 self.view.layoutIfNeeded()
                 self.darkView.alpha = 0.8
-                if (type == .contacts || type == .profile) {
+                if (type == .profile) {
                     self.view.transform = transform
                 }
             })
             switch type {
-            case .contacts:
-                self.contactsView.isHidden = false
-                if self.items.count == 0 {
-                }
             case .profile:
                 self.profileView.isHidden = false
             case .preview:
@@ -179,17 +161,6 @@ class CaretakerNavVC: UINavigationController, UICollectionViewDelegate, UICollec
         return zoomRect
     }
     
-    //Downloads users list for Contacts View
-    func fetchCaretakers()  {
-        if let id = Auth.auth().currentUser?.uid {
-            Caretaker.downloadAllCaretakers(exceptID: id, completion: {(caretaker) in
-                DispatchQueue.main.async {
-                    self.items.append(caretaker)
-                    self.collectionView.reloadData()
-                }
-            })
-        }
-    }
     
     //Downloads current user credentials
     func fetchCaretakerInfo() {
@@ -226,61 +197,6 @@ class CaretakerNavVC: UINavigationController, UICollectionViewDelegate, UICollec
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Welcome") as! WelcomeVC
                     pvc?.present(vc, animated: true)
                 }
-            }
-        }
-    }
-    
-    //MARK: Delegates
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if self.items.count == 0 {
-            return 1
-        } else {
-            return self.items.count
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if self.items.count == 0 {
-            let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "Empty Cell", for: indexPath)
-            return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ContactsCVCell
-            cell.profilePic.image = self.items[indexPath.row].profilePic
-            cell.nameLabel.text = self.items[indexPath.row].name
-            cell.profilePic.layer.borderWidth = 2
-            cell.profilePic.layer.borderColor = GlobalVariables.purple.cgColor
-            return cell
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if self.items.count > 0 {
-            self.dismissExtraViews()
-            let userInfo = ["user": self.items[indexPath.row]]
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showUserMessages"), object: nil, userInfo: userInfo)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if self.items.count == 0 {
-            return self.collectionView.bounds.size
-        } else {
-            if UIScreen.main.bounds.width > UIScreen.main.bounds.height {
-                let width = (0.3 * UIScreen.main.bounds.height)
-                let height = width + 30
-                return CGSize.init(width: width, height: height)
-            } else {
-                let width = (0.3 * UIScreen.main.bounds.width)
-                let height = width + 30
-                return CGSize.init(width: width, height: height)
             }
         }
     }

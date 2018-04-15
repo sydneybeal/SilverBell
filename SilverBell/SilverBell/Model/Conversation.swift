@@ -55,6 +55,8 @@ class Conversation {
         }
     }
     
+    
+    
     //MARK: Inits
     init(caretaker: Caretaker, lastMessage: Message) {
         self.caretaker = caretaker
