@@ -20,13 +20,13 @@ class CaretakerOwnProfileVC: UIViewController {
     
     func customization() {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.fetchUserInfo()
+        self.fetchCaretakerInfo()
     }
     
     //Downloads current user credentials
-    func fetchUserInfo() {
+    func fetchCaretakerInfo() {
         if let id = Auth.auth().currentUser?.uid {
-            User.info(forUserID: id, completion: {[weak weakSelf = self] (user) in
+            Caretaker.info(forUserID: id, completion: {[weak weakSelf = self] (user) in
                 DispatchQueue.main.async {
                     weakSelf?.nameLabel.text = user.name
                     weakSelf?.emailLabel.text = user.email
@@ -39,7 +39,7 @@ class CaretakerOwnProfileVC: UIViewController {
     }
     
     @IBAction func logOutUser(_ sender: Any) {
-        User.logOutUser { (status) in
+        Caretaker.logOutUser { (status) in
             if status == true {
                 weak var pvc = self.presentingViewController
                 self.dismiss(animated: true){

@@ -123,7 +123,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     
     func composeMessage(type: MessageType, content: Any)  {
         let message = Message.init(type: type, content: content, owner: .sender, timestamp: Int(Date().timeIntervalSince1970), isRead: false)
-        Message.send(message: message, toID: self.currentUser!.id, completion: {(_) in
+        Message.sendToCaretaker(message: message, toID: self.currentUser!.id, completion: {(_) in
         })
     }
     
@@ -323,7 +323,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
             if self.canSendLocation {
                 let coordinate = String(lastLocation.coordinate.latitude) + ":" + String(lastLocation.coordinate.longitude)
                 let message = Message.init(type: .location, content: coordinate, owner: .sender, timestamp: Int(Date().timeIntervalSince1970), isRead: false)
-                Message.send(message: message, toID: self.currentUser!.id, completion: {(_) in
+                Message.sendToCaretaker(message: message, toID: self.currentUser!.id, completion: {(_) in
                 })
                 self.canSendLocation = false
             }

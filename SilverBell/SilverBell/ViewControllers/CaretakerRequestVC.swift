@@ -1,17 +1,17 @@
 //
-//  RequestVC.swift
+//  CaretakerRequestVC.swift
 //  SilverBell
 //
-//  Created by Jackson Rossborough on 4/10/18.
+//  Created by Jackson Rossborough on 4/13/18.
 //  Copyright © 2018 Jackson Rossborough. All rights reserved.
 //
 
 import UIKit
 
-class RequestVC: UIViewController {
+class CaretakerRequestVC: UIViewController {
     
     var request: Request?
-    var caretaker: Caretaker?
+    var user: User?
     var status: String?
     
     @IBOutlet weak var caretakerPicView: RoundedImageView!
@@ -22,7 +22,7 @@ class RequestVC: UIViewController {
     @IBOutlet weak var addtlInfo: UILabel!
     @IBOutlet weak var ratingControl: RatingControl!
     
-
+    
     
     func setStatus() {
         if request?.accepted == true {
@@ -33,32 +33,32 @@ class RequestVC: UIViewController {
     }
     
     func customization() {
-    self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         // use request accepted boolean to change status ui label
         self.setStatus();
         self.statusLabel.text = status
         // set remaining labels from req
-        self.nameLabel.text = caretaker?.name
+        self.nameLabel.text = user?.name
         self.dateLabel.text = request?.date
         self.timeLabel.text = request?.time
         self.addtlInfo.text = request?.additionalInfo
-        self.caretakerPicView.image = caretaker?.profilePic
-        self.ratingControl.rating = (caretaker?.rating)!
+        self.caretakerPicView.image = user?.profilePic
+        self.ratingControl.rating = (user?.rating)!
         
     }
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.customization()
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
 }

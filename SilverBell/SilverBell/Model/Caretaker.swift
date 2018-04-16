@@ -32,7 +32,7 @@ class Caretaker: NSObject {
                         let values = ["name": withName, "email": email, "profilePicLink": path!, "rating": rating] as [AnyHashable : Any]
                         Database.database().reference().child("caretakers").child((caretaker?.uid)!).child("credentials").updateChildValues(values, withCompletionBlock: { (errr, _) in
                             if errr == nil {
-                                let userInfo = ["email" : email, "password" : password]
+                                let userInfo = ["email": email, "password": password, "caretaker": true] as [String : Any]
                                 UserDefaults.standard.set(userInfo, forKey: "userInformation")
                                 completion(true)
                             }
@@ -49,7 +49,7 @@ class Caretaker: NSObject {
     class func loginCaretaker(withEmail: String, password: String, completion: @escaping (Bool) -> Swift.Void) {
         Auth.auth().signIn(withEmail: withEmail, password: password, completion: { (caretaker, error) in
             if error == nil {
-                let userInfo = ["email": withEmail, "password": password]
+                let userInfo = ["email": withEmail, "password": password, "caretaker": true] as [String : Any]
                 UserDefaults.standard.set(userInfo, forKey: "userInformation")
                 completion(true)
             } else {
@@ -106,6 +106,13 @@ class Caretaker: NSObject {
                     }).resume()
                 }
             }
+        })
+    }
+    
+    class func checkCaretakerVerification(completion: @escaping (Bool) -> Swift.Void) {
+        Auth.auth().currentUser?.reload(completion: { (_) in
+            let status = (Auth.auth().currentUser?.isEmailVerified)!
+            completion(status)
         })
     }
     

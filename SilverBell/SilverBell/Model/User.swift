@@ -47,7 +47,7 @@ class User: NSObject {
                         let values = ["name": withName, "email": email, "profilePicLink": path!, "rating": rating] as [AnyHashable : Any]
                         Database.database().reference().child("users").child((user?.uid)!).child("credentials").updateChildValues(values, withCompletionBlock: { (errr, _) in
                             if errr == nil {
-                                let userInfo = ["email" : email, "password" : password]
+                                let userInfo = ["email": email, "password": password, "caretaker": false] as [String : Any]
                                 UserDefaults.standard.set(userInfo, forKey: "userInformation")
                                 completion(true)
                             }
@@ -60,11 +60,12 @@ class User: NSObject {
             }
         })
     }
+
     
     class func loginUser(withEmail: String, password: String, completion: @escaping (Bool) -> Swift.Void) {
         Auth.auth().signIn(withEmail: withEmail, password: password, completion: { (user, error) in
             if error == nil {
-                let userInfo = ["email": withEmail, "password": password]
+                let userInfo = ["email": withEmail, "password": password, "caretaker": false] as [String : Any]
                 UserDefaults.standard.set(userInfo, forKey: "userInformation")
                 completion(true)
             } else {
