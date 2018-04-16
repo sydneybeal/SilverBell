@@ -23,6 +23,10 @@ class CaretakerRequestTableVC: UITableViewController {
         fetchRequests()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        RequestHistoryTableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -65,12 +69,13 @@ class CaretakerRequestTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.items.count > 0 {
             self.selectedRequest = self.items[indexPath.row]
+            self.selectedUser = self.userItems[indexPath.row]
             self.performSegue(withIdentifier: "caretakerRequestSegue", sender: self)
         }
     }
     
     func customization() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.pushToCaretakerProfile(notification:)), name: NSNotification.Name(rawValue: "showRequest"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.pushToUserProfile(notification:)), name: NSNotification.Name(rawValue: "showRequestCaretaker"), object: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -83,22 +88,19 @@ class CaretakerRequestTableVC: UITableViewController {
     
     func fetchRequests()  {
         if let id = Auth.auth().currentUser?.uid {
-            Request.downloadAllRequestsCaretaker(uidUser: id, completion: {(request) in
+            Request.downloadAllRequestsCaretaker(uidCaretaker: id, completion: {(request) in
                 DispatchQueue.main.async {
                     self.items.append(request)
                     User.info(forUserID: request.uidUser, completion: {(user) in
-                        DispatchQueue.main.async {
                             self.userItems.append(user)
-                            self.RequestHistoryTableView.reloadData()
-                        }
                     })
                 }
             })
         }
     }
     
-    @objc func pushToCaretakerProfile(notification: NSNotification) {
-        if let request = notification.userInfo?["request"] as? Request {
+    @objc func pushToUserProfile(notification: NSNotification) {
+        if let request = notification.userInfo?["requestCaretaker"] as? Request {
             self.selectedRequest = request
             self.performSegue(withIdentifier: "caretakerRequestSegue", sender: self)
         }

@@ -35,20 +35,11 @@ class Request: NSObject {
                        "Time": time,
                        "Info": additionalInfo,
                        "Accepted": accepted] as [String : Any]
-        let childUpdates = ["/requests/\(tag)": request]
-        ref.child("users").child(uidUser).updateChildValues(childUpdates, withCompletionBlock: { (errr, _) in
+        let childUpdates = ["users/\(uidUser)/requests/\(tag)": request,
+                            "/Allrequests/\(tag)": request,
+                            "caretakers/\(uidCaretaker)/requests/\(tag)": request]
+        ref.updateChildValues(childUpdates, withCompletionBlock: { (errr, _) in
             if errr == nil{
-                    let childUpdates = ["/Allrequests/\(tag)": request]
-                    ref.updateChildValues(childUpdates, withCompletionBlock: { (errr, _) in
-                    if errr == nil{
-                        let childUpdates = ["/requests/\(tag)": request]
-                        ref.child("caretakers").child(uidCaretaker).updateChildValues(childUpdates, withCompletionBlock: { (errr, _) in
-                            if errr == nil{
-                        completion(true)
-                            }
-                        })
-                    }
-                })
             }
         })
     }
@@ -57,8 +48,9 @@ class Request: NSObject {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        let accepted = true
-        let childUpdates = ["/users/\(uidUser)/requests/\(tag)": accepted]
+        let childUpdates = ["users/\(uidUser)/requests/\(tag)/Accepted": true,
+                            "/Allrequests/\(tag)/Accepted": true,
+                            "caretakers/\(uidCaretaker)/requests/\(tag)/Accepted": true]
         ref.updateChildValues(childUpdates, withCompletionBlock: { (errr, _) in
             if errr == nil{
                 completion(true)
@@ -84,11 +76,11 @@ class Request: NSObject {
         })
     }
     
-    class func downloadAllRequestsCaretaker(uidUser: String, completion: @escaping (Request) -> Swift.Void){
+    class func downloadAllRequestsCaretaker(uidCaretaker: String, completion: @escaping (Request) -> Swift.Void){
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        ref.child("caretakers").child(uidUser).child("requests").observe(.childAdded, with: { (snapshot) in
+        ref.child("caretakers").child(uidCaretaker).child("requests").observe(.childAdded, with: { (snapshot) in
             let tag = snapshot.key
             let data = snapshot.value as! [String: Any]
             let uidCaretaker = data["uidCaretaker"]!

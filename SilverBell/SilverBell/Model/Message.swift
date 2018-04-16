@@ -40,6 +40,77 @@ class Message {
     //MARK: Methods
     class func downloadAllMessages(forUserID: String, completion: @escaping (Message) -> Swift.Void) {
         if let currentUserID = Auth.auth().currentUser?.uid {
+            if let userInformation = UserDefaults.standard.dictionary(forKey: "userInformation") {
+                let isCaretaker = userInformation["caretaker"] as! Bool
+                if (isCaretaker == false) {
+                    Database.database().reference().child("users").child(currentUserID).child("conversations").child(forUserID).observe(.value, with: { (snapshot) in
+                        if snapshot.exists() {
+                            let data = snapshot.value as! [String: String]
+                            let location = data["location"]!
+                            Database.database().reference().child("conversations").child(location).observe(.childAdded, with: { (snap) in
+                                if snap.exists() {
+                                    let receivedMessage = snap.value as! [String: Any]
+                                    let messageType = receivedMessage["type"] as! String
+                                    var type = MessageType.text
+                                    switch messageType {
+                                    case "photo":
+                                        type = .photo
+                                    case "location":
+                                        type = .location
+                                    default: break
+                                    }
+                                    let content = receivedMessage["content"] as! String
+                                    let fromID = receivedMessage["fromID"] as! String
+                                    let timestamp = receivedMessage["timestamp"] as! Int
+                                    if fromID == currentUserID {
+                                        let message = Message.init(type: type, content: content, owner: .receiver, timestamp: timestamp, isRead: true)
+                                        completion(message)
+                                    } else {
+                                        let message = Message.init(type: type, content: content, owner: .sender, timestamp: timestamp, isRead: true)
+                                        completion(message)
+                                    }
+                                }
+                            })
+                        }
+                    })
+                } else {
+                    Database.database().reference().child("caretakers").child(currentUserID).child("conversations").child(forUserID).observe(.value, with: { (snapshot) in
+                        if snapshot.exists() {
+                            let data = snapshot.value as! [String: String]
+                            let location = data["location"]!
+                            Database.database().reference().child("conversations").child(location).observe(.childAdded, with: { (snap) in
+                                if snap.exists() {
+                                    let receivedMessage = snap.value as! [String: Any]
+                                    let messageType = receivedMessage["type"] as! String
+                                    var type = MessageType.text
+                                    switch messageType {
+                                    case "photo":
+                                        type = .photo
+                                    case "location":
+                                        type = .location
+                                    default: break
+                                    }
+                                    let content = receivedMessage["content"] as! String
+                                    let fromID = receivedMessage["fromID"] as! String
+                                    let timestamp = receivedMessage["timestamp"] as! Int
+                                    if fromID == currentUserID {
+                                        let message = Message.init(type: type, content: content, owner: .receiver, timestamp: timestamp, isRead: true)
+                                        completion(message)
+                                    } else {
+                                        let message = Message.init(type: type, content: content, owner: .sender, timestamp: timestamp, isRead: true)
+                                        completion(message)
+                                    }
+                                }
+                            })
+                        }
+                    })
+                }
+            }
+        }
+    }
+  /*
+    class func downloadAllMessages(forUserID: String, completion: @escaping (Message) -> Swift.Void) {
+        if let currentUserID = Auth.auth().currentUser?.uid {
             Database.database().reference().child("users").child(currentUserID).child("conversations").child(forUserID).observe(.value, with: { (snapshot) in
                 if snapshot.exists() {
                     let data = snapshot.value as! [String: String]
@@ -72,6 +143,7 @@ class Message {
             })
         }
     }
+     */
     
     func downloadImage(indexpathRow: Int, completion: @escaping (Bool, Int) -> Swift.Void)  {
         if self.type == .photo {
