@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CaretakerRequestVC: UIViewController {
     
@@ -21,16 +22,7 @@ class CaretakerRequestVC: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var addtlInfo: UILabel!
     @IBOutlet weak var ratingControl: RatingControl!
-    
-    
-    
-    func setStatus() {
-        if request?.accepted == true {
-            status = "Accepted"
-        } else {
-            status = "Open"
-        }
-    }
+    @IBOutlet weak var acceptRequest: UIButton!
     
     func customization() {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -47,6 +39,25 @@ class CaretakerRequestVC: UIViewController {
         
     }
     
+    func setStatus() {
+        if request?.accepted == true {
+            status = "Accepted"
+            self.acceptRequest.isHidden = true
+        } else {
+            status = "Open"
+            self.acceptRequest.isHidden = false
+        }
+    }
+    
+    @IBAction func acceptRequest(_ sender: Any) {
+        if let id = Auth.auth().currentUser?.uid {
+            Request.acceptRequest(tag: (request?.tag)!, uidUser: id, uidCaretaker: (request?.uidCaretaker)!, completion: {(status) in
+                if status == true {
+                    self.customization()
+                }
+            })
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

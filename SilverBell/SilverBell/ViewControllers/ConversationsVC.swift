@@ -30,13 +30,7 @@ class ConversationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     //MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var alertBottomConstraint: NSLayoutConstraint!
-    @IBAction func Back(_ sender: UIButton) {
-        weak var pvc = self.presentingViewController
-        self.dismiss(animated: true){
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! HomeVC
-            pvc?.present(vc, animated: false)
-        }
-    }
+
     /*
     lazy var leftButton: UIBarButtonItem = {
         let image = UIImage.init(named: "default profile")?.withRenderingMode(.alwaysOriginal)

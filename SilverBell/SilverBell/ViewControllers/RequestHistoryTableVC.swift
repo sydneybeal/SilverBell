@@ -15,6 +15,7 @@ class RequestHistoryTableVC: UITableViewController {
     var selectedRequest: Request?
     var caretakerItems = [Caretaker]()
     var selectedCaretaker: Caretaker?
+
     
     @IBOutlet var RequestHistoryTableView: UITableView!
     
@@ -22,6 +23,10 @@ class RequestHistoryTableVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchRequests()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        RequestHistoryTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,6 +88,7 @@ class RequestHistoryTableVC: UITableViewController {
         }
     }
     
+    
     func fetchRequests()  {
         if let id = Auth.auth().currentUser?.uid {
             Request.downloadAllRequestsUser(uidUser: id, completion: {(request) in
@@ -90,8 +96,7 @@ class RequestHistoryTableVC: UITableViewController {
                     self.items.append(request)
                     Caretaker.info(forUserID: request.uidCaretaker, completion: {(caretaker) in
                         DispatchQueue.main.async {
-                            self.caretakerItems.append(caretaker)
-                            self.RequestHistoryTableView.reloadData()
+                        self.caretakerItems.append(caretaker)
                         }
                     })
                 }
