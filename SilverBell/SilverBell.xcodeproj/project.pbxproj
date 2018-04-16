@@ -21,7 +21,6 @@
 		8F6312AE207D3BFC001F6A36 /* RequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6312AD207D3BFC001F6A36 /* RequestVC.swift */; };
 		8F6312B0207E9AE8001F6A36 /* ConversationCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6312AF207E9AE8001F6A36 /* ConversationCaretaker.swift */; };
 		8F786E4C208131D7001DCD06 /* CaretakerRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F786E4B208131D7001DCD06 /* CaretakerRequestVC.swift */; };
-		8F786E4E20813467001DCD06 /* CaretakerRequestTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F786E4D20813467001DCD06 /* CaretakerRequestTableVC.swift */; };
 		8F7AC0E220292F1C00CCE9D5 /* CaretakerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7AC0E120292F1C00CCE9D5 /* CaretakerProfileVC.swift */; };
 		8F7AC0E42029390E00CCE9D5 /* CaretakerTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7AC0E32029390E00CCE9D5 /* CaretakerTableVC.swift */; };
 		8F8E8EEA1FD6435900BF3ED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F8E8EE91FD6435900BF3ED7 /* Main.storyboard */; };
@@ -69,7 +68,6 @@
 		8F6312AD207D3BFC001F6A36 /* RequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestVC.swift; sourceTree = "<group>"; };
 		8F6312AF207E9AE8001F6A36 /* ConversationCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCaretaker.swift; sourceTree = "<group>"; };
 		8F786E4B208131D7001DCD06 /* CaretakerRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerRequestVC.swift; sourceTree = "<group>"; };
-		8F786E4D20813467001DCD06 /* CaretakerRequestTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaretakerRequestTableVC.swift; path = /Users/jackson0404/Desktop/SilverBell/SilverBell/SilverBell/ViewControllers/CaretakerRequestTableVC.swift; sourceTree = "<absolute>"; };
 		8F7AC0E120292F1C00CCE9D5 /* CaretakerProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerProfileVC.swift; sourceTree = "<group>"; };
 		8F7AC0E32029390E00CCE9D5 /* CaretakerTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerTableVC.swift; sourceTree = "<group>"; };
 		8F8E8EE91FD6435900BF3ED7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 				EAFEAFE5207812C30087545C /* CaretakerConversationsVC.swift */,
 				EAFEAFE7207812DA0087545C /* CaretakerChatVC.swift */,
 				8F786E4B208131D7001DCD06 /* CaretakerRequestVC.swift */,
-				8F786E4D20813467001DCD06 /* CaretakerRequestTableVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -371,7 +368,6 @@
 				8F2FAEF220221C2900A62458 /* Caretaker.swift in Sources */,
 				8F8E8F011FD646B900BF3ED7 /* Message.swift in Sources */,
 				8F2FAEEE201FE99000A62458 /* ProfileVC.swift in Sources */,
-				8F786E4E20813467001DCD06 /* CaretakerRequestTableVC.swift in Sources */,
 				8F8E8EEB1FD6451300BF3ED7 /* LoginUserVC.swift in Sources */,
 				8F8E8F081FDC6C5900BF3ED7 /* HomeVC.swift in Sources */,
 				8F7AC0E42029390E00CCE9D5 /* CaretakerTableVC.swift in Sources */,
