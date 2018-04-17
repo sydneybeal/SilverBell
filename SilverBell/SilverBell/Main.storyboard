@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YU4-6K-4QF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YU4-6K-4QF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Avenir.ttc">
-            <string>Avenir-Book</string>
-        </array>
-        <array key="AvenirNext.ttc">
-            <string>AvenirNext-Medium</string>
-            <string>AvenirNext-Regular</string>
-        </array>
-        <array key="GillSans.ttc">
-            <string>GillSans-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--LandingVC-->
         <scene sceneID="0jb-GF-tm4">
@@ -1675,7 +1663,7 @@
                                 <rect key="frame" x="10" y="155" width="160" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProfileView" translatesAutoresizingMaskIntoConstraints="NO" id="GfZ-6m-l7y">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProfileViewDark" translatesAutoresizingMaskIntoConstraints="NO" id="GfZ-6m-l7y">
                                 <rect key="frame" x="14" y="411" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -3210,7 +3198,7 @@
         <image name="ClickcircleIcon" width="300" height="300"/>
         <image name="IconBell" width="900" height="900"/>
         <image name="NurseHatIcon" width="586" height="477"/>
-        <image name="ProfileView" width="300" height="300"/>
+        <image name="ProfileViewDark" width="300" height="300"/>
         <image name="ProfileViewLight" width="300" height="300"/>
         <image name="UserLabel" width="300" height="150"/>
         <image name="background" width="375" height="667"/>
