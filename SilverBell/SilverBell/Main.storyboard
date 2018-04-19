@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YU4-6K-4QF">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,11 +18,11 @@
             <objects>
                 <viewController id="YU4-6K-4QF" customClass="LandingVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hBL-Vi-Mf5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="3bj-bK-kkR">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,40 +44,38 @@
             <objects>
                 <viewController storyboardIdentifier="Welcome" id="xdh-gR-FnF" customClass="WelcomeVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ha-AX-WdT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiS-l8-1Rs">
-                                <rect key="frame" x="0.0" y="338.5" width="375" height="328.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="328.5" id="TGa-Bo-pwJ" userLabel="height = 328.5"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="288" width="320" height="280"/>
                                 <state key="normal" title="Button" image="lightBackground"/>
                                 <connections>
                                     <segue destination="b9N-AD-deu" kind="show" id="7Ul-3N-una"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xs7-y3-nOi">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="331"/>
-                                <state key="normal" title="Button" image="background"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xs7-y3-nOi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="280.5"/>
+                                <color key="backgroundColor" red="0.001671565929" green="0.25569176669999999" blue="0.68551325799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="background"/>
                                 <connections>
                                     <segue destination="rVC-Ig-Azx" kind="show" id="ct1-z1-6lA"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CaretakerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="k5K-vm-wDg">
-                                <rect key="frame" x="179" y="403" width="196" height="196"/>
+                                <rect key="frame" x="179" y="359" width="141" height="141"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="k5K-vm-wDg" secondAttribute="height" multiplier="1:1" id="EBc-DJ-cyp"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconBell" translatesAutoresizingMaskIntoConstraints="NO" id="Zyx-v7-37A">
-                                <rect key="frame" x="0.0" y="94" width="184" height="184"/>
+                                <rect key="frame" x="0.0" y="94" width="140" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Zyx-v7-37A" secondAttribute="height" multiplier="1:1" id="qZe-a3-R5G"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caretaker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jtw-ZE-gtB">
-                                <rect key="frame" x="16" y="353" width="152" height="294"/>
+                                <rect key="frame" x="16" y="353" width="152" height="195"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="152" id="Etq-rs-xN6"/>
                                 </constraints>
@@ -86,7 +84,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IW3-1w-A0C">
-                                <rect key="frame" x="179" y="119" width="180" height="135"/>
+                                <rect key="frame" x="140" y="119" width="180" height="135"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="DRH-9a-kPF"/>
                                     <constraint firstAttribute="height" constant="135" id="h0C-y4-a8Z"/>
@@ -102,19 +100,20 @@
                             <constraint firstItem="Jtw-ZE-gtB" firstAttribute="top" secondItem="0ha-AX-WdT" secondAttribute="topMargin" constant="333" id="3fA-kC-RZS"/>
                             <constraint firstItem="vHw-g6-mJd" firstAttribute="bottom" secondItem="Jtw-ZE-gtB" secondAttribute="bottom" constant="20" id="5l0-PR-E0N"/>
                             <constraint firstItem="uiS-l8-1Rs" firstAttribute="bottom" secondItem="vHw-g6-mJd" secondAttribute="bottom" id="6Lh-iU-Ztt"/>
-                            <constraint firstItem="xs7-y3-nOi" firstAttribute="leading" secondItem="vHw-g6-mJd" secondAttribute="leading" id="DvA-yj-sdF"/>
                             <constraint firstItem="k5K-vm-wDg" firstAttribute="top" secondItem="Zyx-v7-37A" secondAttribute="bottom" constant="125" id="Ecq-uH-VBp"/>
                             <constraint firstItem="k5K-vm-wDg" firstAttribute="leading" secondItem="vHw-g6-mJd" secondAttribute="leading" constant="179" id="HRf-s9-fhP"/>
                             <constraint firstItem="xs7-y3-nOi" firstAttribute="top" secondItem="0ha-AX-WdT" secondAttribute="top" id="PYy-T2-t0y"/>
+                            <constraint firstItem="uiS-l8-1Rs" firstAttribute="height" secondItem="xs7-y3-nOi" secondAttribute="height" id="PgX-nA-wtr"/>
                             <constraint firstAttribute="trailing" secondItem="k5K-vm-wDg" secondAttribute="trailing" id="RQd-QY-iPu"/>
                             <constraint firstItem="Jtw-ZE-gtB" firstAttribute="leading" secondItem="vHw-g6-mJd" secondAttribute="leading" constant="16" id="Ybb-ho-O1W"/>
                             <constraint firstItem="uiS-l8-1Rs" firstAttribute="leading" secondItem="vHw-g6-mJd" secondAttribute="leading" id="eLs-mU-ANd"/>
-                            <constraint firstItem="vHw-g6-mJd" firstAttribute="trailing" secondItem="IW3-1w-A0C" secondAttribute="trailing" constant="16" id="eN5-G1-FOX"/>
+                            <constraint firstItem="vHw-g6-mJd" firstAttribute="trailing" secondItem="IW3-1w-A0C" secondAttribute="trailing" id="eN5-G1-FOX"/>
                             <constraint firstItem="IW3-1w-A0C" firstAttribute="top" secondItem="vHw-g6-mJd" secondAttribute="top" constant="99" id="f6y-vj-1l3"/>
                             <constraint firstItem="Zyx-v7-37A" firstAttribute="leading" secondItem="vHw-g6-mJd" secondAttribute="leading" id="fDM-Oc-SJa"/>
                             <constraint firstItem="Zyx-v7-37A" firstAttribute="top" secondItem="vHw-g6-mJd" secondAttribute="top" constant="74" id="naf-ds-Ri9"/>
                             <constraint firstItem="uiS-l8-1Rs" firstAttribute="top" secondItem="xs7-y3-nOi" secondAttribute="bottom" constant="7.5" id="qHj-1s-H7D"/>
                             <constraint firstItem="xs7-y3-nOi" firstAttribute="trailing" secondItem="vHw-g6-mJd" secondAttribute="trailing" id="qkE-pX-9BQ"/>
+                            <constraint firstItem="xs7-y3-nOi" firstAttribute="width" secondItem="uiS-l8-1Rs" secondAttribute="width" id="uCD-sS-NO2"/>
                             <constraint firstItem="vHw-g6-mJd" firstAttribute="bottom" secondItem="k5K-vm-wDg" secondAttribute="bottom" constant="68" id="weG-8C-GzF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vHw-g6-mJd"/>
@@ -129,20 +128,20 @@
             <objects>
                 <viewController storyboardIdentifier="LoginUser" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rVC-Ig-Azx" customClass="LoginUserVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oxM-sB-nYg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="pW2-zY-MgK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clouds" translatesAutoresizingMaskIntoConstraints="NO" id="ddG-br-Cig">
-                                <rect key="frame" x="0.0" y="567" width="1500" height="100"/>
+                                <rect key="frame" x="0.0" y="483" width="1500" height="85"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSu-34-603">
-                                <rect key="frame" x="97.5" y="627" width="180" height="30"/>
+                                <rect key="frame" x="70" y="528" width="180" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="4pM-xv-nry"/>
                                     <constraint firstAttribute="height" constant="30" id="hQO-Bn-Ccf"/>
@@ -156,10 +155,10 @@
                                 </connections>
                             </button>
                             <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgg-MM-NR7">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="b3E-sR-X8y">
-                                        <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                                        <rect key="frame" x="150.5" y="274" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="S2t-Nb-k3P"/>
                                             <constraint firstAttribute="width" constant="20" id="ghP-ck-Inx"/>
@@ -540,18 +539,18 @@
             <objects>
                 <viewController storyboardIdentifier="Conversations" title=" " useStoryboardIdentifierAsRestorationIdentifier="YES" id="UoK-02-tpp" customClass="ConversationsVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qPh-Fp-RNk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Plb-lE-iQb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="xjX-CL-WpE" customClass="ConversationsTBCell" customModule="SilverBell" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="xjX-CL-WpE" customClass="ConversationsTBCell" customModule="SilverBell" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xjX-CL-WpE" id="4hB-2f-4v2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile pic" translatesAutoresizingMaskIntoConstraints="NO" id="wvs-3O-oXq" customClass="RoundedImageView" customModule="SilverBell" customModuleProvider="target">
@@ -562,19 +561,19 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Name, last name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPT-DC-2NP">
-                                                    <rect key="frame" x="80" y="15" width="230" height="24"/>
+                                                    <rect key="frame" x="80" y="15" width="175" height="24"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCM-9r-Ja9">
-                                                    <rect key="frame" x="330" y="15" width="35" height="18"/>
+                                                    <rect key="frame" x="275" y="15" width="35" height="18"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="had-mQ-hEJ">
-                                                    <rect key="frame" x="80" y="45" width="278" height="20"/>
+                                                    <rect key="frame" x="80" y="45" width="223" height="20"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -600,15 +599,15 @@
                                             <outlet property="timeLabel" destination="ZCM-9r-Ja9" id="9si-sP-l1o"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Empty Cell" id="QgS-rc-0dp">
-                                        <rect key="frame" x="0.0" y="108" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Empty Cell" id="QgS-rc-0dp">
+                                        <rect key="frame" x="0.0" y="108" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QgS-rc-0dp" id="JnP-IB-JdY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="yGb-ft-A2K">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -631,10 +630,10 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44O-uk-hGn">
-                                <rect key="frame" x="0.0" y="677" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="578" width="320" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please verify your email address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCr-ft-cS2">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -680,19 +679,19 @@
             <objects>
                 <viewController storyboardIdentifier="Chat" title="Chat" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j4r-Rx-g1K" customClass="ChatVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hp0-e2-dDk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0I1-tm-nYA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Sender" id="af0-zT-Yi5" customClass="SenderCell" customModule="SilverBell" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="30"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Sender" id="af0-zT-Yi5" customClass="SenderCell" customModule="SilverBell" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="af0-zT-Yi5" id="bCB-qc-OOc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uBY-8s-Qff">
@@ -739,22 +738,22 @@
                                             <outlet property="profilePic" destination="f5G-7e-2oY" id="KHS-Fm-Tak"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Receiver" id="BCb-Hs-Pv6" customClass="ReceiverCell" customModule="SilverBell" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="58" width="375" height="30"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Receiver" id="BCb-Hs-Pv6" customClass="ReceiverCell" customModule="SilverBell" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="58" width="320" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BCb-Hs-Pv6" id="aDi-CM-Ngu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I3C-dc-yVH">
-                                                    <rect key="frame" x="340" y="6" width="20" height="18"/>
+                                                    <rect key="frame" x="285" y="6" width="20" height="18"/>
                                                     <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="4pZ-Sf-nNE"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybz-Uk-Vj5">
-                                                    <rect key="frame" x="345" y="6" width="10" height="18"/>
+                                                    <rect key="frame" x="290" y="6" width="10" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="0sf-xG-LAZ"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="DbC-nF-9YN"/>
@@ -1027,7 +1026,7 @@
                 <navigationController storyboardIdentifier="Navigation" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZJi-hT-Uhs" customClass="NavVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0JK-Dc-Tsr">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1317,7 +1316,7 @@
             <objects>
                 <viewController storyboardIdentifier="CaretakerHome" id="eZb-rP-Pez" customClass="CaretakerHomeVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ydu-q8-UNo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doi-Ha-D7t">
@@ -1397,7 +1396,7 @@
             <objects>
                 <viewController storyboardIdentifier="CaretakerOwnProfile" id="5hG-GM-gie" customClass="CaretakerOwnProfileVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1OS-M3-igy" customClass="Carete">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CtQ-EW-8bt" customClass="RoundedImageView" customModule="SilverBell" customModuleProvider="target">
@@ -1458,11 +1457,11 @@
             <objects>
                 <viewController storyboardIdentifier="Profile" id="eKe-Bq-0uc" customClass="ProfileVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ni2-mc-Gyb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilj-NY-AEG" customClass="RoundedButton" customModule="SilverBell" customModuleProvider="target">
-                                <rect key="frame" x="16" y="600" width="343" height="53"/>
+                                <rect key="frame" x="16" y="501" width="288" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="t65-DR-H71"/>
                                 </constraints>
@@ -1475,7 +1474,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oth-Tb-EQz">
-                                <rect key="frame" x="16" y="297" width="343" height="30"/>
+                                <rect key="frame" x="16" y="198" width="288" height="30"/>
                                 <state key="normal" title="Select New Profile Picture">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -1484,16 +1483,16 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1cy-yY-qcg" customClass="RoundedImageView" customModule="SilverBell" customModuleProvider="target">
-                                <rect key="frame" x="93" y="99" width="190" height="190"/>
+                                <rect key="frame" x="93" y="99" width="134.5" height="91"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAl-8m-ief">
-                                <rect key="frame" x="146" y="333" width="83" height="41"/>
+                                <rect key="frame" x="118.5" y="234" width="83" height="41"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Mail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="xCK-J2-9Az">
-                                <rect key="frame" x="16" y="413.5" width="343" height="27.5"/>
+                                <rect key="frame" x="16" y="314.5" width="288" height="27.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1536,7 +1535,7 @@
             <objects>
                 <viewController storyboardIdentifier="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="a3X-Dl-VL0" customClass="HomeVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gD4-0s-ksu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="384-ki-cbk" userLabel="bottomLeft">
@@ -1647,15 +1646,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="RequestHistoryTable" id="H5d-Vp-8dt" customClass="RequestHistoryTableVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kzq-Jz-rLL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RequestHistoryViewCell" rowHeight="90" id="B3y-Ef-0aC" customClass="RequestHistoryViewCell" customModule="SilverBell" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B3y-Ef-0aC" id="Y2e-Ld-Ik8">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default profile" translatesAutoresizingMaskIntoConstraints="NO" id="Qvj-6g-sUH">
@@ -1798,15 +1797,15 @@
             <objects>
                 <tableViewController id="Aua-dn-Uru" customClass="CaretakerTableVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nNW-Ec-Tks">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CaretakerTableViewCell" rowHeight="90" id="wWu-yh-1b2" customClass="CaretakerTableViewCell" customModule="SilverBell" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wWu-yh-1b2" id="68J-tA-adR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default profile" translatesAutoresizingMaskIntoConstraints="NO" id="U2R-R6-dL8">
@@ -1855,11 +1854,11 @@
             <objects>
                 <viewController id="cot-PI-y8v" customClass="CaretakerProfileVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gri-Dq-18K">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="C4A-B8-6BR">
-                                <rect key="frame" x="55" y="202" width="262" height="267.5"/>
+                                <rect key="frame" x="55" y="201.5" width="262" height="267.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jr-D3-rhl">
                                         <rect key="frame" x="77" y="0.0" width="108.5" height="55"/>
@@ -1917,20 +1916,20 @@
             <objects>
                 <viewController storyboardIdentifier="LoginCaretaker" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b9N-AD-deu" customClass="LoginCaretakerVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dF0-Em-zs0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ose-3z-qwe">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clouds" translatesAutoresizingMaskIntoConstraints="NO" id="EhP-z2-vts">
-                                <rect key="frame" x="0.0" y="567" width="1500" height="100"/>
+                                <rect key="frame" x="0.0" y="483" width="1500" height="85"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06q-1W-dlf">
-                                <rect key="frame" x="97.5" y="627" width="180" height="30"/>
+                                <rect key="frame" x="70" y="528" width="180" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="S9B-G4-TPH"/>
                                     <constraint firstAttribute="height" constant="30" id="dKf-xE-k8X"/>
@@ -1944,10 +1943,10 @@
                                 </connections>
                             </button>
                             <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mN8-QM-vhq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="yQZ-QK-Hcg">
-                                        <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                                        <rect key="frame" x="150.5" y="274" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="eLU-2Q-drc"/>
                                             <constraint firstAttribute="height" constant="20" id="q9v-xm-0cl"/>
@@ -2328,18 +2327,18 @@
             <objects>
                 <viewController storyboardIdentifier="CaretakerConversations" title="Caretaker Conversations" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H2d-lv-S85" customClass="CaretakerConversationsVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WgK-qF-DHo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mH8-G2-CNB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="b7j-rN-EOc" customClass="ConversationsTBCell" customModule="SilverBell" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="b7j-rN-EOc" customClass="ConversationsTBCell" customModule="SilverBell" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b7j-rN-EOc" id="00R-gw-t5j">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile pic" translatesAutoresizingMaskIntoConstraints="NO" id="kcc-LL-jec" customClass="RoundedImageView" customModule="SilverBell" customModuleProvider="target">
@@ -2350,19 +2349,19 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Name, last name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N99-IY-Iy9">
-                                                    <rect key="frame" x="80" y="15" width="230" height="24"/>
+                                                    <rect key="frame" x="80" y="15" width="175" height="24"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vd-D0-T6U">
-                                                    <rect key="frame" x="330" y="15" width="35" height="18"/>
+                                                    <rect key="frame" x="275" y="15" width="35" height="18"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clP-U9-Wcz">
-                                                    <rect key="frame" x="80" y="45" width="278" height="20"/>
+                                                    <rect key="frame" x="80" y="45" width="223" height="20"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2388,15 +2387,15 @@
                                             <outlet property="timeLabel" destination="2vd-D0-T6U" id="hmz-cO-9Xn"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Empty Cell" id="W7q-dU-2ZT">
-                                        <rect key="frame" x="0.0" y="108" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Empty Cell" id="W7q-dU-2ZT">
+                                        <rect key="frame" x="0.0" y="108" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W7q-dU-2ZT" id="i8X-Q5-LFa">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="zq7-vb-qVr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -2419,10 +2418,10 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KmA-tb-NyW">
-                                <rect key="frame" x="0.0" y="677" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="578" width="320" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please verify your email address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORb-Aj-4HL">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -2467,18 +2466,18 @@
             <objects>
                 <viewController storyboardIdentifier="CaretakerChat" title="Caretaker Chat" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GAc-us-gT4" customClass="CaretakerChatVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o5t-7Q-7gf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rSF-4I-lV4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Sender" id="zO8-Vt-8pX" customClass="SenderCell" customModule="SilverBell" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="30"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Sender" id="zO8-Vt-8pX" customClass="SenderCell" customModule="SilverBell" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zO8-Vt-8pX" id="nEN-sf-k9k">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R73-P4-zOY">
@@ -2525,22 +2524,22 @@
                                             <outlet property="profilePic" destination="2Ou-s7-fLb" id="08S-xE-ol9"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Receiver" id="T5t-XO-TB7" customClass="ReceiverCell" customModule="SilverBell" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="58" width="375" height="30"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Receiver" id="T5t-XO-TB7" customClass="ReceiverCell" customModule="SilverBell" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="58" width="320" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T5t-XO-TB7" id="RrK-3u-7wS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v9q-bb-Qsz">
-                                                    <rect key="frame" x="340" y="6" width="20" height="18"/>
+                                                    <rect key="frame" x="285" y="6" width="20" height="18"/>
                                                     <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="y3l-3F-fZR"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8w4-cb-gQc">
-                                                    <rect key="frame" x="345" y="6" width="10" height="18"/>
+                                                    <rect key="frame" x="290" y="6" width="10" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="aGY-PZ-tkT"/>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="g1a-zD-53s"/>
@@ -2826,7 +2825,7 @@
                 <navigationController storyboardIdentifier="CaretakerNavigation" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WtQ-6l-Fas" customClass="CaretakerNavVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gb7-K2-LAF">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3008,15 +3007,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="CaretakerRequestTable" id="JT5-Cg-Jd1" customClass="CaretakerRequestTableVC" customModule="SilverBell" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xAm-vo-1RA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RequestHistoryViewCell" rowHeight="90" id="ChT-Mk-LzQ" customClass="RequestHistoryViewCell" customModule="SilverBell" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ChT-Mk-LzQ" id="841-Kc-BbA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default profile" translatesAutoresizingMaskIntoConstraints="NO" id="1YS-2y-iaU">
