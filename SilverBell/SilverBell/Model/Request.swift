@@ -40,6 +40,7 @@ class Request: NSObject {
                             "caretakers/\(uidCaretaker)/requests/\(tag)": request]
         ref.updateChildValues(childUpdates, withCompletionBlock: { (errr, _) in
             if errr == nil{
+                completion(true)
             }
         })
     }

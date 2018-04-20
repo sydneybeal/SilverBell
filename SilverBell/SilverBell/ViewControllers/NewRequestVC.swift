@@ -34,7 +34,7 @@ class NewRequestVC: UIViewController {
         requestTime.resignFirstResponder()
         
         if let id = Auth.auth().currentUser?.uid {
-            Request.createRequest(uidUser: id, uidCaretaker: (caretaker?.id)!, date: self.requestDate.text!, time: self.requestTime.text!, additionalInfo: self.requestAdditionalInfo.text!, completion: {(user) in
+            Request.createRequest(uidUser: id, uidCaretaker: (caretaker?.id)!, date: self.requestDate.text!, time: self.requestTime.text!, additionalInfo: self.requestAdditionalInfo.text!, completion: {(complete) in
                 DispatchQueue.main.async {
                     if let navController = self.navigationController {
                         navController.popViewController(animated: true)
