@@ -13,6 +13,7 @@
 		8F2FAEF220221C2900A62458 /* Caretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FAEF120221C2900A62458 /* Caretaker.swift */; };
 		8F2FAEF62022460C00A62458 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FAEF52022460C00A62458 /* RatingControl.swift */; };
 		8F2FAEF82022486300A62458 /* CaretakerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FAEF72022486300A62458 /* CaretakerTableViewCell.swift */; };
+		8F3BD2712086764F001687E9 /* CaretakerRequestTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3BD2702086764F001687E9 /* CaretakerRequestTableVC.swift */; };
 		8F61F6491FD63E9800321514 /* newMessage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F61F6441FD63E9800321514 /* newMessage.wav */; };
 		8F61F6541FD63F2C00321514 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F61F6531FD63F2C00321514 /* Default-568h@2x.png */; };
 		8F61F6561FD6416B00321514 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F61F6551FD6416A00321514 /* GoogleService-Info.plist */; };
@@ -35,6 +36,7 @@
 		8F8E8F011FD646B900BF3ED7 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E8EFE1FD646B900BF3ED7 /* Message.swift */; };
 		8F8E8F051FD6485000BF3ED7 /* Helper Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E8F041FD6485000BF3ED7 /* Helper Files.swift */; };
 		8F8E8F081FDC6C5900BF3ED7 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E8F071FDC6C5900BF3ED7 /* HomeVC.swift */; };
+		8F989E31208A728D00093266 /* NewRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F989E30208A728D00093266 /* NewRequestVC.swift */; };
 		8FB8643C203B401600E044D6 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8643B203B401600E044D6 /* WelcomeVC.swift */; };
 		8FB8643E203B430800E044D6 /* LoginCaretakerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8643D203B430800E044D6 /* LoginCaretakerVC.swift */; };
 		8FEAF3BF1FD63D6200B3986F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAF3BE1FD63D6200B3986F /* AppDelegate.swift */; };
@@ -54,6 +56,7 @@
 		8F2FAEF120221C2900A62458 /* Caretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caretaker.swift; sourceTree = "<group>"; };
 		8F2FAEF52022460C00A62458 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		8F2FAEF72022486300A62458 /* CaretakerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerTableViewCell.swift; sourceTree = "<group>"; };
+		8F3BD2702086764F001687E9 /* CaretakerRequestTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerRequestTableVC.swift; sourceTree = "<group>"; };
 		8F61F6441FD63E9800321514 /* newMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = newMessage.wav; sourceTree = "<group>"; };
 		8F61F64D1FD63EC600321514 /* LandingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
 		8F61F64E1FD63EC600321514 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
@@ -76,6 +79,7 @@
 		8F8E8EFE1FD646B900BF3ED7 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		8F8E8F041FD6485000BF3ED7 /* Helper Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Helper Files.swift"; path = "SilverBell/Helper files/Helper Files.swift"; sourceTree = SOURCE_ROOT; };
 		8F8E8F071FDC6C5900BF3ED7 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		8F989E30208A728D00093266 /* NewRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRequestVC.swift; sourceTree = "<group>"; };
 		8FB8643B203B401600E044D6 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		8FB8643D203B430800E044D6 /* LoginCaretakerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCaretakerVC.swift; sourceTree = "<group>"; };
 		8FEAF3BB1FD63D6200B3986F /* SilverBell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilverBell.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,12 +132,14 @@
 				8F61F6521FD63EC600321514 /* ConversationsVC.swift */,
 				8F61F64F1FD63EC600321514 /* VCCells.swift */,
 				8F61F64E1FD63EC600321514 /* ChatVC.swift */,
+				8F989E30208A728D00093266 /* NewRequestVC.swift */,
 				8FB8643D203B430800E044D6 /* LoginCaretakerVC.swift */,
 				EAE031EE207804CD00E041EE /* CaretakerNavVC.swift */,
 				EA357A9A205FEC8B006E8F6A /* CaretakerHomeVC.swift */,
 				EAFEAFE920782E2D0087545C /* CaretakerOwnProfileVC.swift */,
 				EAFEAFE5207812C30087545C /* CaretakerConversationsVC.swift */,
 				EAFEAFE7207812DA0087545C /* CaretakerChatVC.swift */,
+				8F3BD2702086764F001687E9 /* CaretakerRequestTableVC.swift */,
 				8F786E4B208131D7001DCD06 /* CaretakerRequestVC.swift */,
 			);
 			path = ViewControllers;
@@ -368,6 +374,7 @@
 				8F2FAEF220221C2900A62458 /* Caretaker.swift in Sources */,
 				8F8E8F011FD646B900BF3ED7 /* Message.swift in Sources */,
 				8F2FAEEE201FE99000A62458 /* ProfileVC.swift in Sources */,
+				8F3BD2712086764F001687E9 /* CaretakerRequestTableVC.swift in Sources */,
 				8F8E8EEB1FD6451300BF3ED7 /* LoginUserVC.swift in Sources */,
 				8F8E8F081FDC6C5900BF3ED7 /* HomeVC.swift in Sources */,
 				8F7AC0E42029390E00CCE9D5 /* CaretakerTableVC.swift in Sources */,
@@ -376,6 +383,7 @@
 				EAFEAFE6207812C30087545C /* CaretakerConversationsVC.swift in Sources */,
 				EAE031EF207804CD00E041EE /* CaretakerNavVC.swift in Sources */,
 				8F7AC0E220292F1C00CCE9D5 /* CaretakerProfileVC.swift in Sources */,
+				8F989E31208A728D00093266 /* NewRequestVC.swift in Sources */,
 				8F6312AE207D3BFC001F6A36 /* RequestVC.swift in Sources */,
 				8F6312AA207C08D1001F6A36 /* RequestHistoryTableVC.swift in Sources */,
 				8F2FAEF62022460C00A62458 /* RatingControl.swift in Sources */,

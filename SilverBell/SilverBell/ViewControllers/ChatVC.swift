@@ -69,12 +69,13 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         let backButton = UIBarButtonItem.init(image: icon!, style: .plain, target: self, action: #selector(self.dismissSelf))
         self.navigationItem.leftBarButtonItem = backButton
         let icon1 = UIImage.init(named: "back")?.withRenderingMode(.alwaysOriginal)
-        let requestInfo = UIBarButtonItem.init(image: icon1!, style: .plain, target: self, action: #selector(self.pushToRequestInfo))
+        let requestInfo = UIBarButtonItem.init(image: icon1!, style: .plain, target: self, action: #selector(self.pushToNewRequest))
         self.navigationItem.rightBarButtonItem = requestInfo
         self.locationManager.delegate = self
         
         self.view.addSubview(self.RequestInfo)
         self.RequestInfo.isHidden = true
+        
     }
     
     //Downloads messages
@@ -99,9 +100,15 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         }
     }
     
-    @objc func pushToRequestInfo() {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.RequestInfo.isHidden = false
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showNewRequest" {
+            let vc = segue.destination as! NewRequestVC
+            vc.caretaker = self.currentUser
+        }
+    }
+    
+    @objc func pushToNewRequest(notification: NSNotification) {
+            self.performSegue(withIdentifier: "showNewRequest", sender: self)
     }
     
     @IBAction func sendRequest(_ sender: Any) {

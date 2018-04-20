@@ -1,20 +1,20 @@
 //
-//  TableViewController.swift
+//  CaretakerRequestTableVC.swift
 //  SilverBell
 //
-//  Created by Jackson Rossborough on 4/9/18.
+//  Created by Jackson Rossborough on 4/17/18.
 //  Copyright © 2018 Jackson Rossborough. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class RequestHistoryTableVC: UITableViewController {
+class CaretakerRequestTableVC: UITableViewController {
 
     var items = [Request]()
     var selectedRequest: Request?
-    var caretakerItems = [Caretaker]()
-    var selectedCaretaker: Caretaker?
+    var userItems = [User]()
+    var selectedUser: User?
     
     @IBOutlet var RequestHistoryTableView: UITableView!
     
@@ -24,14 +24,13 @@ class RequestHistoryTableVC: UITableViewController {
             self.fetchRequests()
     }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -48,12 +47,12 @@ class RequestHistoryTableVC: UITableViewController {
             fatalError("The dequeued cell is not an instance of RequestHistoryViewCell.")
         }
         let item = items[indexPath.row]
-        let caretakerItem = caretakerItems[indexPath.row]
+        let userItem = userItems[indexPath.row]
         let status: String
-        cell.nameLabel.text = caretakerItem.name
+        cell.nameLabel.text = userItem.name
         cell.dateLabel.text = item.date
         cell.timeLabel.text = item.time
-        cell.profilePic.image = caretakerItem.profilePic
+        cell.profilePic.image = userItem.profilePic
         if (item.accepted == true) {
             status = "Accepted"
         } else {
@@ -67,8 +66,8 @@ class RequestHistoryTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.items.count > 0 {
             self.selectedRequest = self.items[indexPath.row]
-            self.selectedCaretaker = self.caretakerItems[indexPath.row]
-            self.performSegue(withIdentifier: "requestSegue", sender: self)
+            self.selectedUser = self.userItems[indexPath.row]
+            self.performSegue(withIdentifier: "caretakerRequestSegue", sender: self)
         }
     }
     
@@ -77,10 +76,10 @@ class RequestHistoryTableVC: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "requestSegue" {
-            let vc = segue.destination as! RequestVC
+        if segue.identifier == "caretakerRequestSegue" {
+            let vc = segue.destination as! CaretakerRequestVC
             vc.request = self.selectedRequest
-            vc.caretaker = self.selectedCaretaker
+            vc.user = self.selectedUser
         }
     }
     
@@ -88,22 +87,22 @@ class RequestHistoryTableVC: UITableViewController {
     func fetchRequests()  {
         if let id = Auth.auth().currentUser?.uid {
             Request.downloadAllRequestsUser(uidUser: id, completion: {(request) in
-                    self.items.append(request)
-                    Caretaker.info(forUserID: request.uidCaretaker, completion: {(caretaker) in
-                        self.caretakerItems.append(caretaker)
-                    })
+                self.items.append(request)
+                User.info(forUserID: request.uidUser, completion: {(user) in
+                    self.userItems.append(user)
+                })
             })
             self.reloadTable()
         }
     }
     
     func reloadTable() {
-        if (self.caretakerItems.count != self.items.count || self.items.count == 0) {
+        if (self.userItems.count != self.items.count || self.items.count == 0) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.reloadTable()
             }
         }
-        if (self.caretakerItems.count == self.items.count) {
+        if (self.userItems.count == self.items.count) {
             DispatchQueue.main.async {
                 self.RequestHistoryTableView.reloadData()
             }
@@ -113,7 +112,7 @@ class RequestHistoryTableVC: UITableViewController {
     @objc func pushToCaretakerProfile(notification: NSNotification) {
         if let request = notification.userInfo?["request"] as? Request {
             self.selectedRequest = request
-            self.performSegue(withIdentifier: "requestSegue", sender: self)
+            self.performSegue(withIdentifier: "caretakerRequestSegue", sender: self)
         }
     }
 
