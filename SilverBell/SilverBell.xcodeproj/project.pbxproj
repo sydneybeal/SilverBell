@@ -227,7 +227,6 @@
 				8FEAF3B81FD63D6200B3986F /* Frameworks */,
 				8FEAF3B91FD63D6200B3986F /* Resources */,
 				49669C11E5B6764511749451 /* [CP] Embed Pods Frameworks */,
-				ED443C3584B05B8EFD0ADDAF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -330,21 +329,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-SilverBell/Pods-SilverBell-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ED443C3584B05B8EFD0ADDAF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-SilverBell/Pods-SilverBell-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
