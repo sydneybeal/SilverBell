@@ -24,6 +24,7 @@
 import Foundation
 import UIKit
 import Firebase
+import CoreLocation
 
 class User: NSObject {
     
@@ -57,6 +58,20 @@ class User: NSObject {
             }
             else {
                 completion(false)
+            }
+        })
+    }
+    
+    class func additionalUserInfo(uid: String, lat: Double, long: Double, phone: String, completion: @escaping (Bool) -> Swift.Void) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        let update = ["Latitude": lat,
+                      "Longitude": long,
+                      "Phone Number": phone] as [String : Any]
+        let childUpdates = ["users/\(uid)/AdditionalInfo": update]
+        ref.updateChildValues(childUpdates, withCompletionBlock: { (errr, _) in
+            if errr == nil{
+                completion(true)
             }
         })
     }
@@ -123,6 +138,23 @@ class User: NSObject {
                 }
             }
         })
+    }
+    
+    class func sortUsersByLocation(users: [User], completion: @escaping ([User]) -> Swift.Void) {
+        let locations: [CLLocation]
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        var geocoder = CLGeocoder()
+        for user in users {
+            ref.child("users").child(user.id).child("AdditionalInfo").observeSingleEvent(of: .value, with: { (snapshot) in
+                if let data = snapshot.value as? [AnyHashable: Any]{
+                    let lat = data["Latitude"]
+                    let long = data["Longitude"]
+                    let location = CLLocation.init(latitude: lat as! CLLocationDegrees, longitude: long as! CLLocationDegrees)
+                    
+                }
+            })
+        }
     }
     
     class func checkUserVerification(completion: @escaping (Bool) -> Swift.Void) {

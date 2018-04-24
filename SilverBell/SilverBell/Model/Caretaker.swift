@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
+import CoreLocation
 
 class Caretaker: NSObject {
     
@@ -42,6 +43,20 @@ class Caretaker: NSObject {
             }
             else {
                 completion(false)
+            }
+        })
+    }
+    
+    class func additionalCaretakerInfo(uid: String, lat: Double, long: Double, phone: String, completion: @escaping (Bool) -> Swift.Void) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        let update = ["Latitude": lat,
+                      "Longitude": long,
+                      "Phone Number": phone] as [String : Any]
+        let childUpdates = ["caretakers/\(uid)/AdditionalInfo": update]
+        ref.updateChildValues(childUpdates, withCompletionBlock: { (errr, _) in
+            if errr == nil{
+                completion(true)
             }
         })
     }
@@ -107,6 +122,44 @@ class Caretaker: NSObject {
                 }
             }
         })
+    }
+    
+    class func getCaretakerCount(completion: @escaping (Int) -> Swift.Void) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref.child("caretakers").observeSingleEvent(of: .value, with: {(snapshot) in
+        if let data = snapshot.value as? String {
+            let numCaretakers = data.count
+            completion(numCaretakers)
+            }
+        })
+    }
+    
+    class func sortCaretakersByLocation(caretakers: [Caretaker], uidUser: String, completion: @escaping ([Caretaker],[CLLocationDistance]) -> Swift.Void) {
+        var distances = [CLLocationDistance()]
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref.child("users").child(uidUser).child("AdditionalInfo").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let data = snapshot.value as? [AnyHashable: Any]{
+                let lat = data["Latitude"]
+                let long = data["Longitude"]
+                let userLocation = CLLocation.init(latitude: lat as! CLLocationDegrees, longitude: long as! CLLocationDegrees)
+                for caretaker in caretakers {
+                    ref.child("caretakers").child(caretaker.id).child("AdditionalInfo").observeSingleEvent(of: .value, with: { (snapshot) in
+                        if let data = snapshot.value as? [AnyHashable: Any]{
+                            let lat = data["Latitude"]
+                            let long = data["Longitude"]
+                            let location = CLLocation.init(latitude: lat as! CLLocationDegrees, longitude: long as! CLLocationDegrees)
+                            distances.append(location.distance(from: userLocation))
+                        }
+                    })
+                }
+            }
+        })
+        let combined = zip(distances, caretakers).sorted(by: {$0.0 < $1.0})
+        let sortedCaretakers = combined.map {$0.1}
+        let sortedDistances = combined.map {$0.0}
+        completion(sortedCaretakers,sortedDistances)
     }
     
     class func checkCaretakerVerification(completion: @escaping (Bool) -> Swift.Void) {

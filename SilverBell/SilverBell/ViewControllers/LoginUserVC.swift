@@ -23,6 +23,8 @@
 
 import UIKit
 import Photos
+import Firebase
+import CoreLocation
 
 class LoginUserVC: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -30,6 +32,7 @@ class LoginUserVC: UIViewController, UITextFieldDelegate, UINavigationController
     @IBOutlet weak var darkView: UIView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet var registerView: UIView!
+    @IBOutlet var register2View: UIView!
     @IBOutlet var loginView: UIView!
     @IBOutlet weak var profilePicView: RoundedImageView!
     @IBOutlet weak var registerNameField: UITextField!
@@ -38,11 +41,19 @@ class LoginUserVC: UIViewController, UITextFieldDelegate, UINavigationController
     @IBOutlet var waringLabels: [UILabel]!
     @IBOutlet weak var loginEmailField: UITextField!
     @IBOutlet weak var loginPasswordField: UITextField!
+    @IBOutlet weak var address1: UITextField!
+    @IBOutlet weak var cityField: UITextField!
+    @IBOutlet weak var stateField: UITextField!
+    @IBOutlet weak var zipField: UITextField!
+    @IBOutlet weak var phoneField: UITextField!
     @IBOutlet weak var cloudsView: UIImageView!
     @IBOutlet weak var cloudsViewLeading: NSLayoutConstraint!
     @IBOutlet var inputFields: [UITextField]!
+    @IBOutlet var input2Fields: [UITextField]!
+    
     var loginViewTopConstraint: NSLayoutConstraint!
     var registerTopConstraint: NSLayoutConstraint!
+    var register2TopConstraint: NSLayoutConstraint!
     let imagePicker = UIImagePickerController()
     var isLoginViewVisible = true
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -75,6 +86,16 @@ class LoginUserVC: UIViewController, UITextFieldDelegate, UINavigationController
         self.registerView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.6).isActive = true
         self.registerView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8).isActive = true
         self.registerView.layer.cornerRadius = 8
+        
+        //Register2View Customization
+        self.view.insertSubview(self.register2View, belowSubview: self.cloudsView)
+        self.register2View.translatesAutoresizingMaskIntoConstraints = false
+        self.register2View.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.register2TopConstraint = NSLayoutConstraint.init(item: self.register2View, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 1000)
+        self.register2TopConstraint.isActive = true
+        self.register2View.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.6).isActive = true
+        self.register2View.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8).isActive = true
+        self.register2View.layer.cornerRadius = 8
     }
    
     func cloundsAnimation() {
@@ -132,11 +153,13 @@ class LoginUserVC: UIViewController, UITextFieldDelegate, UINavigationController
             sender.setTitle("Login", for: .normal)
             self.loginViewTopConstraint.constant = 1000
             self.registerTopConstraint.constant = 60
+            self.register2TopConstraint.constant = 1000
         } else {
             self.isLoginViewVisible = true
             sender.setTitle("Create New Account", for: .normal)
             self.loginViewTopConstraint.constant = 60
             self.registerTopConstraint.constant = 1000
+            self.register2TopConstraint.constant = 1000
         }
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
             self.view.layoutIfNeeded()
@@ -158,11 +181,52 @@ class LoginUserVC: UIViewController, UITextFieldDelegate, UINavigationController
                     item.text = ""
                 }
                 if status == true {
-                    weakSelf?.pushTomainView()
-                    weakSelf?.profilePicView.image = UIImage.init(named: "profile pic")
+                    self.registerTopConstraint.constant = 1000
+                    self.register2TopConstraint.constant = 60
+                    //weakSelf?.pushTomainView()
+                    //weakSelf?.profilePicView.image = UIImage.init(named: "profile pic")
                 } else {
                     for item in (weakSelf?.waringLabels)! {
                         item.isHidden = false
+                    }
+                }
+            }
+        }
+    }
+    
+    @IBAction func register2(_ sender: Any) {
+        for item in self.input2Fields {
+            item.resignFirstResponder()
+        }
+        self.showLoading(state: true)
+        let address = "\(address1.text!), \(cityField.text!), \(stateField.text!) \(zipField.text!)"
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address) { (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let lat = placemarks.first?.location?.coordinate.latitude,
+                let long = placemarks.first?.location?.coordinate.longitude
+            else {
+                    for item in (self.waringLabels)! {
+                        item.isHidden = false
+                    }
+                    return
+            }
+            if let id = Auth.auth().currentUser?.uid {
+                User.additionalUserInfo(uid: id, lat: lat, long: long as Double, phone: self.phoneField.text!) { [weak weakSelf = self] (status) in
+                    DispatchQueue.main.async {
+                        weakSelf?.showLoading(state: false)
+                        for item in self.input2Fields {
+                            item.text = ""
+                        }
+                        if status == true {
+                            weakSelf?.pushTomainView()
+                            weakSelf?.profilePicView.image = UIImage.init(named: "profile pic")
+                        } else {
+                            for item in (weakSelf?.waringLabels)! {
+                                item.isHidden = false
+                            }
+                        }
                     }
                 }
             }

@@ -86,7 +86,7 @@ class CaretakerRequestTableVC: UITableViewController {
     
     func fetchRequests()  {
         if let id = Auth.auth().currentUser?.uid {
-            Request.downloadAllRequestsUser(uidUser: id, completion: {(request) in
+            Request.downloadAllRequestsCaretaker(uidCaretaker: id, completion: {(request) in
                 self.items.append(request)
                 User.info(forUserID: request.uidUser, completion: {(user) in
                     self.userItems.append(user)

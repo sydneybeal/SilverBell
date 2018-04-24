@@ -51,8 +51,9 @@ class CaretakerRequestVC: UIViewController {
     
     @IBAction func acceptRequest(_ sender: Any) {
         if let id = Auth.auth().currentUser?.uid {
-            Request.acceptRequest(tag: (request?.tag)!, uidUser: id, uidCaretaker: (request?.uidCaretaker)!, completion: {(status) in
+            Request.acceptRequest(tag: (request?.tag)!, uidUser: (request?.uidUser)!, uidCaretaker: id, completion: {(status) in
                 if status == true {
+                    super.viewDidLoad()
                     self.customization()
                 }
             })

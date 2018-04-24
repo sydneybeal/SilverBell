@@ -8,13 +8,17 @@
 
 import UIKit
 import Firebase
+import CoreLocation
 
 class CaretakerTableVC: UITableViewController {
     
     // MARK: Properties
     
     var items = [Caretaker]()
+    var sortedItems = [Caretaker]()
+    var sortedDistances = [CLLocationDistance]()
     var selectedUser: Caretaker?
+    var numOfCaretakers = Int()
     
     @IBOutlet weak var caretakerTableView: UITableView!
     
@@ -130,12 +134,35 @@ class CaretakerTableVC: UITableViewController {
     
     func fetchUsers()  {
         if let id = Auth.auth().currentUser?.uid {
+            Caretaker.getCaretakerCount { (numCaretakers) in
+                self.numOfCaretakers = numCaretakers
+            }
             Caretaker.downloadAllCaretakers(exceptID: id, completion: {(caretaker) in
                 DispatchQueue.main.async {
                     self.items.append(caretaker)
-                    self.caretakerTableView.reloadData()
+                    //self.caretakerTableView.reloadData()
                 }
             })
+            self.sortUsers()
+        }
+    }
+    
+    func sortUsers() {
+        if self.items.count == self.numOfCaretakers {
+            if let id = Auth.auth().currentUser?.uid {
+                Caretaker.sortCaretakersByLocation(caretakers: self.items, uidUser: id) { (sortedItems, sortedDistances) in
+                    DispatchQueue.main.async {
+                        self.sortedDistances = sortedDistances
+                        self.sortedItems = sortedItems
+                        self.caretakerTableView.reloadData()
+                    }
+                }
+            }
+            else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.sortUsers()
+                }
+            }
         }
     }
     
