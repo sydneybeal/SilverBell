@@ -49,17 +49,18 @@ class CaretakerTableVC: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CaretakerTableViewCell  else {
             fatalError("The dequeued cell is not an instance of CaretkaerTableViewCell.")
         }
-        let item = items[indexPath.row]
+        let item = sortedItems[indexPath.row]
         cell.nameLabel.text = item.name
         cell.profilePic.image = item.profilePic
         cell.ratingControl.rating = item.rating
+        // m to mi is * by .000621
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.items.count > 0 {
-            self.selectedUser = self.items[indexPath.row]
+            self.selectedUser = self.sortedItems[indexPath.row]
             self.performSegue(withIdentifier: "caretakerSegue", sender: self)
         }
     }
@@ -134,9 +135,9 @@ class CaretakerTableVC: UITableViewController {
     
     func fetchUsers()  {
         if let id = Auth.auth().currentUser?.uid {
-            Caretaker.getCaretakerCount { (numCaretakers) in
-                self.numOfCaretakers = numCaretakers
-            }
+            Caretaker.getCaretakerCount(completion: {(numCaretakers) in
+                    self.numOfCaretakers = numCaretakers
+            })
             Caretaker.downloadAllCaretakers(exceptID: id, completion: {(caretaker) in
                 DispatchQueue.main.async {
                     self.items.append(caretaker)
@@ -148,7 +149,7 @@ class CaretakerTableVC: UITableViewController {
     }
     
     func sortUsers() {
-        if self.items.count == self.numOfCaretakers {
+        if self.items.count == self.numOfCaretakers && self.numOfCaretakers != 0 {
             if let id = Auth.auth().currentUser?.uid {
                 Caretaker.sortCaretakersByLocation(caretakers: self.items, uidUser: id) { (sortedItems, sortedDistances) in
                     DispatchQueue.main.async {
@@ -158,12 +159,11 @@ class CaretakerTableVC: UITableViewController {
                     }
                 }
             }
-            else {
+        } else {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     self.sortUsers()
                 }
             }
-        }
     }
     
     @objc func pushToCaretakerProfile(notification: NSNotification) {

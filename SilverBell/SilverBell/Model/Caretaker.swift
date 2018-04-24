@@ -24,18 +24,28 @@ class Caretaker: NSObject {
     class func registerCaretaker(withName: String, email: String, password: String, profilePic: UIImage, rating: Int, completion: @escaping (Bool) -> Swift.Void) {
         Auth.auth().createUser(withEmail: email, password: password, completion: { (caretaker, error) in
             if error == nil {
-                caretaker?.sendEmailVerification(completion: nil)
-                let storageRef = Storage.storage().reference().child("caretakersProfilePics").child(caretaker!.uid)
-                let imageData = UIImageJPEGRepresentation(profilePic, 0.1)
-                storageRef.putData(imageData!, metadata: nil, completion: { (metadata, err) in
-                    if err == nil {
-                        let path = metadata?.downloadURL()?.absoluteString
-                        let values = ["name": withName, "email": email, "profilePicLink": path!, "rating": rating] as [AnyHashable : Any]
-                        Database.database().reference().child("caretakers").child((caretaker?.uid)!).child("credentials").updateChildValues(values, withCompletionBlock: { (errr, _) in
-                            if errr == nil {
-                                let userInfo = ["email": email, "password": password, "caretaker": true] as [String : Any]
-                                UserDefaults.standard.set(userInfo, forKey: "userInformation")
-                                completion(true)
+                var caretakerCount = 0
+                Database.database().reference().child("Counts").observeSingleEvent(of: .value, with: { (snapshot) in
+                    let data = snapshot.value as! [String: Int]
+                    caretakerCount = data["Caretakers"]!
+                    caretakerCount += 1
+                })
+                Database.database().reference().child("Counts").updateChildValues(["Caretakers": caretakerCount], withCompletionBlock: { (errr, _) in
+                    if errr == nil {
+                        caretaker?.sendEmailVerification(completion: nil)
+                        let storageRef = Storage.storage().reference().child("caretakersProfilePics").child(caretaker!.uid)
+                        let imageData = UIImageJPEGRepresentation(profilePic, 0.1)
+                        storageRef.putData(imageData!, metadata: nil, completion: { (metadata, err) in
+                            if err == nil {
+                                let path = metadata?.downloadURL()?.absoluteString
+                                let values = ["name": withName, "email": email, "profilePicLink": path!, "rating": rating] as [AnyHashable : Any]
+                                Database.database().reference().child("caretakers").child((caretaker?.uid)!).child("credentials").updateChildValues(values, withCompletionBlock: { (errr, _) in
+                                    if errr == nil {
+                                        let userInfo = ["email": email, "password": password, "caretaker": true] as [String : Any]
+                                        UserDefaults.standard.set(userInfo, forKey: "userInformation")
+                                        completion(true)
+                                    }
+                                })
                             }
                         })
                     }
@@ -127,41 +137,58 @@ class Caretaker: NSObject {
     class func getCaretakerCount(completion: @escaping (Int) -> Swift.Void) {
         var ref: DatabaseReference!
         ref = Database.database().reference()
-        ref.child("caretakers").observeSingleEvent(of: .value, with: {(snapshot) in
-        if let data = snapshot.value as? String {
-            let numCaretakers = data.count
+        ref.child("Counts").observeSingleEvent(of: .value, with: {(snapshot) in
+            if let data = snapshot.value as? [String: Int] {
+            let numCaretakers = data["Caretakers"]!
             completion(numCaretakers)
             }
         })
     }
     
-    class func sortCaretakersByLocation(caretakers: [Caretaker], uidUser: String, completion: @escaping ([Caretaker],[CLLocationDistance]) -> Swift.Void) {
-        var distances = [CLLocationDistance()]
-        var ref: DatabaseReference!
-        ref = Database.database().reference()
-        ref.child("users").child(uidUser).child("AdditionalInfo").observeSingleEvent(of: .value, with: { (snapshot) in
-            if let data = snapshot.value as? [AnyHashable: Any]{
-                let lat = data["Latitude"]
-                let long = data["Longitude"]
-                let userLocation = CLLocation.init(latitude: lat as! CLLocationDegrees, longitude: long as! CLLocationDegrees)
-                for caretaker in caretakers {
-                    ref.child("caretakers").child(caretaker.id).child("AdditionalInfo").observeSingleEvent(of: .value, with: { (snapshot) in
-                        if let data = snapshot.value as? [AnyHashable: Any]{
-                            let lat = data["Latitude"]
-                            let long = data["Longitude"]
-                            let location = CLLocation.init(latitude: lat as! CLLocationDegrees, longitude: long as! CLLocationDegrees)
-                            distances.append(location.distance(from: userLocation))
-                        }
-                    })
+    class func sortCaretakersByLocation(caretakers: [Caretaker], uidUser: String, Completion: @escaping ([Caretaker],[CLLocationDistance]) -> Swift.Void) {
+        
+            let getUserLoc = DispatchGroup()
+            let getCareDistances = DispatchGroup()
+            var distances = [CLLocationDistance()]
+            var ref: DatabaseReference!
+            var userLocation = CLLocation()
+            ref = Database.database().reference()
+        
+            getUserLoc.enter()
+            ref.child("users").child(uidUser).child("AdditionalInfo").observeSingleEvent(of: .value, with: { (snapshot) in
+                if let data = snapshot.value as? [String: Any]{
+                    let lat = data["Latitude"] as! Double
+                    let long = data["Longitude"] as! Double
+                    userLocation = CLLocation.init(latitude: lat, longitude: long)
+                    getUserLoc.leave()
                 }
+            })
+        getUserLoc.notify(queue: DispatchQueue.main) {
+            for i in 0...(caretakers.count-1) {
+                getCareDistances.enter()
+                ref.child("caretakers").child(caretakers[i].id).child("AdditionalInfo").observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let data = snapshot.value as? [AnyHashable: Any]{
+                        let lat = data["Latitude"] as! Double
+                        let long = data["Longitude"] as! Double
+                        let location = CLLocation.init(latitude: lat , longitude: long)
+                        let distance = location.distance(from: userLocation)
+                        print(distance)
+                        distances.append(distance)
+                        getCareDistances.leave()
+                    }
+                })
             }
-        })
-        let combined = zip(distances, caretakers).sorted(by: {$0.0 < $1.0})
-        let sortedCaretakers = combined.map {$0.1}
-        let sortedDistances = combined.map {$0.0}
-        completion(sortedCaretakers,sortedDistances)
+            getCareDistances.notify(queue: DispatchQueue.main) {
+                distances.remove(at: 0)
+                let combined = zip(distances, caretakers)
+                let combinedSorted = combined.sorted(by: {$0.0 < $1.0})
+                let sortedCaretakers = combinedSorted.map {$0.1}
+                let sortedDistances = combinedSorted.map {$0.0}
+                Completion(sortedCaretakers,sortedDistances)
+            }
+        }
     }
-    
+
     class func checkCaretakerVerification(completion: @escaping (Bool) -> Swift.Void) {
         Auth.auth().currentUser?.reload(completion: { (_) in
             let status = (Auth.auth().currentUser?.isEmailVerified)!
