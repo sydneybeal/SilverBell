@@ -37,6 +37,7 @@
 		8F8E8F051FD6485000BF3ED7 /* Helper Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E8F041FD6485000BF3ED7 /* Helper Files.swift */; };
 		8F8E8F081FDC6C5900BF3ED7 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E8F071FDC6C5900BF3ED7 /* HomeVC.swift */; };
 		8F989E31208A728D00093266 /* NewRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F989E30208A728D00093266 /* NewRequestVC.swift */; };
+		8FA6F56B2094D17200ED2A45 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA6F56A2094D17200ED2A45 /* MapKit.framework */; };
 		8FB8643C203B401600E044D6 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8643B203B401600E044D6 /* WelcomeVC.swift */; };
 		8FB8643E203B430800E044D6 /* LoginCaretakerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8643D203B430800E044D6 /* LoginCaretakerVC.swift */; };
 		8FEAF3BF1FD63D6200B3986F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAF3BE1FD63D6200B3986F /* AppDelegate.swift */; };
@@ -80,6 +81,7 @@
 		8F8E8F041FD6485000BF3ED7 /* Helper Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Helper Files.swift"; path = "SilverBell/Helper files/Helper Files.swift"; sourceTree = SOURCE_ROOT; };
 		8F8E8F071FDC6C5900BF3ED7 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		8F989E30208A728D00093266 /* NewRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRequestVC.swift; sourceTree = "<group>"; };
+		8FA6F56A2094D17200ED2A45 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8FB8643B203B401600E044D6 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		8FB8643D203B430800E044D6 /* LoginCaretakerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCaretakerVC.swift; sourceTree = "<group>"; };
 		8FEAF3BB1FD63D6200B3986F /* SilverBell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilverBell.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FA6F56B2094D17200ED2A45 /* MapKit.framework in Frameworks */,
 				51BAD9744E840CCF77024F41 /* Pods_SilverBell.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +114,7 @@
 		18C04349C5CC7C0122F641D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8FA6F56A2094D17200ED2A45 /* MapKit.framework */,
 				FE5A7414F334DA02F966BF52 /* Pods_SilverBell.framework */,
 			);
 			name = Frameworks;
@@ -251,6 +255,11 @@
 						CreatedOnToolsVersion = 9.1;
 						DevelopmentTeam = 8JESYJX97Z;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

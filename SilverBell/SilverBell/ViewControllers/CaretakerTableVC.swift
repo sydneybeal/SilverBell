@@ -50,9 +50,14 @@ class CaretakerTableVC: UITableViewController {
             fatalError("The dequeued cell is not an instance of CaretkaerTableViewCell.")
         }
         let item = sortedItems[indexPath.row]
+        var distance = sortedDistances[indexPath.row]
         cell.nameLabel.text = item.name
         cell.profilePic.image = item.profilePic
         cell.ratingControl.rating = item.rating
+        distance = distance * 0.000621
+        var distanceString = String(format: "%.2f", distance)
+        distanceString = "\(distanceString) mi"
+        cell.distanceLabel.text = distanceString
         // m to mi is * by .000621
         
         return cell

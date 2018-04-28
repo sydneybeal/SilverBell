@@ -172,7 +172,6 @@ class Caretaker: NSObject {
                         let long = data["Longitude"] as! Double
                         let location = CLLocation.init(latitude: lat , longitude: long)
                         let distance = location.distance(from: userLocation)
-                        print(distance)
                         distances.append(distance)
                         getCareDistances.leave()
                     }

@@ -2125,31 +2125,48 @@
                                                 <constraint firstAttribute="width" secondItem="U2R-R6-dL8" secondAttribute="height" multiplier="1:1" id="xwM-9N-vMv"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3pw-C3-OeI">
-                                            <rect key="frame" x="104" y="11" width="210" height="55"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3pw-C3-OeI">
+                                            <rect key="frame" x="104" y="11" width="200" height="55"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="40"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" distribution="fillEqually" alignment="center" spacing="-9" translatesAutoresizingMaskIntoConstraints="NO" id="q6w-c9-nUr" customClass="RatingControl" customModule="SilverBell" customModuleProvider="target">
-                                            <rect key="frame" x="120" y="55" width="184" height="44"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtT-sO-EBo">
+                                            <rect key="frame" x="249" y="65" width="66" height="24"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" misplaced="YES" distribution="fillEqually" alignment="center" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="q6w-c9-nUr" customClass="RatingControl" customModule="SilverBell" customModuleProvider="target">
+                                            <rect key="frame" x="101" y="54" width="140" height="35"/>
                                             <color key="backgroundColor" red="0.1179535941" green="0.64549274499999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                                    <size key="value" width="32" height="34"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </stackView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.001671565929" green="0.25569176669999999" blue="0.68551325799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="3pw-C3-OeI" firstAttribute="top" secondItem="68J-tA-adR" secondAttribute="top" constant="11" id="0y0-H1-Nxx"/>
-                                        <constraint firstItem="q6w-c9-nUr" firstAttribute="top" secondItem="68J-tA-adR" secondAttribute="top" constant="55" id="58z-7j-RTv"/>
+                                        <constraint firstItem="q6w-c9-nUr" firstAttribute="top" secondItem="68J-tA-adR" secondAttribute="top" constant="54" id="58z-7j-RTv"/>
+                                        <constraint firstAttribute="trailing" secondItem="UtT-sO-EBo" secondAttribute="trailing" constant="5" id="5OD-ae-XQ5"/>
+                                        <constraint firstAttribute="bottom" secondItem="UtT-sO-EBo" secondAttribute="bottom" constant="10" id="AVf-rE-Dye"/>
                                         <constraint firstItem="U2R-R6-dL8" firstAttribute="top" secondItem="68J-tA-adR" secondAttribute="top" id="F4k-q8-QRd"/>
                                         <constraint firstAttribute="trailing" secondItem="3pw-C3-OeI" secondAttribute="trailing" constant="6" id="Kp5-Lk-74O"/>
                                         <constraint firstAttribute="trailing" secondItem="U2R-R6-dL8" secondAttribute="trailing" constant="224" id="LIc-Zr-vyg"/>
                                         <constraint firstItem="U2R-R6-dL8" firstAttribute="leading" secondItem="68J-tA-adR" secondAttribute="leading" constant="6" id="jtP-Nb-l5p"/>
                                         <constraint firstAttribute="bottom" secondItem="U2R-R6-dL8" secondAttribute="bottom" constant="9.5" id="mbF-Gr-cNz"/>
                                         <constraint firstItem="3pw-C3-OeI" firstAttribute="leading" secondItem="U2R-R6-dL8" secondAttribute="trailing" constant="8" id="rsK-Z9-x6Q"/>
-                                        <constraint firstAttribute="trailing" secondItem="q6w-c9-nUr" secondAttribute="trailing" constant="16" id="sFR-K5-URa"/>
+                                        <constraint firstAttribute="trailing" secondItem="q6w-c9-nUr" secondAttribute="trailing" constant="80" id="sFR-K5-URa"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="distanceLabel" destination="UtT-sO-EBo" id="zPq-7P-ZhN"/>
                                     <outlet property="nameLabel" destination="3pw-C3-OeI" id="qT3-1f-Ap8"/>
                                     <outlet property="profilePic" destination="U2R-R6-dL8" id="aT9-ik-BCA"/>
                                     <outlet property="ratingControl" destination="q6w-c9-nUr" id="Aqt-h1-hcf"/>
@@ -2161,13 +2178,19 @@
                             <outlet property="delegate" destination="Aua-dn-Uru" id="eNs-0e-1jC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Caretakers" id="wjT-1d-5fM"/>
+                    <navigationItem key="navigationItem" title="Caretakers" id="wjT-1d-5fM">
+                        <barButtonItem key="rightBarButtonItem" title="Map View" id="jkI-FS-2w5"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="caretakerTableView" destination="nNW-Ec-Tks" id="08f-wC-hrS"/>
                         <segue destination="cot-PI-y8v" kind="show" identifier="caretakerSegue" id="AKX-Cu-YRk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2de-j9-Zp8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="qkO-JH-0Dn">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="193"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </mapView>
             </objects>
             <point key="canvasLocation" x="1083.75" y="-1426.056338028169"/>
         </scene>
