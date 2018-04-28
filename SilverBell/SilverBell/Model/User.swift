@@ -40,11 +40,17 @@ class User: NSObject {
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             if error == nil {
                 var userCount = 0
+                let myGroup = DispatchGroup()
+                
+                myGroup.enter()
                 Database.database().reference().child("Counts").observeSingleEvent(of: .value, with: { (snapshot) in
                     let data = snapshot.value as! [String: Int]
                     userCount = data["Users"]!
                     userCount += 1
+                    myGroup.leave()
                 })
+                
+                myGroup.notify(queue: DispatchQueue.main) {
                 Database.database().reference().child("Counts").updateChildValues(["Users": userCount], withCompletionBlock: { (errr, _) in
                     if errr == nil {
                         user?.sendEmailVerification(completion: nil)
@@ -65,6 +71,7 @@ class User: NSObject {
                         })
                     }
                 })
+                }
             }
             else {
                 completion(false)

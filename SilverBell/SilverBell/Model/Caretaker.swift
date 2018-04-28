@@ -25,11 +25,16 @@ class Caretaker: NSObject {
         Auth.auth().createUser(withEmail: email, password: password, completion: { (caretaker, error) in
             if error == nil {
                 var caretakerCount = 0
+                let myGroup = DispatchGroup()
+                
+                myGroup.enter()
                 Database.database().reference().child("Counts").observeSingleEvent(of: .value, with: { (snapshot) in
                     let data = snapshot.value as! [String: Int]
                     caretakerCount = data["Caretakers"]!
                     caretakerCount += 1
+                    myGroup.leave()
                 })
+                myGroup.notify(queue: DispatchQueue.main) {
                 Database.database().reference().child("Counts").updateChildValues(["Caretakers": caretakerCount], withCompletionBlock: { (errr, _) in
                     if errr == nil {
                         caretaker?.sendEmailVerification(completion: nil)
@@ -50,6 +55,7 @@ class Caretaker: NSObject {
                         })
                     }
                 })
+                }
             }
             else {
                 completion(false)
