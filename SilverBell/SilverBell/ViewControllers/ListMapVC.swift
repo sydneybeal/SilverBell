@@ -16,8 +16,9 @@ class ListMapVC: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     var caretakers = [Caretaker]()
-    var userLocation = CLLocationCoordinate2D()
+    var userCoordinates = CLLocationCoordinate2D()
     var distances = [CLLocationDistance]()
+    var selectedCaretaker: Caretaker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,9 @@ class ListMapVC: UIViewController {
                 if let data = snapshot.value as? [String: Any]{
                     let lat = data["Latitude"] as! Double
                     let long = data["Longitude"] as! Double
-                    self.userLocation = CLLocationCoordinate2D.init(latitude: lat, longitude: long)
+                    self.userCoordinates = CLLocationCoordinate2D.init(latitude: lat, longitude: long)
+                    let userLocation = UserLocation.init(coordinate: self.userCoordinates, title: "My Address")
+                    self.mapView.addAnnotation(userLocation)
                     group1.leave()
                 }
             })
@@ -46,25 +49,65 @@ class ListMapVC: UIViewController {
                 if let data = snapshot.value as? [String: Any]{
                     let lat = data["Latitude"] as! Double
                     let long = data["Longitude"] as! Double
-                    deltaLat = abs(lat - self.userLocation.latitude)
-                    deltaLong = abs(long - self.userLocation.longitude)
+                    deltaLat = abs(lat - self.userCoordinates.latitude)
+                    deltaLong = abs(long - self.userCoordinates.longitude)
                     group2.leave()
                 }
             })
             group2.notify(queue: DispatchQueue.main) {
-                let span = MKCoordinateSpanMake(deltaLat, deltaLong)
-                let region = MKCoordinateRegion(center: self.userLocation, span: span)
+                let span = MKCoordinateSpanMake(deltaLat + 0.05, deltaLong + 0.15)
+                let region = MKCoordinateRegion(center: self.userCoordinates, span: span)
                 self.mapView.setRegion(region, animated: true)
-                Caretaker.getPlacemarks(caretakers: self.caretakers, completion: { (placemarks) in
-                    self.mapView.addAnnotations(placemarks)
+                Placemarks.getPlacemarks(caretakers: self.caretakers, completion: { (Placemarks) in
+                    self.mapView.addAnnotations(Placemarks)
                 })
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mapToCaretaker" {
+            let vc = segue.destination as! CaretakerProfileVC
+            vc.profile = self.selectedCaretaker
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+}
+
+extension ListMapVC: MKMapViewDelegate {
+    // 1
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // 2
+        guard let annotation = annotation as? Placemarks else { return nil }
+        // 3
+        let identifier = "marker"
+        var view: MKMarkerAnnotationView
+        // 4
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            // 5
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.glyphText = String(annotation.position)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        return view
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
+        let location = view.annotation as! Placemarks
+        self.selectedCaretaker = location.caretaker
+        self.performSegue(withIdentifier: "mapToCaretaker", sender: self)
+    }
 }

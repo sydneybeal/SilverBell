@@ -218,8 +218,8 @@ class Caretaker: NSObject {
                     let lat = data["Latitude"] as! Double
                     let long = data["Longitude"] as! Double
                     let coordinates = CLLocationCoordinate2D.init(latitude: lat, longitude: long)
-                    let placemark = MKPlacemark.init(coordinate: coordinates)
-                    placemarks.append(placemark)
+                    let Placemark = MKPlacemark.init(coordinate: coordinates)//, caretaker: caretakers[i], position: i+1)
+                    placemarks.append(Placemark)
                     placemarksGroup.leave()
                 } else {
                     placemarksGroup.leave()
