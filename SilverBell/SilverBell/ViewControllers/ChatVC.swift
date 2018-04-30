@@ -68,7 +68,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         let icon = UIImage.init(named: "back")?.withRenderingMode(.alwaysOriginal)
         let backButton = UIBarButtonItem.init(image: icon!, style: .plain, target: self, action: #selector(self.dismissSelf))
         self.navigationItem.leftBarButtonItem = backButton
-        let icon1 = UIImage.init(named: "back")?.withRenderingMode(.alwaysOriginal)
+        let icon1 = UIImage.init(named: "compose")?.withRenderingMode(.alwaysOriginal)
         let requestInfo = UIBarButtonItem.init(image: icon1!, style: .plain, target: self, action: #selector(self.pushToNewRequest))
         self.navigationItem.rightBarButtonItem = requestInfo
         self.locationManager.delegate = self
