@@ -157,22 +157,6 @@ class User: NSObject {
         })
     }
     
-    class func sortUsersByLocation(users: [User], completion: @escaping ([User]) -> Swift.Void) {
-        let locations: [CLLocation]
-        var ref: DatabaseReference!
-        ref = Database.database().reference()
-        var geocoder = CLGeocoder()
-        for user in users {
-            ref.child("users").child(user.id).child("AdditionalInfo").observeSingleEvent(of: .value, with: { (snapshot) in
-                if let data = snapshot.value as? [AnyHashable: Any]{
-                    let lat = data["Latitude"]
-                    let long = data["Longitude"]
-                    let location = CLLocation.init(latitude: lat as! CLLocationDegrees, longitude: long as! CLLocationDegrees)
-                    
-                }
-            })
-        }
-    }
     
     class func checkUserVerification(completion: @escaping (Bool) -> Swift.Void) {
         Auth.auth().currentUser?.reload(completion: { (_) in

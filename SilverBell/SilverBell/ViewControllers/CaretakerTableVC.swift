@@ -136,39 +136,52 @@ class CaretakerTableVC: UITableViewController {
             let vc = segue.destination as! CaretakerProfileVC
             vc.profile = self.selectedUser
         }
+        if segue.identifier == "mapSegue" {
+            let vc = segue.destination as! ListMapVC
+            vc.caretakers = self.sortedItems
+            vc.distances = self.sortedDistances
+        }
     }
     
     func fetchUsers()  {
+        let group1 = DispatchGroup()
+        let group2 = DispatchGroup()
+        
+        group1.enter()
         if let id = Auth.auth().currentUser?.uid {
             Caretaker.getCaretakerCount(completion: {(numCaretakers) in
                     self.numOfCaretakers = numCaretakers
+                group1.leave()
             })
-            Caretaker.downloadAllCaretakers(exceptID: id, completion: {(caretaker) in
-                DispatchQueue.main.async {
-                    self.items.append(caretaker)
-                    //self.caretakerTableView.reloadData()
+            group1.notify(queue: DispatchQueue.main) {
+                group2.enter()
+                Caretaker.downloadAllCaretakers(exceptID: id, numOfCaretakers: self.numOfCaretakers, completion: {(caretakers) in
+                    self.items = caretakers
+                    group2.leave()
+                })
+                group2.notify(queue: DispatchQueue.main) {
+                    self.sortUsers()
                 }
-            })
-            self.sortUsers()
+            }
         }
     }
     
     func sortUsers() {
-        if self.items.count == self.numOfCaretakers && self.numOfCaretakers != 0 {
-            if let id = Auth.auth().currentUser?.uid {
-                Caretaker.sortCaretakersByLocation(caretakers: self.items, uidUser: id) { (sortedItems, sortedDistances) in
-                    DispatchQueue.main.async {
-                        self.sortedDistances = sortedDistances
-                        self.sortedItems = sortedItems
-                        self.caretakerTableView.reloadData()
-                    }
+        let myGroup = DispatchGroup()
+        
+        myGroup.enter()
+        if let id = Auth.auth().currentUser?.uid {
+            Caretaker.sortCaretakersByLocation(caretakers: self.items, uidUser: id) { (sortedItems, sortedDistances) in
+                DispatchQueue.main.async {
+                    self.sortedDistances = sortedDistances
+                    self.sortedItems = sortedItems
+                    myGroup.leave()
                 }
             }
-        } else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    self.sortUsers()
-                }
-            }
+        }
+        myGroup.notify(queue: DispatchQueue.main) {
+            self.caretakerTableView.reloadData()
+        }
     }
     
     @objc func pushToCaretakerProfile(notification: NSNotification) {

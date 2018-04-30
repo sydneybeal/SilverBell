@@ -109,7 +109,7 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
         self.mapPreviewView.bottomAnchor.constraint(equalTo: extraViewsContainer.bottomAnchor).isActive = true
         //NotificationCenter for showing extra views
         NotificationCenter.default.addObserver(self, selector: #selector(self.showExtraViews(notification:)), name: NSNotification.Name(rawValue: "showExtraView"), object: nil)
-        self.fetchCaretakers()
+       // self.fetchCaretakers()
         self.fetchUserInfo()
 
     }
@@ -180,6 +180,7 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
     }
     
     //Downloads users list for Contacts View
+    /*
     func fetchCaretakers()  {
         if let id = Auth.auth().currentUser?.uid {
             Caretaker.downloadAllCaretakers(exceptID: id, completion: {(caretaker) in
@@ -190,7 +191,7 @@ class NavVC: UINavigationController, UICollectionViewDelegate, UICollectionViewD
             })
         }
     }
-    
+    */
     //Downloads current user credentials
     func fetchUserInfo() {
         if let id = Auth.auth().currentUser?.uid {
