@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import CoreLocation
+import MapKit
 
 class Caretaker: NSObject {
     
@@ -117,12 +118,18 @@ class Caretaker: NSObject {
         })
     }
     
-    class func downloadAllCaretakers(exceptID: String, completion: @escaping (Caretaker) -> Swift.Void) {
+    class func downloadAllCaretakers(exceptID: String, numOfCaretakers: Int, completion: @escaping ([Caretaker]) -> Swift.Void) {
+        var caretakers = [Caretaker]()
+        let myGroup = DispatchGroup()
+        
+        for _ in 1...numOfCaretakers {
+            myGroup.enter()
+        }
         Database.database().reference().child("caretakers").observe(.childAdded, with: { (snapshot) in
             let id = snapshot.key
             let data = snapshot.value as! [String: Any]
             if data["credentials"] != nil {
-                let credentials = data["credentials"] as! [AnyHashable: Any]
+                let credentials = data["credentials"] as! [String: Any]
                 if id != exceptID {
                     let name = credentials["name"]!
                     let email = credentials["email"]!
@@ -132,12 +139,16 @@ class Caretaker: NSObject {
                         if error == nil {
                             let profilePic = UIImage.init(data: data!)
                             let caretaker = Caretaker.init(name: name as! String, email: email as! String, id: id, profilePic: profilePic!, rating: rating)
-                            completion(caretaker)
+                            caretakers.append(caretaker)
+                            myGroup.leave()
                         }
                     }).resume()
                 }
             }
         })
+        myGroup.notify(queue: DispatchQueue.main) {
+            completion(caretakers)
+        }
     }
     
     class func getCaretakerCount(completion: @escaping (Int) -> Swift.Void) {
@@ -191,6 +202,33 @@ class Caretaker: NSObject {
                 let sortedDistances = combinedSorted.map {$0.0}
                 Completion(sortedCaretakers,sortedDistances)
             }
+        }
+    }
+    
+    class func getPlacemarks(caretakers: [Caretaker], completion: @escaping ([MKPlacemark]) -> Swift.Void) {
+        let ref = Database.database().reference()
+        let placemarksGroup = DispatchGroup()
+        var placemarks = [MKPlacemark]()
+        
+        placemarksGroup.enter()
+        for i in 0...(caretakers.count-1) {
+            placemarksGroup.enter()
+            ref.child("caretakers").child(caretakers[i].id).child("AdditionalInfo").observeSingleEvent(of: .value, with: { (snapshot) in
+                if let data = snapshot.value as? [String: Any]{
+                    let lat = data["Latitude"] as! Double
+                    let long = data["Longitude"] as! Double
+                    let coordinates = CLLocationCoordinate2D.init(latitude: lat, longitude: long)
+                    let placemark = MKPlacemark.init(coordinate: coordinates)
+                    placemarks.append(placemark)
+                    placemarksGroup.leave()
+                } else {
+                    placemarksGroup.leave()
+                }
+            })
+        }
+        placemarksGroup.leave()
+        placemarksGroup.notify(queue: DispatchQueue.main) {
+            completion(placemarks)
         }
     }
 
