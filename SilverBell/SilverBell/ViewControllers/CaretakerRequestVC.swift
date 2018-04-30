@@ -53,8 +53,7 @@ class CaretakerRequestVC: UIViewController {
         if let id = Auth.auth().currentUser?.uid {
             Request.acceptRequest(tag: (request?.tag)!, uidUser: (request?.uidUser)!, uidCaretaker: id, completion: {(status) in
                 if status == true {
-                    super.viewDidLoad()
-                    self.customization()
+                    self.statusLabel.text = "Accepted"
                 }
             })
         }
